@@ -1,0 +1,126 @@
+---
+import OptimizedImage from "../components/OptimizedImage.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { clusters, pillars } from "../data/authority";
+import { posts } from "../data/posts";
+import { site } from "../data/site";
+import { mediaCatalog } from "../lib/media";
+import { homePageGraph, serializeJsonLd } from "../lib/seo/schema";
+
+const clusterSlugs = new Set(clusters.map((cluster) => cluster.slug));
+const legacyPosts = posts.filter(
+  (post) => !clusterSlugs.has(post.slug) && !post.noindex,
+);
+---
+
+<BaseLayout>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(homePageGraph())}
+  />
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>{site.name}</h1>
+        <p>{site.description}</p>
+        <div class="hero-media">
+          <OptimizedImage media={mediaCatalog.hero} priority class="hero-media__image" />
+        </div>
+      </div>
+    </section>
+
+    <section id="rehberler" class="posts-section guides-section">
+      <div class="container">
+        <h2>Kapsamlı Sağlık Rehberleri</h2>
+        <p class="section-intro">
+          Medikal estetik, bütüncül sağlık, GETAT ve Yalova sağlık
+          olanaklarını bilimsel sınırlar içinde ele alan ana kaynakları
+          inceleyin.
+        </p>
+        <div class="guide-card-grid">
+          {
+            pillars.map((pillar) => (
+              <a class="guide-card" href={`/rehberler/${pillar.slug}/`}>
+                <span class="badge">Ana Rehber</span>
+                <h2>{pillar.title}</h2>
+                <p>{pillar.description}</p>
+                <strong>{pillar.title} içeriğini inceleyin →</strong>
+              </a>
+            ))
+          }
+        </div>
+        <p class="section-intro">
+          <a href="/rehberler/">Tüm rehberleri ve alt konu yazılarını görün →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="alt-konular" class="posts-section">
+      <div class="container">
+        <h2>Alt Konu Yazıları</h2>
+        <p class="section-intro">
+          Her ana rehberin derinleştirilmiş cluster yazıları. Yönetim, destek
+          ve yaklaşım dilinde hazırlanmıştır.
+        </p>
+        <div class="post-grid">
+          {
+            clusters.map((cluster) => (
+              <a class="post-card" href={`/yazilar/${cluster.slug}/`}>
+                <span
+                  class:list={[
+                    "badge",
+                    cluster.category === "estetik" && "badge--aesthetic",
+                  ]}
+                >
+                  {cluster.category === "estetik"
+                    ? site.labels.aesthetic
+                    : cluster.category === "getat"
+                      ? "GETAT"
+                      : cluster.category === "yalova-saglik"
+                        ? "Yalova"
+                        : site.labels.holistic}
+                </span>
+                <h2>{cluster.title}</h2>
+                <p>{cluster.description}</p>
+                <strong>{site.labels.readArticle} →</strong>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="yazilar" class="posts-section">
+      <div class="container">
+        <h2>{site.labels.latestArticles}</h2>
+        <div class="post-grid">
+          {
+            legacyPosts.map((post) => (
+              <a class="post-card" href={`/yazilar/${post.slug}/`}>
+                <span
+                  class:list={[
+                    "badge",
+                    post.category === "estetik" && "badge--aesthetic",
+                  ]}
+                >
+                  {post.category === "estetik"
+                    ? site.labels.aesthetic
+                    : site.labels.holistic}
+                </span>
+                <h2>{post.title}</h2>
+                <p>{post.description}</p>
+                <strong>{site.labels.readArticle} →</strong>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+    <RelatedContent
+      currentPath="/"
+      keywords={["bütüncül sağlık", "medikal estetik", "GETAT", "sağlık turizmi"]}
+    />
+  </main>
+</BaseLayout>

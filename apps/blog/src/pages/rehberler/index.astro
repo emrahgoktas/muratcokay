@@ -1,0 +1,70 @@
+---
+import { clusters, pillars } from "../../data/authority";
+import { site } from "../../data/site";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import RelatedContent from "../../components/RelatedContent.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { guidesIndexGraph, serializeJsonLd } from "../../lib/seo/schema";
+
+const description =
+  "Yalova'da bütüncül sağlık, medikal estetik, GETAT ve yerel sağlık olanaklarını bilimsel sınırlar içinde anlatan pillar rehberler.";
+---
+
+<BaseLayout title="Kapsamlı Sağlık Rehberleri" description={description}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(guidesIndexGraph())}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb
+          items={[
+            { name: "Ana Sayfa", path: "/" },
+            { name: "Rehberler", path: "/rehberler/" },
+          ]}
+        />
+        <span class="badge">Topikal Otorite</span>
+        <h1>Kapsamlı Sağlık Rehberleri</h1>
+        <p>{description}</p>
+      </div>
+    </header>
+
+    <section class="posts-section">
+      <div class="container">
+        <div class="guide-card-grid">
+          {
+            pillars.map((pillar) => {
+              const pillarClusters = pillar.clusterSlugs
+                .map((slug) => clusters.find((cluster) => cluster.slug === slug))
+                .filter((cluster) => cluster !== undefined);
+
+              return (
+                <article class="guide-card">
+                  <span class="badge">Ana Rehber</span>
+                  <h2>
+                    <a href={`/rehberler/${pillar.slug}/`}>{pillar.title}</a>
+                  </h2>
+                  <p>{pillar.description}</p>
+                  <ul class="cluster-links">
+                    {pillarClusters.map((cluster) => (
+                      <li>
+                        <a href={`/yazilar/${cluster.slug}/`}>{cluster.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })
+          }
+        </div>
+        <p>
+          Tüm içerikler {site.authorName} tarafından hazırlanmıştır. Metinler
+          bilgilendirme amaçlıdır; tanı ve kişiye özel plan yerine geçmez.
+        </p>
+      </div>
+    </section>
+    <RelatedContent currentPath="/rehberler/" keywords={["bütüncül sağlık", "medikal estetik", "GETAT"]} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,76 @@
+---
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import interLatinExt from "@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2?url";
+
+import { site } from "../data/site";
+import { ogSlugFromPath } from "../lib/media";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  robots?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description = site.description,
+  robots = "index, follow",
+  canonicalPath,
+} = Astro.props;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url);
+const ogImage = new URL(`/og/${ogSlugFromPath(Astro.url.pathname)}.png`, site.url);
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="tr-TR" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interLatinExt} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${pageTitle} - Yalova`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="/">{site.name}</a>
+        <nav class="site-nav" aria-label="Ana navigasyon">
+          <a href="/">{site.navigation.home}</a>
+          <a href="/rehberler/">{site.navigation.guides}</a>
+          <a href="/#alt-konular">{site.navigation.articles}</a>
+          <a href="/yazar/">Yazar</a>
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <strong>{site.name}</strong>
+        <span>{site.legalNotice}</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import { Picture } from "astro:assets";
+
+import type { MediaAsset } from "../lib/media";
+import { IMAGE_QUALITY, IMAGE_WIDTHS, RESPONSIVE_SIZES } from "../lib/media";
+
+interface Props {
+  media: MediaAsset;
+  priority?: boolean;
+  class?: string;
+  sizes?: string;
+}
+
+const {
+  media,
+  priority = false,
+  class: className,
+  sizes = RESPONSIVE_SIZES,
+} = Astro.props;
+---
+
+<Picture
+  src={media.src}
+  alt={media.alt}
+  width={media.src.width}
+  height={media.src.height}
+  formats={["avif", "webp"]}
+  widths={[...IMAGE_WIDTHS]}
+  sizes={sizes}
+  quality={IMAGE_QUALITY.webp}
+  loading={priority ? "eager" : "lazy"}
+  decoding="async"
+  fetchpriority={priority ? "high" : "auto"}
+  class={className}
+/>

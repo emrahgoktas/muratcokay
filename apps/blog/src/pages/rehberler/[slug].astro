@@ -1,0 +1,181 @@
+---
+import AuthorBox from "../../components/AuthorBox.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import OptimizedImage from "../../components/OptimizedImage.astro";
+import RelatedContent from "../../components/RelatedContent.astro";
+import { clusters, pillars } from "../../data/authority/index";
+import type { PillarContent } from "../../data/authority/types";
+import { site } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { mediaForPath } from "../../lib/media";
+import { createRelatedContentLinker } from "../../lib/related-content";
+import { pillarPageGraph, serializeJsonLd } from "../../lib/seo/schema";
+
+export function getStaticPaths() {
+  return pillars.map((pillar) => ({
+    params: { slug: pillar.slug },
+    props: { pillar },
+  }));
+}
+
+interface Props {
+  pillar: PillarContent;
+}
+
+const { pillar } = Astro.props;
+const pillarClusters = pillar.clusterSlugs
+  .map((slug) => clusters.find((cluster) => cluster.slug === slug))
+  .filter((cluster) => cluster !== undefined);
+const pagePath = `/rehberler/${pillar.slug}/`;
+const linkRelatedTerms = createRelatedContentLinker(pagePath);
+const pageMedia = mediaForPath(pagePath);
+const lastUpdatedLabel = new Intl.DateTimeFormat("tr-TR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date(`${pillar.lastUpdated}T00:00:00Z`));
+const prose = [
+  ...pillar.introduction,
+  ...pillar.sections.flatMap((section) => [
+    ...section.paragraphs,
+    ...(section.bullets ?? []),
+  ]),
+  ...pillar.faqs.flatMap((faq) => [faq.question, faq.answer]),
+].join(" ");
+const wordCount = prose.trim().split(/\s+/u).filter(Boolean).length;
+const jsonLd = pillarPageGraph(pillar);
+---
+
+<BaseLayout title={pillar.title} description={pillar.description}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(jsonLd)}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb
+          items={[
+            { name: "Ana Sayfa", path: "/" },
+            { name: "Rehberler", path: "/rehberler/" },
+            { name: pillar.title, path: pagePath },
+          ]}
+        />
+        <span class="badge">Kapsamlı Rehber</span>
+        <h1>{pillar.title}</h1>
+        <p>{pillar.description}</p>
+        <div class="guide-meta">
+          <span>Yazar: {site.authorName}</span>
+          <time datetime={pillar.lastUpdated}>
+            Son güncelleme: {lastUpdatedLabel}
+          </time>
+          <span>{wordCount.toLocaleString("tr-TR")} kelime</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="guide-shell">
+      <aside class="guide-toc" aria-label="İçindekiler">
+        <strong>İçindekiler</strong>
+        <ol>
+          {pillar.sections.map((section) => (
+            <li><a href={`#${section.id}`}>{section.title}</a></li>
+          ))}
+          <li><a href="#alt-konular">Alt konu rehberleri</a></li>
+          <li><a href="#sik-sorulan-sorular">Sık sorulan sorular</a></li>
+        </ol>
+      </aside>
+
+      <article class="guide-content">
+        {
+          pillar.introduction.map((paragraph) => (
+            <p>
+              {linkRelatedTerms(paragraph).map((segment) =>
+                segment.href ? (
+                  <a href={segment.href}>{segment.text}</a>
+                ) : (
+                  segment.text
+                ),
+              )}
+            </p>
+          ))
+        }
+
+        {
+          pageMedia[0] && (
+            <figure class="guide-media">
+              <OptimizedImage media={pageMedia[0]} />
+            </figure>
+          )
+        }
+
+        {
+          pillar.sections.map((section) => (
+            <section id={section.id} aria-labelledby={`${section.id}-title`}>
+              <h2 id={`${section.id}-title`}>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p>
+                  {linkRelatedTerms(paragraph).map((segment) =>
+                    segment.href ? (
+                      <a href={segment.href}>{segment.text}</a>
+                    ) : (
+                      segment.text
+                    ),
+                  )}
+                </p>
+              ))}
+              {section.bullets && (
+                <ul>
+                  {section.bullets.map((bullet) => (
+                    <li>
+                      {linkRelatedTerms(bullet).map((segment) =>
+                        segment.href ? (
+                          <a href={segment.href}>{segment.text}</a>
+                        ) : (
+                          segment.text
+                        ),
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))
+        }
+
+        <section id="alt-konular" aria-labelledby="alt-konular-title">
+          <h2 id="alt-konular-title">Alt Konu Rehberleri</h2>
+          <ul class="cluster-links">
+            {pillarClusters.map((cluster) => (
+              <li>
+                <a href={`/yazilar/${cluster.slug}/`}>{cluster.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section
+          id="sik-sorulan-sorular"
+          aria-labelledby="pillar-faq-title"
+        >
+          <h2 id="pillar-faq-title">Sık Sorulan Sorular</h2>
+          <div class="guide-faq">
+            {pillar.faqs.map((faq) => (
+              <details>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <AuthorBox />
+      </article>
+    </div>
+    <RelatedContent
+      currentPath={pagePath}
+      keywords={[pillar.title, ...pillar.clusterSlugs]}
+    />
+  </main>
+</BaseLayout>

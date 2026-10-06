@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Sayfa bulunamadı"
+  description="Aradığınız rehber veya yazı bulunamadı. Yalova sağlık rehberinden devam edin."
+  robots="noindex, follow"
+>
+  <main class="container" style="padding: 5rem 0;">
+    <p class="section-intro">404</p>
+    <h1>Aradığınız sayfa bulunamadı</h1>
+    <p>
+      Bağlantı değişmiş olabilir. Rehberler, yazılar veya ana sayfadan devam
+      edebilirsiniz. Bu içerik bilgilendirme amaçlıdır.
+    </p>
+    <nav class="site-nav" aria-label="Önerilen sayfalar" style="margin-top: 1.5rem;">
+      <a href="/">{site.navigation.home}</a>
+      <a href="/rehberler/">{site.navigation.guides}</a>
+      <a href="/#alt-konular">{site.navigation.articles}</a>
+      <a href="/yazar/">Yazar</a>
+    </nav>
+  </main>
+</BaseLayout>

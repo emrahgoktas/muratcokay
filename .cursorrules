@@ -1,0 +1,32 @@
+# Murat Çokay ekosistemi
+
+Tek GitHub reposu: üç site, paylaşılan paketler.
+
+## Siteler
+
+- `apps/klinik` — Next.js, https://uzmdrmuratcokay.com.tr
+- `apps/blog` — Astro, https://yalovamedikalestetik.com.tr
+- `apps/nis` — Next.js, https://yalovabutunculsaglik.com.tr
+
+## Paylaşılan paketler
+
+- `@muratcokay/content` — marka renkleri, 20 hizmet, NAP, iletişim
+- `@muratcokay/seo` — JSON-LD yardımcıları
+- `@muratcokay/ui` — Header, Footer, Button
+- `@muratcokay/config` — tsconfig ve marka CSS tokenları
+
+NAP tek satırdır ve değiştirilmeden kullanılır:
+`Fevzi Çakmak Mah. Bora Sk. No:17/A Merkez YALOVA`
+
+## Dil ve yasal çerçeve
+
+Türkçe tıbbi iletişim (12 Kas 2025): fiyat yok, önce/sonra görseli yok, hasta yorumu yok, üstünlük iddiası yok.
+Bilgilendirme dili: yönetim / destek / yaklaşım. Tanı veya sonuç vaadi yok.
+
+## Çalışma kuralları
+
+- Paket yöneticisi: pnpm. Görevler: turbo.
+- Ortak içerik `packages/content` içinde tutulur; uygulamalarda kopyalanmaz.
+- Klinik ve niş Next.js uygulamaları paylaşılan UI'ı kullanır.
+- Blog Astro'dur; React UI paketi yalnızca Next uygulamalarına bağlanır.
+- `NEXT_PUBLIC_GA_ID` / `GTM_ID` boşken tracking yüklenmez.

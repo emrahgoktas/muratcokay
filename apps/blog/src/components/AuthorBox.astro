@@ -1,0 +1,10 @@
+---
+import { site } from "../data/site";
+---
+
+<aside class="author-box" aria-labelledby="author-box-title">
+  <h2 id="author-box-title">Yazar ve Yasal Bilgilendirme</h2>
+  <p>{site.authorText}</p>
+  <a href="/yazar/">Yazar profili →</a>
+  <a href={site.authorProfile.url}>{site.authorProfile.label} →</a>
+</aside>

@@ -1,0 +1,43 @@
+---
+import AuthorBox from "../components/AuthorBox.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CLINIC_URL } from "../lib/seo/internal-links";
+import { authorPageGraph, serializeJsonLd } from "../lib/seo/schema";
+
+const crumbs = [
+  { name: "Ana Sayfa", path: "/" },
+  { name: "Yazar", path: "/yazar/" },
+];
+---
+
+<BaseLayout
+  title="Yazar: Uzm. Dr. Yaşar Murat Çokay"
+  description="Yalova Medikal Estetik ve Bütüncül Sağlık Rehberi yazar profili. İçerikler genel bilgilendirme amaçlıdır."
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(authorPageGraph())}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb items={crumbs} />
+        <span class="badge">Yazar</span>
+        <h1>{site.authorName}</h1>
+        <p>{site.authorText}</p>
+        <p>
+          Klinik biyografisi:{" "}
+          <a href={`${CLINIC_URL}/hakkimda`}>uzmdrmuratcokay.com.tr/hakkimda</a>
+        </p>
+      </div>
+    </header>
+    <div class="container">
+      <AuthorBox />
+    </div>
+    <RelatedContent currentPath="/yazar/" keywords={["yazar", "bütüncül sağlık"]} />
+  </main>
+</BaseLayout>

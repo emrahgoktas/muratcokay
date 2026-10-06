@@ -1,0 +1,324 @@
+---
+import AuthorBox from "../../components/AuthorBox.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import OptimizedImage from "../../components/OptimizedImage.astro";
+import RelatedContent from "../../components/RelatedContent.astro";
+import { clusters, getPillar } from "../../data/authority";
+import type { ClusterContent } from "../../data/authority/types";
+import { clinicLinks } from "../../data/links";
+import { articleToClinic } from "../../lib/seo/internal-links";
+import { posts, type BlogPost } from "../../data/posts";
+import { site } from "../../data/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { mediaForPath } from "../../lib/media";
+import { createRelatedContentLinker } from "../../lib/related-content";
+import { articlePageGraph, serializeJsonLd } from "../../lib/seo/schema";
+
+export function getStaticPaths() {
+  const clusterSlugs = new Set(clusters.map((cluster) => cluster.slug));
+
+  return [
+    ...posts
+      .filter((post) => !clusterSlugs.has(post.slug))
+      .map((post) => ({
+        params: { slug: post.slug },
+        props: { kind: "legacy" as const, post },
+      })),
+    ...clusters.map((post) => ({
+      params: { slug: post.slug },
+      props: { kind: "cluster" as const, post },
+    })),
+  ];
+}
+
+type Props =
+  | { kind: "legacy"; post: BlogPost }
+  | { kind: "cluster"; post: ClusterContent };
+
+const props = Astro.props as Props;
+const post = props.post;
+const clusterPost = props.kind === "cluster" ? props.post : undefined;
+const legacyPost = props.kind === "legacy" ? props.post : undefined;
+const categoryLabels = {
+  estetik: site.labels.aesthetic,
+  "butuncul-saglik": site.labels.holistic,
+  getat: "Geleneksel ve Tamamlayıcı Tıp",
+  "yalova-saglik": "Yalova Sağlık",
+};
+const categoryLabel = categoryLabels[post.category];
+const clinicLinkSource =
+  (clinicLinks[post.slug] as { url: string; anchor: string } | undefined) ??
+  (articleToClinic[post.slug] as { url: string; title: string } | undefined);
+const clinicLink = clinicLinkSource
+  ? {
+      url: clinicLinkSource.url,
+      label:
+        "anchor" in clinicLinkSource
+          ? clinicLinkSource.anchor
+          : clinicLinkSource.title,
+    }
+  : undefined;
+const pillar = clusterPost ? getPillar(clusterPost.pillarSlug) : undefined;
+const crumbs = [
+  { name: "Ana Sayfa", path: "/" },
+  pillar
+    ? { name: pillar.title, path: `/rehberler/${pillar.slug}/` }
+    : { name: "Yazılar", path: "/#yazilar" },
+  { name: post.title, path: `/yazilar/${post.slug}/` },
+];
+const relatedClusters = clusterPost
+  ? clusters
+      .filter(
+        (cluster) =>
+          cluster.pillarSlug === clusterPost.pillarSlug &&
+          cluster.slug !== clusterPost.slug,
+      )
+      .slice(0, 4)
+  : [];
+const linkRelatedTerms = createRelatedContentLinker(`/yazilar/${post.slug}/`);
+const pageMedia = mediaForPath(`/yazilar/${post.slug}/`);
+const articleSchema = articlePageGraph({
+  post,
+  kind: props.kind,
+  canonicalPath: legacyPost?.canonical,
+});
+const lastUpdatedLabel = clusterPost
+  ? new Intl.DateTimeFormat("tr-TR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date(`${clusterPost.lastUpdated}T00:00:00Z`))
+  : undefined;
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  robots={legacyPost?.noindex ? "noindex, follow" : undefined}
+  canonicalPath={legacyPost?.canonical}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(articleSchema)}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb items={crumbs} />
+        <span
+          class:list={[
+            "badge",
+            post.category === "estetik" && "badge--aesthetic",
+          ]}
+        >
+          {categoryLabel}
+        </span>
+        <h1>{post.title}</h1>
+        <p>{post.description}</p>
+        {
+          clusterPost && (
+            <div class="guide-meta">
+              <span>Yazar: {site.authorName}</span>
+              <time datetime={clusterPost.lastUpdated}>
+                Son güncelleme: {lastUpdatedLabel}
+              </time>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    {
+      clusterPost && pillar ? (
+        <div class="guide-shell">
+          <aside class="guide-toc" aria-label="İçindekiler">
+            <strong>İçindekiler</strong>
+            <ol>
+              {clusterPost.sections.map((section) => (
+                <li>
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </li>
+              ))}
+              <li>
+                <a href="#kaynaklar">Bilimsel ve resmî kaynaklar</a>
+              </li>
+              <li>
+                <a href="#sik-sorulan-sorular">Sık sorulan sorular</a>
+              </li>
+            </ol>
+          </aside>
+
+          <article class="guide-content">
+            <p class="prepared-by">
+              Bu içerik {site.authorName} tarafından hazırlanmıştır.
+            </p>
+            <p>
+              Bu rehberin ana sayfası:{" "}
+              <a href={`/rehberler/${pillar.slug}/`}>{pillar.title}</a>
+            </p>
+
+            {clusterPost.introduction.map((paragraph) => (
+              <p>
+                {linkRelatedTerms(paragraph).map((segment) =>
+                  segment.href ? (
+                    <a href={segment.href}>{segment.text}</a>
+                  ) : (
+                    segment.text
+                  ),
+                )}
+              </p>
+            ))}
+
+            {pageMedia[0] && (
+              <figure class="guide-media">
+                <OptimizedImage media={pageMedia[0]} />
+              </figure>
+            )}
+
+            {clusterPost.sections.map((section) => (
+              <section id={section.id} aria-labelledby={`${section.id}-title`}>
+                <h2 id={`${section.id}-title`}>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p>
+                    {linkRelatedTerms(paragraph).map((segment) =>
+                      segment.href ? (
+                        <a href={segment.href}>{segment.text}</a>
+                      ) : (
+                        segment.text
+                      ),
+                    )}
+                  </p>
+                ))}
+                {section.bullets && (
+                  <ul>
+                    {section.bullets.map((bullet) => (
+                      <li>
+                        {linkRelatedTerms(bullet).map((segment) =>
+                          segment.href ? (
+                            <a href={segment.href}>{segment.text}</a>
+                          ) : (
+                            segment.text
+                          ),
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            ))}
+
+            <section id="ilgili-yazilar" aria-labelledby="ilgili-yazilar-title">
+              <h2 id="ilgili-yazilar-title">Aynı Konudaki Diğer Yazılar</h2>
+              <ul class="cluster-links">
+                {relatedClusters.map((related) => (
+                  <li>
+                    <a href={`/yazilar/${related.slug}/`}>{related.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section id="kaynaklar" aria-labelledby="kaynaklar-title">
+              <h2 id="kaynaklar-title">Bilimsel ve Resmî Kaynaklar</h2>
+              <ul class="sources-list">
+                {clusterPost.sources.map((source) => (
+                  <li>
+                    <a href={source.url}>{source.title}</a> — {source.publisher}
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section
+              id="sik-sorulan-sorular"
+              aria-labelledby="cluster-faq-title"
+            >
+              <h2 id="cluster-faq-title">Sık Sorulan Sorular</h2>
+              <div class="guide-faq">
+                {clusterPost.faqs.map((faq) => (
+                  <details>
+                    <summary>{faq.question}</summary>
+                    <p>{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+
+            {clinicLink && (
+              <aside class="cross-site-cta">
+                <p>{site.clinicCta}</p>
+                <a href={clinicLink.url}>
+                  {clinicLink.label} →
+                </a>
+              </aside>
+            )}
+
+            <AuthorBox />
+          </article>
+        </div>
+      ) : (
+        legacyPost && (
+          <article class="article">
+            {legacyPost.paragraphs.map((paragraph) => (
+              <p>
+                {linkRelatedTerms(paragraph).map((segment) =>
+                  segment.href ? (
+                    <a href={segment.href}>{segment.text}</a>
+                  ) : (
+                    segment.text
+                  ),
+                )}
+              </p>
+            ))}
+            {legacyPost.kaynaklar && legacyPost.kaynaklar.length > 0 && (
+              <section id="bilimsel-dayanak" aria-labelledby="bilimsel-dayanak-title">
+                <h2 id="bilimsel-dayanak-title">Bilimsel Dayanak</h2>
+                <p>
+                  Aşağıdaki kayıtlar genel bilimsel ve resmî çerçeve sunar;
+                  kişiye özel uygunluk, tanı veya sonuç anlamına gelmez.
+                </p>
+                <ul class="sources-list">
+                  {legacyPost.kaynaklar.map((source) => (
+                    <li>
+                      Kaynak: {source.baslik}, {source.yil}, {source.yayin} —{" "}
+                      <a
+                        href={source.url}
+                        rel="noopener nofollow"
+                        target="_blank"
+                      >
+                        {source.url}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {clinicLink && (
+              <aside class="cross-site-cta">
+                <p>{site.clinicCta}</p>
+                <a href={clinicLink.url}>
+                  {clinicLink.label} →
+                </a>
+              </aside>
+            )}
+            <AuthorBox />
+          </article>
+        )
+      )
+    }
+    <RelatedContent
+      currentPath={`/yazilar/${post.slug}/`}
+      category={
+        post.category === "estetik"
+          ? "aesthetic"
+          : post.category === "getat"
+            ? "getat"
+            : post.category === "yalova-saglik"
+              ? "local"
+              : "holistic"
+      }
+      keywords={clusterPost?.keywords ?? [post.title]}
+    />
+  </main>
+</BaseLayout>

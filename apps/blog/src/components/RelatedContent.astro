@@ -1,0 +1,40 @@
+---
+import {
+  getRelatedContent,
+  type LinkCategory,
+} from "../lib/seo/internal-links";
+
+interface Props {
+  currentPath: string;
+  category?: LinkCategory;
+  keywords?: readonly string[];
+}
+
+const { currentPath, category, keywords } = Astro.props;
+const items = getRelatedContent({
+  currentUrl: currentPath,
+  category,
+  keywords,
+  limit: 4,
+});
+---
+
+{
+  items.length > 0 && (
+    <section class="related-content" aria-labelledby="related-content-title">
+      <div class="container">
+        <h2 id="related-content-title">İlgili İçerikler</h2>
+        <ul>
+          {items.map((item) => (
+            <li>
+              <a href={item.site === "blog" ? item.path : item.url}>
+                <span>{item.kind === "pillar" ? "Ana rehber" : item.kind === "article" ? "Yazı" : "Sayfa"}</span>
+                <strong>{item.title}</strong>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}

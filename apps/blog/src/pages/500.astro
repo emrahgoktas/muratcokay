@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title="Sunucu hatası"
+  description="Sayfa geçici olarak yüklenemedi. Ana sayfa ve rehberlerden devam edebilirsiniz."
+  robots="noindex, follow"
+>
+  <main class="container" style="padding: 5rem 0;">
+    <p class="section-intro">500</p>
+    <h1>Sayfa şu anda yüklenemedi</h1>
+    <p>
+      Geçici bir sunucu sorunu oluştu. Kısa süre sonra yeniden deneyin veya
+      aşağıdaki sayfalara geçin.
+    </p>
+    <nav class="site-nav" aria-label="Önerilen sayfalar" style="margin-top: 1.5rem;">
+      <a href="/">{site.navigation.home}</a>
+      <a href="/rehberler/">{site.navigation.guides}</a>
+      <a href="https://uzmdrmuratcokay.com.tr/iletisim">Klinik iletişim</a>
+    </nav>
+  </main>
+</BaseLayout>
