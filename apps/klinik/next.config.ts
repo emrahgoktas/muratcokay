@@ -35,6 +35,7 @@ const nextConfig: NextConfig = {
     "@muratcokay/seo",
     "@muratcokay/ui",
   ],
+  serverExternalPackages: ["nodemailer"],
   env: {
     NEXT_PUBLIC_SITE_URL:
       process.env.NEXT_PUBLIC_SITE_URL ?? siteContent.seo.siteUrl,
@@ -68,7 +69,7 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: htmlCacheControl }],
       },
       {
-        source: "/((?!_next/static|_next/image|og).*)",
+        source: "/((?!_next/static|_next/image|og|api).*)",
         headers: [{ key: "Cache-Control", value: htmlCacheControl }],
       },
       {

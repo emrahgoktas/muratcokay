@@ -45,6 +45,20 @@ export const generalTopic = {
   baslik: "Genel bilgi / diğer",
 } as const;
 
+export const appointmentMailbox = "muryas2@mynet.com" as const;
+
+export type AppointmentPayload = {
+  category: AppointmentCategory;
+  topicSlug: string;
+  windowId: AppointmentWindow;
+  date: string;
+  name: string;
+  phone: string;
+  note: string;
+  consent: boolean;
+  website?: string;
+};
+
 export function categoryTitle(id: AppointmentCategory) {
   return appointmentCategories.find((item) => item.id === id)?.title ?? id;
 }
@@ -54,30 +68,84 @@ export function windowTitle(id: AppointmentWindow) {
 }
 
 export function todayIsoDate() {
-  const now = new Date();
-  const local = new Date(now.getTime() - now.getTimezoneOffset() * 60_000);
-  return local.toISOString().slice(0, 10);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Istanbul",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
 }
 
-export const appointmentMailbox = "muryas2@mynet.com" as const;
+function asString(value: unknown) {
+  return typeof value === "string" ? value : "";
+}
 
-export function buildAppointmentMail(input: {
-  categoryTitle: string;
-  topicTitle: string;
-  windowTitle: string;
-  date: string;
-  name: string;
-  phone: string;
-  note: string;
-}) {
-  const subject = `Randevu talebi: ${input.topicTitle}`;
+export function parseAppointmentPayload(
+  input: unknown,
+  topics: AppointmentTopic[],
+): AppointmentPayload | null {
+  if (!input || typeof input !== "object") return null;
+  const data = input as Record<string, unknown>;
+  const category = asString(data.category);
+  const topicSlug = asString(data.topicSlug);
+  const windowId = asString(data.windowId);
+  const date = asString(data.date).trim();
+  const name = asString(data.name).trim();
+  const phone = asString(data.phone).trim();
+  const note = asString(data.note).trim();
+  const website = asString(data.website);
+  const consent = data.consent === true;
+  const digits = phone.replace(/\D/g, "");
+  const topicOk =
+    topicSlug === generalTopic.slug ||
+    topics.some(
+      (topic) => topic.slug === topicSlug && topic.kategori === category,
+    );
+
+  if (category !== "medikal-estetik" && category !== "butuncul-saglik") {
+    return null;
+  }
+  if (windowId !== "sabah" && windowId !== "ogle" && windowId !== "farketmez") {
+    return null;
+  }
+  if (!topicOk || !consent) return null;
+  if (name.length < 2 || name.length > 80) return null;
+  if (digits.length < 10 || digits.length > 15) return null;
+  if (note.length > 500) return null;
+  if (date && (!/^\d{4}-\d{2}-\d{2}$/.test(date) || date < todayIsoDate())) {
+    return null;
+  }
+
+  return {
+    category,
+    topicSlug,
+    windowId,
+    date,
+    name,
+    phone,
+    note,
+    consent,
+    website,
+  };
+}
+
+export function buildAppointmentMail(
+  input: AppointmentPayload,
+  topics: AppointmentTopic[],
+) {
+  const selected = topics.find((topic) => topic.slug === input.topicSlug);
+  const topicTitle =
+    input.topicSlug === generalTopic.slug
+      ? generalTopic.baslik
+      : (selected?.baslik ?? input.topicSlug);
+  const subject = `Randevu talebi: ${topicTitle}`;
   const body = [
     "uzmdrmuratcokay.com.tr randevu talebi",
     "",
-    `Alan: ${input.categoryTitle}`,
-    `Konu: ${input.topicTitle}`,
+    `Alan: ${categoryTitle(input.category)}`,
+    `Konu: ${topicTitle}`,
     `Tercih edilen gün: ${input.date || "Belirtilmedi"}`,
-    `Tercih edilen saat: ${input.windowTitle}`,
+    `Tercih edilen saat: ${windowTitle(input.windowId)}`,
     `Ad: ${input.name}`,
     `Telefon: ${input.phone}`,
     input.note ? `Not: ${input.note}` : null,
@@ -87,19 +155,5 @@ export function buildAppointmentMail(input: {
     .filter((line) => line !== null)
     .join("\n");
 
-  const query = new URLSearchParams({
-    view: "cm",
-    fs: "1",
-    to: appointmentMailbox,
-    su: subject,
-    body,
-  });
-
-  return {
-    to: appointmentMailbox,
-    subject,
-    body,
-    gmail: `https://mail.google.com/mail/?${query.toString()}`,
-    mailto: `mailto:${appointmentMailbox}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-  };
+  return { subject, body };
 }

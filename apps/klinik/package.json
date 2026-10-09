@@ -11,14 +11,15 @@
     "analyze": "npx --yes cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@base-ui/react": "^1.8.0",
     "@muratcokay/content": "workspace:*",
     "@muratcokay/seo": "workspace:*",
     "@muratcokay/ui": "workspace:*",
-    "@base-ui/react": "^1.8.0",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
     "lucide-react": "^1.52.0",
     "next": "15.5.27",
+    "nodemailer": "^10.0.16",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "shadcn": "^4.21.2",

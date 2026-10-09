@@ -1,25 +1,21 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Copy, Mail } from "lucide-react";
+import { CheckCircle2, ChevronLeft, ChevronRight, Loader2, Send } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
 import {
   appointmentCategories,
-  appointmentMailbox,
   appointmentSteps,
   appointmentWindows,
-  buildAppointmentMail,
-  categoryTitle,
   generalTopic,
   todayIsoDate,
-  windowTitle,
   type AppointmentCategory,
   type AppointmentStep,
   type AppointmentTopic,
   type AppointmentWindow,
 } from "@/lib/appointment";
-import { contactFormUi } from "@/lib/contact-ui";
+import { contactFormUi, contactHrefs } from "@/lib/contact-ui";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-base text-foreground outline-none focus:border-primary";
@@ -42,13 +38,11 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [note, setNote] = useState("");
+  const [website, setWebsite] = useState("");
   const [consent, setConsent] = useState(false);
-  const [status, setStatus] = useState<"idle" | "error" | "ready" | "copied">(
-    "idle",
-  );
-  const [draft, setDraft] = useState<ReturnType<typeof buildAppointmentMail> | null>(
-    null,
-  );
+  const [status, setStatus] = useState<
+    "idle" | "error" | "sending" | "sent" | "failed"
+  >("idle");
 
   const visibleTopics = useMemo(
     () => (category ? topics.filter((topic) => topic.kategori === category) : []),
@@ -82,45 +76,73 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
     if (step < 4) go((step + 1) as AppointmentStep);
   }
 
-  function composeDraft() {
+  function reset() {
+    setStep(1);
+    setCategory("");
+    setTopicSlug("");
+    setWindowId("");
+    setDate("");
+    setName("");
+    setPhone("");
+    setNote("");
+    setWebsite("");
+    setConsent(false);
+    setStatus("idle");
+  }
+
+  async function sendRequest() {
     if (!category || !topicSlug || !windowId || !canAdvance()) {
       setStatus("error");
-      return null;
+      return;
     }
-    const selected = topics.find((topic) => topic.slug === topicSlug);
-    return buildAppointmentMail({
-      categoryTitle: categoryTitle(category),
-      topicTitle:
-        topicSlug === generalTopic.slug
-          ? generalTopic.baslik
-          : (selected?.baslik ?? topicSlug),
-      windowTitle: windowTitle(windowId),
-      date,
-      name: name.trim(),
-      phone: phone.trim(),
-      note: note.trim(),
-    });
-  }
 
-  function sendEmail() {
-    const mail = composeDraft();
-    if (!mail) return;
-    setDraft(mail);
-    window.open(mail.gmail, "_blank", "noopener,noreferrer");
-    setStatus("ready");
-  }
-
-  async function copyDraft() {
-    const mail = draft ?? composeDraft();
-    if (!mail) return;
-    setDraft(mail);
-    const text = `Kime: ${mail.to}\nKonu: ${mail.subject}\n\n${mail.body}`;
+    setStatus("sending");
     try {
-      await navigator.clipboard.writeText(text);
-      setStatus("copied");
+      const response = await fetch("/api/randevu", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          category,
+          topicSlug,
+          windowId,
+          date,
+          name: name.trim(),
+          phone: phone.trim(),
+          note: note.trim(),
+          consent,
+          website,
+        }),
+      });
+      if (!response.ok) {
+        setStatus("failed");
+        return;
+      }
+      setStatus("sent");
     } catch {
-      setStatus("error");
+      setStatus("failed");
     }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="rounded-[1.7rem] bg-[#f6f1ea] p-5 shadow-[0_22px_50px_-32px_rgba(15,76,129,0.45)] ring-1 ring-primary/8 sm:p-7">
+        <p className="flex items-center gap-2 font-serif text-2xl font-medium text-primary">
+          <CheckCircle2 aria-hidden="true" className="size-7 text-secondary" />
+          Talebiniz iletildi
+        </p>
+        <p className="mt-3 text-sm leading-6 text-mutedText">
+          Bilgiler klinik e-posta adresine gönderildi. Uygunluk ve saat hekim
+          tarafından bildirilir; bu adım randevu onayı değildir.
+        </p>
+        <button
+          type="button"
+          className={`${buttonVariants({ variant: "outline", size: "lg" })} mt-6 min-h-12 px-5`}
+          onClick={reset}
+        >
+          Yeni talep
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -231,8 +253,8 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
             Zaman tercihi
           </legend>
           <p className="mt-2 text-sm leading-6 text-mutedText">
-            Tercih, planlama içindir. Kesin saat e-posta yanıtında bildirilir;
-            bu adım randevu onayı değildir.
+            Tercih, planlama içindir. Kesin saat yanıtta bildirilir; bu adım
+            randevu onayı değildir.
           </p>
           <label className="mt-5 block text-sm font-semibold text-primary">
             Tercih edilen gün
@@ -268,8 +290,8 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
             İletişim bilgileri
           </legend>
           <p className="mt-2 text-sm leading-6 text-mutedText">
-            Talep kaydedilmez. Gönder deyince Gmail taslağı tarayıcıda açılır;
-            gönderimi orada tamamlarsınız.
+            Talebi gönderince bilgiler doğrudan klinik e-posta adresine iletilir.
+            Sizin ayrıca bir e-posta uygulaması açmanız gerekmez.
           </p>
           <div className="mt-5 grid gap-5">
             <label className="text-sm font-semibold text-primary">
@@ -292,6 +314,15 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
                 value={phone}
                 onChange={(event) => setPhone(event.target.value)}
                 className={fieldClass}
+              />
+            </label>
+            <label className="sr-only" aria-hidden="true">
+              Kurum
+              <input
+                tabIndex={-1}
+                autoComplete="off"
+                value={website}
+                onChange={(event) => setWebsite(event.target.value)}
               />
             </label>
             <label className="text-sm font-semibold text-primary">
@@ -324,6 +355,7 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
             type="button"
             className={`${buttonVariants({ variant: "outline", size: "lg" })} min-h-12 px-5`}
             onClick={() => go((step - 1) as AppointmentStep)}
+            disabled={status === "sending"}
           >
             <ChevronLeft aria-hidden="true" />
             Geri
@@ -344,10 +376,15 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
           <button
             type="button"
             className={`${buttonVariants({ size: "lg" })} min-h-12 px-6`}
-            onClick={sendEmail}
+            onClick={() => void sendRequest()}
+            disabled={status === "sending"}
           >
-            <Mail aria-hidden="true" />
-            E-posta ile gönder
+            {status === "sending" ? (
+              <Loader2 aria-hidden="true" className="animate-spin" />
+            ) : (
+              <Send aria-hidden="true" />
+            )}
+            {status === "sending" ? "Gönderiliyor" : "Talebi gönder"}
           </button>
         )}
       </div>
@@ -357,43 +394,14 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
             Bu adımı tamamlamak için seçimi veya zorunlu alanları kontrol edin.
           </p>
         ) : null}
-        {status === "copied" ? (
-          <p className="text-secondary">Talep metni kopyalandı.</p>
-        ) : null}
-        {status === "ready" && draft ? (
-          <div className="rounded-2xl border border-primary/15 bg-white p-4 text-mutedText">
-            <p>
-              Gmail taslağı yeni sekmede açıldı. Gönderimi orada tamamlayın.
-              Açılmazsa aşağıdaki bağlantıyı kullanın veya metni kopyalayın.
-            </p>
-            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-              <a
-                href={draft.gmail}
-                target="_blank"
-                rel="noreferrer"
-                className={`${buttonVariants({ size: "lg" })} min-h-11 px-4`}
-              >
-                Gmail’i aç
-              </a>
-              <a
-                href={draft.mailto}
-                className={`${buttonVariants({ variant: "outline", size: "lg" })} min-h-11 px-4`}
-              >
-                E-posta uygulaması
-              </a>
-              <button
-                type="button"
-                className={`${buttonVariants({ variant: "outline", size: "lg" })} min-h-11 px-4`}
-                onClick={() => void copyDraft()}
-              >
-                <Copy aria-hidden="true" />
-                Metni kopyala
-              </button>
-            </div>
-            <p className="mt-3 text-xs text-mutedText">
-              Kime: {appointmentMailbox}
-            </p>
-          </div>
+        {status === "failed" ? (
+          <p className="text-destructive">
+            Talep iletilemedi. Lütfen{" "}
+            <a className="underline" href={contactHrefs.whatsapp}>
+              WhatsApp
+            </a>{" "}
+            veya telefon ile ulaşın.
+          </p>
         ) : null}
       </div>
     </div>

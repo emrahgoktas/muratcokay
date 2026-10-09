@@ -1201,12 +1201,12 @@ export const siteContent = {
         eyebrow: "Randevu",
         title: "Değerlendirme randevusu talebi",
         description:
-          "Alan, konu ve zaman tercihini adım adım seçin. Talep kaydedilmez; e-posta uygulamanız açılır. Uygunluk ve saat hekim tarafından bildirilir.",
+          "Alan, konu ve zaman tercihini adım adım seçin. Talep kaydedilmez; bilgiler doğrudan klinik e-posta adresine iletilir. Uygunluk ve saat hekim tarafından bildirilir.",
       },
       contactCta: {
         title: "Yalova Merkez'deki kliniğimizde randevu alın",
         description:
-          "Kısa bir talep oluşturun. Bilgiler e-posta ile iletilir; uygunluk hekim tarafından bildirilir.",
+          "Kısa bir talep oluşturun. Bilgiler klinik e-posta adresine iletilir; uygunluk hekim tarafından bildirilir.",
       },
     },
     services: {
