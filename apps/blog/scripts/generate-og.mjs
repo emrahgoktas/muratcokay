@@ -6,7 +6,6 @@ import { Resvg } from "@resvg/resvg-js";
 import satori from "satori";
 
 import { clusters, pillars } from "../src/data/authority/index.ts";
-import { posts } from "../src/data/posts.ts";
 import { site } from "../src/data/site.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -16,6 +15,8 @@ const outDir = path.join(root, "public/og");
 const pages = [
   { slug: "anasayfa", title: site.name },
   { slug: "rehberler", title: "Kapsamlı Sağlık Rehberleri" },
+  { slug: "yazilar", title: "Alt Konu Yazıları" },
+  { slug: "yazar", title: site.authorName },
   ...pillars.map((pillar) => ({
     slug: `rehberler--${pillar.slug}`,
     title: pillar.title,
@@ -23,10 +24,6 @@ const pages = [
   ...clusters.map((cluster) => ({
     slug: `yazilar--${cluster.slug}`,
     title: cluster.title,
-  })),
-  ...posts.map((post) => ({
-    slug: `yazilar--${post.slug}`,
-    title: post.title,
   })),
 ];
 

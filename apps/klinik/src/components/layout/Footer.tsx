@@ -21,6 +21,26 @@ export function Footer() {
           <p className="mt-4 text-sm leading-6 text-mutedText">
             {siteContent.seo.description}
           </p>
+          <nav className="mt-4 grid gap-1.5 text-sm" aria-label="Rehber siteleri">
+            <Link
+              href="https://yalovamedikalestetik.com.tr/rehberler/"
+              className="text-mutedText hover:text-primary"
+            >
+              Bilgilendirme rehberleri
+            </Link>
+            <Link
+              href="https://yalovamedikalestetik.com.tr/harita/"
+              className="text-mutedText hover:text-primary"
+            >
+              Konu haritası
+            </Link>
+            <Link
+              href="https://yalovabutunculsaglik.com.tr"
+              className="text-mutedText hover:text-primary"
+            >
+              Yalova bütüncül sağlık
+            </Link>
+          </nav>
         </section>
 
         <section>

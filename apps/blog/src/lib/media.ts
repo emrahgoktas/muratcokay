@@ -1,18 +1,21 @@
 import type { ImageMetadata } from "astro";
 
-import akupunktur from "../assets/media/yalova-akupunktur-uygulama-alani.jpg";
-import butuncul from "../assets/media/yalova-butuncul-saglik-klinik.jpg";
-import fibromiyalji from "../assets/media/yalova-fibromiyalji-tedavisi-klinik.jpg";
-import hacamat from "../assets/media/yalova-hacamat-uygulamasi-merkez.jpg";
-import hero from "../assets/media/yalova-medikal-estetik-klinik-hero.jpg";
-import ozon from "../assets/media/yalova-ozon-tedavisi-hazirlik.jpg";
-import portrait from "../assets/media/uzm-dr-yasar-murat-cokay-portre.jpg";
-import termal from "../assets/media/yalova-termal-saglik-cevre.jpg";
+import { clusters, getCluster, getPillar } from "../data/authority";
+import type { ClusterContent } from "../data/authority/types";
+
+import butuncul from "../assets/media/yalova-kapak-butuncul.jpg";
+import estetik from "../assets/media/yalova-kapak-estetik.jpg";
+import getat from "../assets/media/yalova-kapak-getat.jpg";
+import hero from "../assets/media/yalova-editorial-hero.jpg";
+import kent from "../assets/media/yalova-kapak-kent.jpg";
+import portrait from "../assets/media/yalova-kapak-yazar.jpg";
 
 export const IMAGE_QUALITY = { webp: 80, avif: 60 } as const;
 export const IMAGE_WIDTHS = [480, 768, 1200] as const;
 export const RESPONSIVE_SIZES =
   "(max-width: 480px) 480px, (max-width: 768px) 768px, 1200px";
+export const CARD_SIZES = "(max-width: 900px) 100vw, 50vw";
+export const THUMB_SIZES = "(max-width: 900px) 42vw, 22vw";
 
 export type MediaAsset = {
   id: string;
@@ -21,6 +24,7 @@ export type MediaAsset = {
   alt: string;
   role: "hero" | "supporting";
   placeholder: true;
+  objectPosition?: string;
 };
 
 function asset(
@@ -28,6 +32,7 @@ function asset(
   src: ImageMetadata,
   alt: string,
   role: MediaAsset["role"],
+  objectPosition?: string,
 ): MediaAsset {
   return {
     id,
@@ -36,91 +41,101 @@ function asset(
     alt,
     role,
     placeholder: true,
+    objectPosition,
   };
 }
 
 export const mediaCatalog = {
   hero: asset(
-    "yalova-medikal-estetik-klinik-hero",
+    "yalova-editorial-hero",
     hero,
-    "Aydınlık klinik koridoru - Yalova medikal estetik rehberi - steril değerlendirme ortamını göstermek",
+    "Sakin muayene odası — Yalova medikal estetik ve bütüncül sağlık rehberi",
     "hero",
   ),
-  portrait: asset(
-    "uzm-dr-yasar-murat-cokay-portre",
-    portrait,
-    "Hekim çalışma masası - Uzm. Dr. Yaşar Murat Çokay - yazar ve klinik yer tutucu, üretimde kendi portresiyle değiştirilecek",
-    "supporting",
-  ),
-  fibromiyalji: asset(
-    "yalova-fibromiyalji-tedavisi-klinik",
-    fibromiyalji,
-    "Sakin muayene odası - Yalova bütüncül sağlık yazıları - fibromiyalji ve yorgunluk yönetimini anlatmak",
-    "supporting",
-  ),
-  hacamat: asset(
-    "yalova-hacamat-uygulamasi-merkez",
-    hacamat,
-    "Steril hazırlık alanı - Yalova GETAT rehberi - hacamatın yetkili ortamda konuşulduğunu göstermek",
-    "supporting",
-  ),
-  akupunktur: asset(
-    "yalova-akupunktur-uygulama-alani",
-    akupunktur,
-    "Aydınlık uygulama alanı - Yalova GETAT yazıları - akupunktur değerlendirme ortamını göstermek",
+  estetik: asset(
+    "yalova-kapak-estetik",
+    estetik,
+    "Keten ve seramik natürmort — medikal estetik yazıları kapak görseli",
     "supporting",
   ),
   butuncul: asset(
-    "yalova-butuncul-saglik-klinik",
+    "yalova-kapak-butuncul",
     butuncul,
-    "Değerlendirme masası - Yalova bütüncül sağlık rehberi - hekim görüşme ortamını göstermek",
+    "Defter, su bardağı ve zeytin dalı — bütüncül sağlık yazıları kapak görseli",
     "supporting",
   ),
-  ozon: asset(
-    "yalova-ozon-tedavisi-hazirlik",
-    ozon,
-    "Düzenli tıbbi hazırlık alanı - Yalova GETAT yazıları - ozon yaklaşımının kontrollü ortamını göstermek",
+  getat: asset(
+    "yalova-kapak-getat",
+    getat,
+    "Boş kupa ve seramik kase — GETAT yazıları kapak görseli",
+    "supporting",
+    "center 18%",
+  ),
+  kent: asset(
+    "yalova-kapak-kent",
+    kent,
+    "Sisli kıyı ve tepe — Yalova sağlık rehberi kapak görseli",
     "supporting",
   ),
-  termal: asset(
-    "yalova-termal-saglik-cevre",
-    termal,
-    "Açık ufuk ve sahil - Yalova sağlık rehberi - kentin termal ve dinlenme coğrafyasını göstermek",
+  portrait: asset(
+    "yalova-kapak-yazar",
+    portrait,
+    "Boş hekim çalışma masası — yazar profili",
     "supporting",
   ),
 } as const;
 
 export const allMedia = Object.values(mediaCatalog);
 
+export function mediaForPillar(slug: string): MediaAsset {
+  if (slug === "medikal-estetik") return mediaCatalog.estetik;
+  if (slug === "getat") return mediaCatalog.getat;
+  if (slug === "butuncul-saglik") return mediaCatalog.butuncul;
+  if (slug === "yalova-saglik") return mediaCatalog.kent;
+  return mediaCatalog.hero;
+}
+
+export function mediaForCluster(
+  cluster: Pick<ClusterContent, "category">,
+): MediaAsset {
+  if (cluster.category === "estetik") return mediaCatalog.estetik;
+  if (cluster.category === "getat") return mediaCatalog.getat;
+  if (cluster.category === "butuncul-saglik") return mediaCatalog.butuncul;
+  return mediaCatalog.kent;
+}
+
 export function mediaForPath(pathname: string): MediaAsset[] {
-  if (pathname.includes("getat") || pathname.includes("hacamat")) {
-    return [mediaCatalog.hacamat];
+  const parts = pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+
+  if (parts[0] === "yazar") {
+    return [mediaCatalog.portrait];
   }
-  if (pathname.includes("akupunktur") || pathname.includes("bel-fitik")) {
-    return [mediaCatalog.akupunktur];
+
+  if (parts[0] === "harita") {
+    return [mediaCatalog.kent];
   }
-  if (pathname.includes("ozon") || pathname.includes("kilo")) {
-    return [mediaCatalog.ozon];
+
+  if (parts[0] === "rehberler" && parts[1]) {
+    const pillar = getPillar(parts[1]);
+    return [pillar ? mediaForPillar(pillar.slug) : mediaCatalog.hero];
   }
-  if (
-    pathname.includes("butuncul") ||
-    pathname.includes("fibromiyalji") ||
-    pathname.includes("yorgunluk")
-  ) {
-    return [mediaCatalog.fibromiyalji, mediaCatalog.butuncul];
+
+  if (parts[0] === "yazilar" && parts[1]) {
+    const cluster = getCluster(parts[1]);
+    return [cluster ? mediaForCluster(cluster) : mediaCatalog.hero];
   }
-  if (pathname.includes("yalova") || pathname.includes("termal")) {
-    return [mediaCatalog.termal];
-  }
-  if (
-    pathname.includes("botoks") ||
-    pathname.includes("dolgu") ||
-    pathname.includes("estetik") ||
-    pathname.includes("yuz")
-  ) {
-    return [mediaCatalog.hero];
-  }
-  return [mediaCatalog.hero, mediaCatalog.portrait];
+
+  return [mediaCatalog.hero];
+}
+
+export function featuredClusters() {
+  return clusters
+    .filter((cluster) => {
+      const pillar = getPillar(cluster.pillarSlug);
+      const index = pillar?.clusterSlugs.indexOf(cluster.slug) ?? -1;
+      return index >= 0 && index < 2;
+    })
+    .slice(0, 8);
 }
 
 export function ogSlugFromPath(pathname: string) {

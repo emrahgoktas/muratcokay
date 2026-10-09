@@ -17,7 +17,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com; frame-src https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
         }
       ]
     },
@@ -51,9 +51,48 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.yalovamedikalestetik.com.tr" }],
-      "destination": "https://yalovamedikalestetik.com.tr/:path*",
+      "source": "/yazilar/sivi-yuz-germe-nedir/",
+      "destination": "/yazilar/sivi-yuz-germe-hacim-vermeden-sikilasma/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
+      "destination": "/yazilar/sac-dokulmesinde-mezoterapi-prp/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/yuzde-leke-ve-matlik-icin-bilimsel-yaklasimlar/",
+      "destination": "/yazilar/yuz-lekeleri-matlik-bilimsel-yaklasimlar/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
+      "destination": "/yazilar/kronik-yorgunluk-nedenleri-yonetimi/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
+      "destination": "/yazilar/bel-fitiklarinda-tamamlayici-tip/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/diyabet-ve-hipertansiyonda-butuncul-destek/",
+      "destination": "/yazilar/diyabet-hipertansiyon-butuncul-destek/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+      "destination": "/yazilar/varis-hemoroid-suluk-tedavisinin-yeri/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+      "destination": "/yazilar/kilo-yonetiminde-ozon-hacamat-destegi/",
+      "permanent": true
+    },
+    {
+      "source": "/yazilar/yalovada-butuncul-saglik-turizmi/",
+      "destination": "/yazilar/yalovada-saglik-turizmi/",
       "permanent": true
     }
   ]

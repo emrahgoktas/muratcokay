@@ -1,17 +1,20 @@
 ---
-import OptimizedImage from "../components/OptimizedImage.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import PillarTile from "../components/PillarTile.astro";
 import RelatedContent from "../components/RelatedContent.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { clusters, pillars } from "../data/authority";
-import { posts } from "../data/posts";
 import { site } from "../data/site";
-import { mediaCatalog } from "../lib/media";
+import {
+  featuredClusters,
+  mediaCatalog,
+  mediaForCluster,
+  mediaForPillar,
+} from "../lib/media";
 import { homePageGraph, serializeJsonLd } from "../lib/seo/schema";
+import OptimizedImage from "../components/OptimizedImage.astro";
 
-const clusterSlugs = new Set(clusters.map((cluster) => cluster.slug));
-const legacyPosts = posts.filter(
-  (post) => !clusterSlugs.has(post.slug) && !post.noindex,
-);
+const featured = featuredClusters();
 ---
 
 <BaseLayout>
@@ -21,101 +24,86 @@ const legacyPosts = posts.filter(
     set:html={serializeJsonLd(homePageGraph())}
   />
   <main>
-    <section class="hero">
-      <div class="container">
-        <h1>{site.name}</h1>
-        <p>{site.description}</p>
-        <div class="hero-media">
-          <OptimizedImage media={mediaCatalog.hero} priority class="hero-media__image" />
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="kicker">{site.heroEyebrow}</p>
+        <h1 id="hero-title">
+          Yalova'da
+          <em>medikal estetik</em>
+          ve bütüncül sağlık
+        </h1>
+        <p class="lede">{site.description}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="/rehberler/">Rehberleri incele</a>
+          <a class="btn btn--ghost" href="/yazilar/">Yazılara geç</a>
         </div>
+      </div>
+      <div class="hero__media">
+        <OptimizedImage
+          media={mediaCatalog.hero}
+          priority
+          class="hero-media__image"
+          sizes="(max-width: 900px) 100vw, 50vw"
+        />
       </div>
     </section>
 
     <section id="rehberler" class="posts-section guides-section">
       <div class="container">
-        <h2>Kapsamlı Sağlık Rehberleri</h2>
+        <p class="kicker">Dört ana kaynak</p>
+        <h2>Kapsamlı sağlık rehberleri</h2>
         <p class="section-intro">
           Medikal estetik, bütüncül sağlık, GETAT ve Yalova sağlık
-          olanaklarını bilimsel sınırlar içinde ele alan ana kaynakları
-          inceleyin.
+          olanaklarını bilimsel sınırlar içinde ele alan ana metinler.
         </p>
-        <div class="guide-card-grid">
+        <ol class="pillar-tile-grid">
           {
-            pillars.map((pillar) => (
-              <a class="guide-card" href={`/rehberler/${pillar.slug}/`}>
-                <span class="badge">Ana Rehber</span>
-                <h2>{pillar.title}</h2>
-                <p>{pillar.description}</p>
-                <strong>{pillar.title} içeriğini inceleyin →</strong>
-              </a>
+            pillars.map((pillar, index) => (
+              <li>
+                <PillarTile
+                  href={`/rehberler/${pillar.slug}/`}
+                  title={pillar.title}
+                  description={pillar.description}
+                  index={index}
+                  media={mediaForPillar(pillar.slug)}
+                  count={pillar.clusterSlugs.length}
+                  priority={index < 2}
+                />
+              </li>
             ))
           }
-        </div>
-        <p class="section-intro">
-          <a href="/rehberler/">Tüm rehberleri ve alt konu yazılarını görün →</a>
-        </p>
+        </ol>
+        <a class="more-link" href="/rehberler/">
+          Tüm rehberleri ve alt konu yazılarını görün →
+        </a>
       </div>
     </section>
 
     <section id="alt-konular" class="posts-section">
-      <div class="container">
-        <h2>Alt Konu Yazıları</h2>
+      <div id="yazilar" class="container">
+        <p class="kicker">Derinleştirilmiş yazılar</p>
+        <h2>Seçilmiş alt konu yazıları</h2>
         <p class="section-intro">
-          Her ana rehberin derinleştirilmiş cluster yazıları. Yönetim, destek
-          ve yaklaşım dilinde hazırlanmıştır.
+          Her ana rehberden iki örnek; tüm küme yazıları yazılar dizinindedir.
         </p>
-        <div class="post-grid">
+        <div class="visual-card-grid">
           {
-            clusters.map((cluster) => (
-              <a class="post-card" href={`/yazilar/${cluster.slug}/`}>
-                <span
-                  class:list={[
-                    "badge",
-                    cluster.category === "estetik" && "badge--aesthetic",
-                  ]}
-                >
-                  {cluster.category === "estetik"
-                    ? site.labels.aesthetic
-                    : cluster.category === "getat"
-                      ? "GETAT"
-                      : cluster.category === "yalova-saglik"
-                        ? "Yalova"
-                        : site.labels.holistic}
-                </span>
-                <h2>{cluster.title}</h2>
-                <p>{cluster.description}</p>
-                <strong>{site.labels.readArticle} →</strong>
-              </a>
+            featured.map((cluster, index) => (
+              <ArticleCard
+                href={`/yazilar/${cluster.slug}/`}
+                title={cluster.title}
+                description={cluster.description}
+                category={cluster.category}
+                media={mediaForCluster(cluster)}
+                date={cluster.lastUpdated}
+                priority={index < 2}
+              />
             ))
           }
         </div>
-      </div>
-    </section>
-
-    <section id="yazilar" class="posts-section">
-      <div class="container">
-        <h2>{site.labels.latestArticles}</h2>
-        <div class="post-grid">
-          {
-            legacyPosts.map((post) => (
-              <a class="post-card" href={`/yazilar/${post.slug}/`}>
-                <span
-                  class:list={[
-                    "badge",
-                    post.category === "estetik" && "badge--aesthetic",
-                  ]}
-                >
-                  {post.category === "estetik"
-                    ? site.labels.aesthetic
-                    : site.labels.holistic}
-                </span>
-                <h2>{post.title}</h2>
-                <p>{post.description}</p>
-                <strong>{site.labels.readArticle} →</strong>
-              </a>
-            ))
-          }
-        </div>
+        <a class="more-link" href="/yazilar/">
+          {clusters.length} yazının tamamını görün →
+        </a>
       </div>
     </section>
     <RelatedContent

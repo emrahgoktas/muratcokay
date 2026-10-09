@@ -1,0 +1,34 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { categoryClass, categoryLabel } from "../lib/labels";
+import { CARD_SIZES, type MediaAsset } from "../lib/media";
+import { formatDateTr } from "../lib/reading";
+import type { ClusterContent } from "../data/authority/types";
+
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  category: ClusterContent["category"] | "pillar";
+  media: MediaAsset;
+  date?: string;
+  priority?: boolean;
+}
+
+const { href, title, description, category, media, date, priority = false } =
+  Astro.props;
+---
+
+<a class="visual-card" href={href}>
+  <MediaFrame media={media} priority={priority} sizes={CARD_SIZES} />
+  <div class="visual-card__body">
+    <span class={categoryClass(category)}>{categoryLabel(category)}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {
+      date && (
+        <time datetime={date}>{formatDateTr(date)}</time>
+      )
+    }
+  </div>
+</a>

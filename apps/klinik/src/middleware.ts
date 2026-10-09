@@ -2,14 +2,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host") ?? "";
   const url = request.nextUrl.clone();
-
-  if (host.startsWith("www.")) {
-    url.host = host.slice(4);
-    url.protocol = "https:";
-    return NextResponse.redirect(url, 308);
-  }
 
   if (url.pathname !== "/" && url.pathname.endsWith("/")) {
     url.pathname = url.pathname.slice(0, -1);

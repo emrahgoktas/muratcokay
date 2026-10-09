@@ -1,0 +1,23 @@
+---
+import OptimizedImage from "./OptimizedImage.astro";
+import type { MediaAsset } from "../lib/media";
+
+interface Props {
+  media: MediaAsset;
+  priority?: boolean;
+  sizes?: string;
+  class?: string;
+}
+
+const { media, priority = false, sizes, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "media-frame",
+    media.id.includes("getat") && "media-frame--getat",
+    className,
+  ]}
+>
+  <OptimizedImage media={media} priority={priority} sizes={sizes} />
+</div>

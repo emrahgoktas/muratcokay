@@ -1,3 +1,4 @@
+import { localPlaceSeeds } from "./yalova-hizmet-yerleri";
 import type { ClusterContent, ContentSection, PillarContent } from "./types";
 
 type DepthSeed = {
@@ -531,6 +532,7 @@ const seeds: DepthSeed[] = [
       "Bu içerik bilgilendirmedir; karar kişi ve hekim arasında kalır.",
     ],
   },
+  ...localPlaceSeeds,
 ];
 
 const extraBySlug = new Map(

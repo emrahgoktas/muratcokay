@@ -27,7 +27,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { LinkifiedText } from "@/components/seo/LinkifiedText";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ScientificSources } from "@/components/seo/ScientificSources";
-import { serviceBlogTargets } from "@/lib/seo/internal-links";
+import { serviceBlogGuides, serviceBlogTargets } from "@/lib/seo/internal-links";
 import { withSocialMeta } from "@/lib/seo/metadata";
 import { servicePageGraph } from "@/lib/seo/schema";
 
@@ -77,7 +77,8 @@ export default async function ServiceDetailPage({
   const process = siteContent.pages.services.detail;
   const categoryLabel = siteContent.services.ui.badges[service.kategori];
   const situations = serviceSituations[service.slug];
-  const blogLink = serviceBlogTargets[service.slug];
+  const blogLocal = serviceBlogTargets[service.slug];
+  const blogGuide = serviceBlogGuides[service.slug];
   const relatedServices = serviceCatalog
     .filter(
       (relatedService) =>
@@ -299,13 +300,29 @@ export default async function ServiceDetailPage({
               </Link>
             ))}
             <Link
-              href={blogLink.url}
+              href={blogGuide.url}
+              className="group flex min-h-36 flex-col rounded-2xl border border-secondary/30 bg-background p-5 transition-all hover:-translate-y-1 hover:shadow-md"
+            >
+              <span className="text-xs font-semibold tracking-wide text-secondary uppercase">
+                {serviceDetailTemplate.blogGuideLabel}
+              </span>
+              <span className="mt-2 font-semibold">{blogGuide.title}</span>
+              <span className="mt-auto flex items-center justify-end gap-2 text-sm font-medium text-primary">
+                {siteContent.actions.detailedInformation}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4 transition-transform group-hover:translate-x-1"
+                />
+              </span>
+            </Link>
+            <Link
+              href={blogLocal.url}
               className="group flex min-h-36 flex-col rounded-2xl border border-secondary/30 bg-background p-5 transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <span className="text-xs font-semibold tracking-wide text-secondary uppercase">
                 {serviceDetailTemplate.blogLabel}
               </span>
-              <span className="mt-2 font-semibold">{blogLink.title}</span>
+              <span className="mt-2 font-semibold">{blogLocal.title}</span>
               <span className="mt-auto flex items-center justify-end gap-2 text-sm font-medium text-primary">
                 {siteContent.actions.detailedInformation}
                 <ArrowRight
@@ -364,7 +381,7 @@ export default async function ServiceDetailPage({
           />
           <p className="text-sm leading-6">{serviceDetailTemplate.warning}</p>
         </div>
-        <CrossSiteCta href={blogLink.url} label={blogLink.title} />
+        <CrossSiteCta href={blogGuide.url} label={blogGuide.title} />
       </section>
       <RelatedContent
         currentPath={`/hizmetler/${service.slug}`}

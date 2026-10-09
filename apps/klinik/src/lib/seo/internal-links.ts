@@ -59,6 +59,26 @@ const BLOG = {
   kurulus: `${BLOG_URL}/yazilar/yalovadaki-saglik-kuruluslari-rehberi/`,
   termal: `${BLOG_URL}/yazilar/yalovanin-termal-sulari-ve-saglik/`,
   adres: `${BLOG_URL}/yazilar/yalovada-butuncul-saglik-adresleri/`,
+  mezoterapi: `${BLOG_URL}/yazilar/yalovada-mezoterapi-yapan-yerler/`,
+  lazerYer: `${BLOG_URL}/yazilar/yalovada-lazer-yapan-yerler/`,
+  ipAskiYer: `${BLOG_URL}/yazilar/yalovada-ip-aski-yapan-yerler/`,
+  hacamatYer: `${BLOG_URL}/yazilar/yalovada-hacamat-yapan-yerler/`,
+  botoksYer: `${BLOG_URL}/yazilar/yalovada-botoks-yapan-yerler/`,
+  dolguYer: `${BLOG_URL}/yazilar/yalovada-dolgu-yapan-yerler/`,
+  siviYuzYer: `${BLOG_URL}/yazilar/yalovada-sivi-yuz-germe-yapan-yerler/`,
+  lekeYer: `${BLOG_URL}/yazilar/yalovada-leke-tedavisi-yapan-yerler/`,
+  sacYer: `${BLOG_URL}/yazilar/yalovada-sac-dokulmesi-tedavisi-yapan-yerler/`,
+  fibroYer: `${BLOG_URL}/yazilar/yalovada-fibromiyalji-tedavisi-yapan-yerler/`,
+  kiloYer: `${BLOG_URL}/yazilar/yalovada-kilo-verme-destegi-alan-yerler/`,
+  yorgunlukYer: `${BLOG_URL}/yazilar/yalovada-kronik-yorgunluk-destegi-alan-yerler/`,
+  belYer: `${BLOG_URL}/yazilar/yalovada-bel-fitigi-destegi-alan-yerler/`,
+  diyabetYer: `${BLOG_URL}/yazilar/yalovada-diyabet-destegi-alan-yerler/`,
+  hiperYer: `${BLOG_URL}/yazilar/yalovada-hipertansiyon-destegi-alan-yerler/`,
+  varisYer: `${BLOG_URL}/yazilar/yalovada-varis-destegi-alan-yerler/`,
+  hemoroidYer: `${BLOG_URL}/yazilar/yalovada-hemoroid-destegi-alan-yerler/`,
+  sulukYer: `${BLOG_URL}/yazilar/yalovada-suluk-tedavisi-yapan-yerler/`,
+  akupunkturYer: `${BLOG_URL}/yazilar/yalovada-akupunktur-yapan-yerler/`,
+  ozonYer: `${BLOG_URL}/yazilar/yalovada-ozon-tedavisi-yapan-yerler/`,
   pillarHolistic: `${BLOG_URL}/rehberler/butuncul-saglik/`,
   pillarAesthetic: `${BLOG_URL}/rehberler/medikal-estetik/`,
   pillarGetat: `${BLOG_URL}/rehberler/getat/`,
@@ -101,33 +121,62 @@ export const locationUrls = Object.fromEntries(
   ]),
 ) as Record<(typeof locationCatalog)[number]["slug"], string>;
 
-export const serviceBlogTargets: Record<
+export const serviceBlogGuides: Record<
   (typeof serviceCatalog)[number]["slug"],
   { url: string; title: string }
 > = {
   botoks: { url: BLOG.botoks, title: "Botoks: Kimler İçin Uygundur?" },
   dolgu: { url: BLOG.dolgu, title: "Doğal Görünümlü Dolgu Uygulamaları" },
-  "sivi-yuz-germe": { url: BLOG.siviYuz, title: "Sıvı Yüz Germe Rehberi" },
+  "sivi-yuz-germe": { url: BLOG.siviYuz, title: "Sıvı Yüz Germe: Hacim Vermeden Sıkılaşma" },
   "yuzde-matlik-kirisiklik-leke-tedavisi": {
     url: BLOG.leke,
-    title: "Yüz Lekeleri ve Matlık",
+    title: "Yüz Lekeleri ve Matlık: Bilimsel Yaklaşımlar",
   },
   "sac-dokulmesi-tedavisi": { url: BLOG.sac, title: "Saç Dökülmesinde Mezoterapi ve PRP" },
-  mezoterapi: { url: BLOG.sac, title: "Mezoterapi ve PRP Rehberi" },
-  lazer: { url: BLOG.leke, title: "Leke ve Matlık Yaklaşımları" },
-  "ip-aski": { url: BLOG.siviYuz, title: "Yüz Sıkılaşma Yaklaşımları" },
+  mezoterapi: { url: BLOG.sac, title: "Saç Dökülmesinde Mezoterapi ve PRP" },
+  lazer: { url: BLOG.leke, title: "Yüz Lekeleri ve Matlık: Bilimsel Yaklaşımlar" },
+  "ip-aski": { url: BLOG.pillarAesthetic, title: "Medikal Estetik Rehberi" },
   fibromiyalji: { url: BLOG.fibro, title: "Fibromiyalji ile Yaşam" },
-  "kilo-verme-destegi": { url: BLOG.kilo, title: "Kilo Yönetiminde Bütüncül Destek" },
+  "kilo-verme-destegi": { url: BLOG.kilo, title: "Kilo Yönetiminde Ozon ve Hacamat" },
   "kronik-yorgunluk-sendromu": { url: BLOG.yorgunluk, title: "Kronik Yorgunluk Yönetimi" },
   "bel-fitiklari-omurga-sagligi": { url: BLOG.bel, title: "Bel Fıtıklarında Tamamlayıcı Tıp" },
   "diyabet-yonetimi-destegi": { url: BLOG.metabolik, title: "Diyabet ve Hipertansiyonda Destek" },
   "hipertansiyon-destegi": { url: BLOG.metabolik, title: "Diyabet ve Hipertansiyonda Destek" },
-  "varis-tedavisi-destegi": { url: BLOG.varis, title: "Varis ve Hemoroid Yaklaşımları" },
-  "hemoroid-tedavisi-destegi": { url: BLOG.varis, title: "Varis ve Hemoroid Yaklaşımları" },
-  hacamat: { url: BLOG.hacamat, title: "Hacamat Nedir?" },
+  "varis-tedavisi-destegi": { url: BLOG.varis, title: "Varis ve Hemoroid: Sülük Tedavisinin Yeri" },
+  "hemoroid-tedavisi-destegi": { url: BLOG.varis, title: "Varis ve Hemoroid: Sülük Tedavisinin Yeri" },
+  hacamat: { url: BLOG.hacamat, title: "Hacamat Nedir? Bilimsel Perspektif" },
   "suluk-tedavisi": { url: BLOG.suluk, title: "Sülük Tedavisi: Modern Yorumu" },
   akupunktur: { url: BLOG.akupunktur, title: "Akupunktur Hangi Durumlarda Tercih Edilir?" },
   "ozon-tedavisi": { url: BLOG.ozon, title: "Ozon Tedavisinin Kullanım Alanları" },
+};
+
+export const serviceBlogTargets: Record<
+  (typeof serviceCatalog)[number]["slug"],
+  { url: string; title: string }
+> = {
+  botoks: { url: BLOG.botoksYer, title: "Yalova'da Botoks Yapan Yerler" },
+  dolgu: { url: BLOG.dolguYer, title: "Yalova'da Dolgu Yapan Yerler" },
+  "sivi-yuz-germe": { url: BLOG.siviYuzYer, title: "Yalova'da Sıvı Yüz Germe Yapan Yerler" },
+  "yuzde-matlik-kirisiklik-leke-tedavisi": {
+    url: BLOG.lekeYer,
+    title: "Yalova'da Leke Tedavisi Yapan Yerler",
+  },
+  "sac-dokulmesi-tedavisi": { url: BLOG.sacYer, title: "Yalova'da Saç Dökülmesi Tedavisi Yapan Yerler" },
+  mezoterapi: { url: BLOG.mezoterapi, title: "Yalova'da Mezoterapi Yapan Yerler" },
+  lazer: { url: BLOG.lazerYer, title: "Yalova'da Lazer Yapan Yerler" },
+  "ip-aski": { url: BLOG.ipAskiYer, title: "Yalova'da İp Askı Yapan Yerler" },
+  fibromiyalji: { url: BLOG.fibroYer, title: "Yalova'da Fibromiyalji Desteği Alan Yerler" },
+  "kilo-verme-destegi": { url: BLOG.kiloYer, title: "Yalova'da Kilo Verme Desteği Alan Yerler" },
+  "kronik-yorgunluk-sendromu": { url: BLOG.yorgunlukYer, title: "Yalova'da Kronik Yorgunluk Desteği Alan Yerler" },
+  "bel-fitiklari-omurga-sagligi": { url: BLOG.belYer, title: "Yalova'da Bel Fıtığı Desteği Alan Yerler" },
+  "diyabet-yonetimi-destegi": { url: BLOG.diyabetYer, title: "Yalova'da Diyabet Yönetimi Desteği Alan Yerler" },
+  "hipertansiyon-destegi": { url: BLOG.hiperYer, title: "Yalova'da Hipertansiyon Desteği Alan Yerler" },
+  "varis-tedavisi-destegi": { url: BLOG.varisYer, title: "Yalova'da Varis Desteği Alan Yerler" },
+  "hemoroid-tedavisi-destegi": { url: BLOG.hemoroidYer, title: "Yalova'da Hemoroid Desteği Alan Yerler" },
+  hacamat: { url: BLOG.hacamatYer, title: "Yalova'da Hacamat Yapan Yerler" },
+  "suluk-tedavisi": { url: BLOG.sulukYer, title: "Yalova'da Sülük Tedavisi Yapan Yerler" },
+  akupunktur: { url: BLOG.akupunkturYer, title: "Yalova'da Akupunktur Yapan Yerler" },
+  "ozon-tedavisi": { url: BLOG.ozonYer, title: "Yalova'da Ozon Tedavisi Yapan Yerler" },
 };
 
 const blogRecords: InternalLink[] = [
@@ -419,7 +468,10 @@ export function validateInternalLinks() {
     }
   }
 
-  for (const target of Object.values(serviceBlogTargets)) {
+  for (const target of [
+    ...Object.values(serviceBlogTargets),
+    ...Object.values(serviceBlogGuides),
+  ]) {
     if (!target.url.startsWith(BLOG_URL)) {
       errors.push(`Blog hedefi hatalı: ${target.url}`);
     }

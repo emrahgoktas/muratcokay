@@ -1,0 +1,43 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { CARD_SIZES, type MediaAsset } from "../lib/media";
+
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  index: number;
+  media: MediaAsset;
+  count?: number;
+  priority?: boolean;
+}
+
+const {
+  href,
+  title,
+  description,
+  index,
+  media,
+  count,
+  priority = false,
+} = Astro.props;
+---
+
+<a class="pillar-tile" href={href}>
+  <MediaFrame
+    class="pillar-tile__media"
+    media={media}
+    priority={priority}
+    sizes={CARD_SIZES}
+  />
+  <div class="pillar-tile__body">
+    <span class="pillar-index__num">{String(index + 1).padStart(2, "0")}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {
+      count !== undefined && (
+        <strong>{count} alt konu yazısı</strong>
+      )
+    }
+  </div>
+</a>

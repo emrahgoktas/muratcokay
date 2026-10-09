@@ -1,0 +1,70 @@
+---
+import MediaFrame from "./MediaFrame.astro";
+import { pillars } from "../data/authority";
+import { site } from "../data/site";
+import { mediaCatalog } from "../lib/media";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__masthead">
+      <MediaFrame
+        class="site-footer__media"
+        media={mediaCatalog.kent}
+        sizes="(max-width: 900px) 42vw, 220px"
+      />
+      <div class="site-footer__intro">
+        <p class="kicker">Kolofon</p>
+        <strong class="site-footer__brand">{site.brandShort}</strong>
+        <p class="site-footer__lede">
+          Yalova'da medikal estetik, bütüncül sağlık ve GETAT için bilimsel
+          bilgilendirme. Tanı veya sonuç vaadi yoktur.
+        </p>
+        <address>
+          {site.contact.address}
+        </address>
+        <a class="site-footer__phone" href={site.contact.phone.href}>
+          {site.contact.phone.display}
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__links">
+      <nav aria-label="Rehberler">
+        <p class="kicker">Rehberler</p>
+        {
+          pillars.map((pillar) => (
+            <a href={`/rehberler/${pillar.slug}/`}>{pillar.title}</a>
+          ))
+        }
+      </nav>
+      <nav aria-label="Yazılar">
+        <p class="kicker">Yazılar</p>
+        <a href="/yazilar/">Tüm yazılar</a>
+        <a href="/harita/">Konu haritası</a>
+        <a href="/yazar/">Yazar</a>
+        <a href="/rss.xml">RSS</a>
+        <a href="/llms.txt">llms.txt</a>
+      </nav>
+      <nav aria-label="Klinik siteleri">
+        <p class="kicker">Klinik</p>
+        <a href={`${site.sites.klinik}/iletisim`}>Klinik iletişim</a>
+        <a href={`${site.sites.klinik}/hakkimda`}>Hekim profili</a>
+        <a href={site.sites.nis}>Yalova bütüncül sağlık</a>
+      </nav>
+      <div>
+        <p class="kicker">İletişim</p>
+        <p>{site.contact.workingHours}</p>
+        <a href={site.contact.email.href}>{site.contact.email.display}</a>
+        <a href={`${site.sites.klinik}/iletisim`}>Randevu klinik sitesinde</a>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <span>{site.legalNotice}</span>
+      <span>© {year} {site.authorName}</span>
+    </div>
+  </div>
+</footer>

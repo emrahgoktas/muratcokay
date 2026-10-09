@@ -34,7 +34,7 @@ export type BreadcrumbItem = {
 };
 
 const siteUrl = site.url;
-const clinicUrl = "https://uzmdrmuratcokay.com.tr";
+const clinicUrl = site.sites.klinik;
 
 export const schemaIds = {
   physician: `${siteUrl}/#physician`,
@@ -91,12 +91,12 @@ export function generatePersonSchema(): JsonLdNode {
     "@type": "Person",
     "@id": schemaIds.person,
     name: site.authorName,
-    url: site.authorProfile.url,
+    url: absoluteUrl("/yazar/"),
     image: absoluteUrl(mediaCatalog.portrait.publicPath),
     jobTitle: "Uzm. Dr.",
     description: site.authorText,
     worksFor: { "@id": schemaIds.organization },
-    sameAs: schemaIds.physician,
+    sameAs: [schemaIds.physician, site.authorProfile.url],
   };
 }
 
@@ -107,9 +107,22 @@ export function generateOrganizationSchema(): JsonLdNode {
     name: site.name,
     url: siteUrl,
     description: site.description,
-    logo: absoluteUrl(mediaCatalog.portrait.publicPath),
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl(mediaCatalog.hero.publicPath),
+      caption: mediaCatalog.hero.alt,
+    },
     founder: { "@id": schemaIds.physician },
-    sameAs: [clinicUrl, "https://yalovabutunculsaglik.com.tr/"],
+    telephone: site.contact.phone.display,
+    email: site.contact.email.display,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.contact.address,
+      addressLocality: "Yalova",
+      addressRegion: "Yalova",
+      addressCountry: "TR",
+    },
+    sameAs: [clinicUrl, site.sites.nis],
   };
 }
 
@@ -168,10 +181,13 @@ export function generateArticleSchema(yazi: {
   title: string;
   description: string;
   path: string;
+  datePublished?: string;
   dateModified?: string;
   wordCount?: number;
+  image?: string;
   type?: "Article" | "BlogPosting" | Array<"Article" | "BlogPosting">;
 }): JsonLdNode {
+  const published = yazi.datePublished ?? yazi.dateModified;
   return {
     "@type": yazi.type ?? ["Article", "BlogPosting"],
     "@id": pageId(yazi.path, "article"),
@@ -182,7 +198,8 @@ export function generateArticleSchema(yazi: {
     inLanguage: "tr-TR",
     author: { "@id": schemaIds.person },
     publisher: { "@id": schemaIds.organization },
-    image: absoluteUrl(mediaCatalog.hero.publicPath),
+    image: yazi.image ?? absoluteUrl(mediaCatalog.hero.publicPath),
+    ...(published ? { datePublished: published } : {}),
     ...(yazi.dateModified ? { dateModified: yazi.dateModified } : {}),
     ...(yazi.wordCount ? { wordCount: yazi.wordCount } : {}),
   };
@@ -276,10 +293,12 @@ function guideWordCount(content: PillarContent | ClusterContent) {
 export function authorPageGraph(): JsonLdSchema {
   return buildGraph(
     ...coreNodes(),
+    websiteNode(),
     generateBreadcrumbSchema([
       { name: "Ana Sayfa", path: "/" },
       { name: "Yazar", path: "/yazar/" },
     ]),
+    generateImageObjectSchema(mediaCatalog.portrait, "/yazar/"),
   );
 }
 
@@ -303,6 +322,7 @@ export function homePageGraph(): JsonLdSchema {
 export function guidesIndexGraph(): JsonLdSchema {
   return buildGraph(
     ...coreNodes(),
+    websiteNode(),
     generateBreadcrumbSchema([
       { name: "Ana Sayfa", path: "/" },
       { name: "Rehberler", path: "/rehberler/" },
@@ -318,6 +338,55 @@ export function guidesIndexGraph(): JsonLdSchema {
   );
 }
 
+export function articlesIndexGraph(): JsonLdSchema {
+  return buildGraph(
+    ...coreNodes(),
+    websiteNode(),
+    generateBreadcrumbSchema([
+      { name: "Ana Sayfa", path: "/" },
+      { name: "Yazılar", path: "/yazilar/" },
+    ]),
+    generateItemListSchema(
+      "Alt konu yazıları",
+      "/yazilar/",
+      clusters.map((cluster) => ({
+        name: cluster.title,
+        path: `/yazilar/${cluster.slug}/`,
+      })),
+    ),
+  );
+}
+
+export function topicMapGraph(): JsonLdSchema {
+  return buildGraph(
+    ...coreNodes(),
+    websiteNode(),
+    {
+      "@type": "CollectionPage",
+      "@id": pageId("/harita/", "webpage"),
+      name: "Konu haritası",
+      description:
+        "Yalova medikal estetik rehberinin dört ana kaynağı, alt yazıları ve klinik-niş köprüleri.",
+      url: absoluteUrl("/harita/"),
+      inLanguage: "tr-TR",
+      isPartOf: { "@id": schemaIds.website },
+    },
+    generateBreadcrumbSchema([
+      { name: "Ana Sayfa", path: "/" },
+      { name: "Konu haritası", path: "/harita/" },
+    ]),
+    generateItemListSchema(
+      "Ana rehberler",
+      "/harita/",
+      pillars.map((pillar) => ({
+        name: pillar.title,
+        path: `/rehberler/${pillar.slug}/`,
+      })),
+    ),
+    generateImageObjectSchema(mediaCatalog.kent, "/harita/"),
+  );
+}
+
 export function pillarPageGraph(pillar: PillarContent): JsonLdSchema {
   const path = `/rehberler/${pillar.slug}/`;
   const pillarClusters = pillar.clusterSlugs
@@ -330,8 +399,12 @@ export function pillarPageGraph(pillar: PillarContent): JsonLdSchema {
       title: pillar.title,
       description: pillar.description,
       path,
+      datePublished: pillar.lastUpdated,
       dateModified: pillar.lastUpdated,
       wordCount: guideWordCount(pillar),
+      image: absoluteUrl(
+        (mediaForPath(path)[0] ?? mediaCatalog.hero).publicPath,
+      ),
       type: "Article",
     }),
     generateMedicalWebPageSchema({
@@ -374,10 +447,14 @@ export function articlePageGraph(input: {
       title: input.post.title,
       description: input.post.description,
       path,
+      datePublished: cluster?.lastUpdated,
       dateModified: cluster?.lastUpdated,
       wordCount: cluster
         ? guideWordCount(cluster)
         : wordCountFrom((input.post as BlogPost).paragraphs),
+      image: absoluteUrl(
+        (mediaForPath(path)[0] ?? mediaCatalog.hero).publicPath,
+      ),
       type: ["Article", "BlogPosting"],
     }),
     generateMedicalWebPageSchema({
@@ -389,11 +466,12 @@ export function articlePageGraph(input: {
     cluster ? generateFAQSchema(cluster.faqs, path) : undefined,
     generateBreadcrumbSchema([
       { name: "Ana Sayfa", path: "/" },
+      { name: "Yazılar", path: "/yazilar/" },
       pillar
         ? { name: pillar.title, path: `/rehberler/${pillar.slug}/` }
-        : { name: "Yazılar", path: "/#yazilar" },
+        : undefined,
       { name: input.post.title, path },
-    ]),
+    ].filter((item): item is { name: string; path: string } => Boolean(item))),
     mediaForPath(path).map((media) => generateImageObjectSchema(media, path)),
   );
 }

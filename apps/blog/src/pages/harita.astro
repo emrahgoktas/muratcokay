@@ -1,0 +1,120 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import PillarTile from "../components/PillarTile.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { clusters, pillars } from "../data/authority";
+import { site } from "../data/site";
+import { mediaForCluster, mediaForPillar } from "../lib/media";
+import { topicMapGraph, serializeJsonLd } from "../lib/seo/schema";
+import ArticleCard from "../components/ArticleCard.astro";
+
+const description =
+  "Yalova Medikal Estetik rehberinin konu haritası: dört ana rehber, alt yazılar ve klinik-niş köprüleri.";
+---
+
+<BaseLayout title="Konu haritası" description={description}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(topicMapGraph())}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb
+          items={[
+            { name: "Ana Sayfa", path: "/" },
+            { name: "Konu haritası", path: "/harita/" },
+          ]}
+        />
+        <p class="kicker">İçerik hiyerarşisi</p>
+        <h1>Konu haritası</h1>
+        <p>
+          Google ve yapay zekâ tarayıcıları için açık omurga: bilgi blogda,
+          randevu klinikte, bütüncül arama niş sitededir.
+        </p>
+      </div>
+    </header>
+
+    <section class="posts-section">
+      <div class="container">
+        <div class="guide-card-grid">
+          <article class="guide-card">
+            <span class="badge">Klinik</span>
+            <h2>
+              <a href={site.sites.klinik}>{site.authorName}</a>
+            </h2>
+            <p>
+              Varlık, hizmet ve randevu kapısı. NAP: {site.contact.address}
+            </p>
+            <a href={`${site.sites.klinik}/hizmetler`}>Hizmetler →</a>
+          </article>
+          <article class="guide-card">
+            <span class="badge">Niş</span>
+            <h2>
+              <a href={site.sites.nis}>Yalova bütüncül sağlık</a>
+            </h2>
+            <p>
+              Fibromiyalji, yorgunluk ve metabolik destek aramalarını toplar;
+              derin yazıya blogda devam eder.
+            </p>
+            <a href={site.sites.nis}>Niş siteye geç →</a>
+          </article>
+        </div>
+
+        <p class="kicker">Dört ana kaynak</p>
+        <h2>Rehberler</h2>
+        <ol class="pillar-tile-grid">
+          {
+            pillars.map((pillar, index) => (
+              <li>
+                <PillarTile
+                  href={`/rehberler/${pillar.slug}/`}
+                  title={pillar.title}
+                  description={pillar.description}
+                  index={index}
+                  media={mediaForPillar(pillar.slug)}
+                  count={pillar.clusterSlugs.length}
+                />
+              </li>
+            ))
+          }
+        </ol>
+
+        {
+          pillars.map((pillar) => {
+            const pillarClusters = pillar.clusterSlugs
+              .map((slug) => clusters.find((cluster) => cluster.slug === slug))
+              .filter((cluster) => cluster !== undefined);
+
+            return (
+              <div class="archive-group">
+                <p class="kicker">Alt yazılar</p>
+                <h2>
+                  <a href={`/rehberler/${pillar.slug}/`}>{pillar.title}</a>
+                </h2>
+                <div class="visual-card-grid">
+                  {pillarClusters.map((cluster) => (
+                    <ArticleCard
+                      href={`/yazilar/${cluster.slug}/`}
+                      title={cluster.title}
+                      description={cluster.description}
+                      category={cluster.category}
+                      media={mediaForCluster(cluster)}
+                      date={cluster.lastUpdated}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+    <RelatedContent
+      currentPath="/harita/"
+      keywords={["bütüncül sağlık", "medikal estetik", "GETAT"]}
+    />
+  </main>
+</BaseLayout>

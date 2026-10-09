@@ -1,0 +1,73 @@
+---
+import ArticleCard from "../../components/ArticleCard.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import RelatedContent from "../../components/RelatedContent.astro";
+import { clusters, pillars } from "../../data/authority";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { mediaForCluster } from "../../lib/media";
+import { articlesIndexGraph, serializeJsonLd } from "../../lib/seo/schema";
+
+const description =
+  "Medikal estetik, bütüncül sağlık, GETAT ve Yalova sağlık konularında derinleştirilmiş bilgilendirme yazıları.";
+---
+
+<BaseLayout title="Yazılar" description={description}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={serializeJsonLd(articlesIndexGraph())}
+  />
+  <main>
+    <header class="article-header">
+      <div class="container">
+        <Breadcrumb
+          items={[
+            { name: "Ana Sayfa", path: "/" },
+            { name: "Yazılar", path: "/yazilar/" },
+          ]}
+        />
+        <p class="kicker">Derinleştirilmiş yazılar</p>
+        <h1>Alt konu yazıları</h1>
+        <p>{description}</p>
+        <a class="more-link" href="/harita/">Konu haritasını görün →</a>
+      </div>
+    </header>
+
+    <section class="posts-section">
+      <div class="container">
+        {
+          pillars.map((pillar) => {
+            const pillarClusters = pillar.clusterSlugs
+              .map((slug) => clusters.find((cluster) => cluster.slug === slug))
+              .filter((cluster) => cluster !== undefined);
+
+            return (
+              <div class="archive-group">
+                <p class="kicker">Ana rehber</p>
+                <h2>
+                  <a href={`/rehberler/${pillar.slug}/`}>{pillar.title}</a>
+                </h2>
+                <div class="visual-card-grid">
+                  {pillarClusters.map((cluster) => (
+                    <ArticleCard
+                      href={`/yazilar/${cluster.slug}/`}
+                      title={cluster.title}
+                      description={cluster.description}
+                      category={cluster.category}
+                      media={mediaForCluster(cluster)}
+                      date={cluster.lastUpdated}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+    <RelatedContent
+      currentPath="/yazilar/"
+      keywords={["bütüncül sağlık", "medikal estetik", "GETAT"]}
+    />
+  </main>
+</BaseLayout>

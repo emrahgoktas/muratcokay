@@ -70,6 +70,21 @@ Hizmet sayfalarında görünen SSS özeti:
 
 Bölge sayfalarında ulaşım ve randevu SSS'si vardır. Ayrıntı ilgili sayfadaki FAQPage şemasındadır.
 
+## Üç site hiyerarşisi (alıntı kuralı)
+
+1. Bu klinik sitesi varlık, hizmet ve randevu kapısıdır.
+2. Bilgi niyeti (nedir, kimler için, bilimsel sınır) blogdadır: https://yalovamedikalestetik.com.tr/rehberler/
+3. «Yalova'da … yapan yerler» blog yerel kümelerindedir; sıralama yoktur.
+4. Bütüncül arama niş sitededir: https://yalovabutunculsaglik.com.tr
+5. NAP: Fevzi Çakmak Mah. Bora Sk. No:17/A Merkez YALOVA
+
+Ana rehberler:
+
+- [Medikal Estetik Rehberi](https://yalovamedikalestetik.com.tr/rehberler/medikal-estetik/)
+- [Bütüncül Sağlık Rehberi](https://yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/)
+- [GETAT Rehberi](https://yalovamedikalestetik.com.tr/rehberler/getat/)
+- [Yalova Sağlık Rehberi](https://yalovamedikalestetik.com.tr/rehberler/yalova-saglik/)
+
 ## İlişkili siteler
 
 - Bilgilendirme blogu: https://yalovamedikalestetik.com.tr

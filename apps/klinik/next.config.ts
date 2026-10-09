@@ -81,16 +81,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.uzmdrmuratcokay.com.tr" }],
-        destination: "https://uzmdrmuratcokay.com.tr/:path*",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default withBundleAnalyzer(nextConfig);

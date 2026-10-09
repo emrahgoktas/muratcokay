@@ -1,9 +1,11 @@
 ---
 import AuthorBox from "../components/AuthorBox.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
+import OptimizedImage from "../components/OptimizedImage.astro";
 import RelatedContent from "../components/RelatedContent.astro";
 import { site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { mediaCatalog } from "../lib/media";
 import { CLINIC_URL } from "../lib/seo/internal-links";
 import { authorPageGraph, serializeJsonLd } from "../lib/seo/schema";
 
@@ -23,16 +25,23 @@ const crumbs = [
     set:html={serializeJsonLd(authorPageGraph())}
   />
   <main>
-    <header class="article-header">
-      <div class="container">
+    <header class="page-hero">
+      <div class="page-hero__copy">
         <Breadcrumb items={crumbs} />
-        <span class="badge">Yazar</span>
+        <p class="kicker">Yazar</p>
         <h1>{site.authorName}</h1>
         <p>{site.authorText}</p>
         <p>
           Klinik biyografisi:{" "}
           <a href={`${CLINIC_URL}/hakkimda`}>uzmdrmuratcokay.com.tr/hakkimda</a>
         </p>
+      </div>
+      <div class="page-hero__media">
+        <OptimizedImage
+          media={mediaCatalog.portrait}
+          priority
+          sizes="(max-width: 900px) 100vw, 50vw"
+        />
       </div>
     </header>
     <div class="container">

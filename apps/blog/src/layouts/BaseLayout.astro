@@ -1,9 +1,12 @@
 ---
+import cormorantLatin from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2?url";
+import cormorantLatinExt from "@fontsource/cormorant-garamond/files/cormorant-garamond-latin-ext-500-normal.woff2?url";
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import interLatinExt from "@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2?url";
 
+import SiteFooter from "../components/SiteFooter.astro";
 import { site } from "../data/site";
-import { ogSlugFromPath } from "../lib/media";
+import { mediaCatalog, mediaForPath } from "../lib/media";
 import "../styles/global.css";
 
 interface Props {
@@ -11,6 +14,10 @@ interface Props {
   description?: string;
   robots?: string;
   canonicalPath?: string;
+  ogType?: "website" | "article";
+  datePublished?: string;
+  dateModified?: string;
+  section?: string;
 }
 
 const {
@@ -18,10 +25,18 @@ const {
   description = site.description,
   robots = "index, follow",
   canonicalPath,
+  ogType = "website",
+  datePublished,
+  dateModified,
+  section,
 } = Astro.props;
-const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const pageTitle = title ? `${title} | ${site.brandShort}` : site.name;
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url);
-const ogImage = new URL(`/og/${ogSlugFromPath(Astro.url.pathname)}.png`, site.url);
+const pageMedia = mediaForPath(Astro.url.pathname)[0] ?? mediaCatalog.hero;
+const ogImage = new URL(pageMedia.publicPath, site.url);
+const gaId = import.meta.env.PUBLIC_GA_ID?.trim();
+const gtmId = import.meta.env.PUBLIC_GTM_ID?.trim();
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -35,42 +50,149 @@ const ogImage = new URL(`/og/${ogSlugFromPath(Astro.url.pathname)}.png`, site.ur
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="tr-TR" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={site.name}
+      href={new URL("/rss.xml", site.url)}
+    />
+    <link rel="preload" href={cormorantLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={cormorantLatinExt} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={interLatinExt} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle}</title>
-    <meta property="og:type" content="website" />
+    <meta name="author" content={site.authorName} />
+    <meta name="theme-color" content="#f6f1ea" />
+    <meta name="geo.region" content="TR-77" />
+    <meta name="geo.placename" content="Yalova" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${pageTitle} - Yalova`} />
+    <meta property="og:image:alt" content={pageMedia.alt} />
+    {
+      ogType === "article" && datePublished && (
+        <meta property="article:published_time" content={datePublished} />
+      )
+    }
+    {
+      ogType === "article" && dateModified && (
+        <meta property="article:modified_time" content={dateModified} />
+      )
+    }
+    {
+      ogType === "article" && (
+        <meta property="article:author" content={site.authorName} />
+      )
+    }
+    {
+      ogType === "article" && section && (
+        <meta property="article:section" content={section} />
+      )
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={pageMedia.alt} />
+    {
+      gtmId && (
+        <script is:inline define:vars={{ gtmId }}>
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", gtmId);
+        </script>
+      )
+    }
+    {
+      gaId && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          />
+          <script is:inline define:vars={{ gaId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", gaId);
+          </script>
+        </>
+      )
+    }
   </head>
   <body>
+    {
+      gtmId && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+            title="Google Tag Manager"
+          />
+        </noscript>
+      )
+    }
+    <a class="skip-link" href="#icerik">İçeriğe geç</a>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a class="brand" href="/">{site.name}</a>
-        <nav class="site-nav" aria-label="Ana navigasyon">
-          <a href="/">{site.navigation.home}</a>
-          <a href="/rehberler/">{site.navigation.guides}</a>
-          <a href="/#alt-konular">{site.navigation.articles}</a>
-          <a href="/yazar/">Yazar</a>
+        <a class="brand" href="/">
+          <span class="brand__kicker">{site.brandKicker}</span>
+          <span class="brand__name">{site.brandShort}</span>
+        </a>
+        <nav class="site-nav site-nav--bar" aria-label="Ana navigasyon">
+          <a href="/" aria-current={currentPath === "/" ? "page" : undefined}>
+            {site.navigation.home}
+          </a>
+          <a
+            href="/rehberler/"
+            aria-current={currentPath.startsWith("/rehberler/") ? "page" : undefined}
+          >
+            {site.navigation.guides}
+          </a>
+          <a
+            href="/yazilar/"
+            aria-current={currentPath.startsWith("/yazilar/") ? "page" : undefined}
+          >
+            {site.navigation.articles}
+          </a>
+          <a
+            href="/yazar/"
+            aria-current={currentPath.startsWith("/yazar/") ? "page" : undefined}
+          >
+            Yazar
+          </a>
         </nav>
+        <details class="nav-panel">
+          <summary>Menü</summary>
+          <nav class="site-nav" aria-label="Mobil navigasyon">
+            <a href="/">{site.navigation.home}</a>
+            <a href="/rehberler/">{site.navigation.guides}</a>
+            <a href="/yazilar/">{site.navigation.articles}</a>
+            <a href="/yazar/">Yazar</a>
+          </nav>
+        </details>
       </div>
     </header>
-    <slot />
-    <footer class="site-footer">
-      <div class="container site-footer__inner">
-        <strong>{site.name}</strong>
-        <span>{site.legalNotice}</span>
-      </div>
-    </footer>
+    <div id="icerik">
+      <slot />
+    </div>
+    <SiteFooter />
   </body>
 </html>

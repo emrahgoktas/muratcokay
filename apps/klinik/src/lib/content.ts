@@ -651,7 +651,8 @@ export const serviceDetailTemplate = {
   situationsNote:
     "Aşağıdaki maddeler genel bilgilendirme amaçlıdır ve kişiye özel uygunluk anlamına gelmez:",
   relatedTitle: "Tedaviye Eşlik Eden Yaklaşımlar",
-  blogLabel: "Yalova Sağlık Rehberi",
+  blogLabel: "Yerel rehber",
+  blogGuideLabel: "Bilgi yazısı",
   faqTitle: "Sık Sorulan Sorular",
   faqs: [
     {

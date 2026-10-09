@@ -8,17 +8,17 @@ import { site } from "../data/site";
   description="Aradığınız rehber veya yazı bulunamadı. Yalova sağlık rehberinden devam edin."
   robots="noindex, follow"
 >
-  <main class="container" style="padding: 5rem 0;">
-    <p class="section-intro">404</p>
+  <main class="container page-empty">
+    <p class="kicker">404</p>
     <h1>Aradığınız sayfa bulunamadı</h1>
-    <p>
+    <p class="lede">
       Bağlantı değişmiş olabilir. Rehberler, yazılar veya ana sayfadan devam
       edebilirsiniz. Bu içerik bilgilendirme amaçlıdır.
     </p>
-    <nav class="site-nav" aria-label="Önerilen sayfalar" style="margin-top: 1.5rem;">
+    <nav class="site-nav" aria-label="Önerilen sayfalar">
       <a href="/">{site.navigation.home}</a>
       <a href="/rehberler/">{site.navigation.guides}</a>
-      <a href="/#alt-konular">{site.navigation.articles}</a>
+      <a href="/yazilar/">{site.navigation.articles}</a>
       <a href="/yazar/">Yazar</a>
     </nav>
   </main>

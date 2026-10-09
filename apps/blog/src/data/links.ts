@@ -1,3 +1,28 @@
+import { sites } from "@muratcokay/content";
+import { localPlaceClinicLinks } from "./authority/yalova-hizmet-yerleri";
+
+export const pillarClinicCtas: Record<
+  string,
+  { url: string; label: string }
+> = {
+  "medikal-estetik": {
+    url: `${sites.klinik}/hizmetler`,
+    label: "Yalova medikal estetik yaklaşımları hakkında bilgi",
+  },
+  "butuncul-saglik": {
+    url: `${sites.klinik}/hizmetler`,
+    label: "Yalova bütüncül sağlık yaklaşımları hakkında bilgi",
+  },
+  getat: {
+    url: `${sites.klinik}/hizmetler`,
+    label: "Yalova GETAT yaklaşımları hakkında bilgi",
+  },
+  "yalova-saglik": {
+    url: `${sites.klinik}/iletisim`,
+    label: "Yalova Merkez klinik iletişim bilgileri",
+  },
+};
+
 export const clinicLinks: Record<
   string,
   { url: string; anchor: string }
@@ -114,4 +139,5 @@ export const clinicLinks: Record<
     url: "https://uzmdrmuratcokay.com.tr/iletisim",
     anchor: "Yalova Merkez bütüncül sağlık kliniği iletişim bilgileri",
   },
+  ...localPlaceClinicLinks,
 };

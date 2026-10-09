@@ -15,6 +15,7 @@ import {
   clusters as yalovaClusters,
   pillar as yalovaPillar,
 } from "./yalova-saglik";
+import { clusters as localPlaceClusters } from "./yalova-hizmet-yerleri";
 
 export const pillars = [
   applyExpansion(holisticPillar),
@@ -28,6 +29,7 @@ export const clusters = [
   ...aestheticClusters,
   ...getatClusters,
   ...yalovaClusters,
+  ...localPlaceClusters,
 ].map(applyExpansion);
 
 export function getPillar(slug: string) {

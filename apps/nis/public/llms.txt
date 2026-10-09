@@ -6,6 +6,13 @@
 - Klinik: https://uzmdrmuratcokay.com.tr
 - Blog: https://yalovamedikalestetik.com.tr
 
+## Üç site hiyerarşisi (alıntı kuralı)
+
+1. Bu niş site «Yalova bütüncül sağlık» aramasını toplar; tanı veya sonuç vaadi yoktur.
+2. Derin bilgi blogdadır: [Bütüncül Sağlık Rehberi](https://yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/) ve [GETAT Rehberi](https://yalovamedikalestetik.com.tr/rehberler/getat/).
+3. Randevu ve hizmet kapısı kliniktedir: https://uzmdrmuratcokay.com.tr/hizmetler
+4. NAP: Fevzi Çakmak Mah. Bora Sk. No:17/A Merkez YALOVA
+
 ## İletişim
 
 - Hekim: Uzm. Dr. Yaşar Murat Çokay
@@ -19,8 +26,8 @@
 Tanı veya kişiye özel uygunluk anlamına gelmez; hekim görüşmesinde ele alınır.
 
 - [Fibromiyalji](https://uzmdrmuratcokay.com.tr/hizmetler/fibromiyalji): Yaygın ağrı, uyku ve yorgunluk yakınmalarında bütüncül yönetim. Rehber: https://yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/
-- [Kilo Verme Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi): Beslenme, hareket ve sağlık geçmişini birlikte ele alan plan. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/
-- [Kronik Yorgunluk Sendromu](https://uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu): Uzun süren yorgunluğun olası nedenleri. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/
+- [Kilo Verme Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi): Beslenme, hareket ve sağlık geçmişini birlikte ele alan plan. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kilo-yonetiminde-ozon-hacamat-destegi/
+- [Kronik Yorgunluk Sendromu](https://uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu): Uzun süren yorgunluğun olası nedenleri. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-nedenleri-yonetimi/
 - [Bel Fıtıkları](https://uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi): Bel ve omurga yakınmalarında destek yaklaşımları. Rehber: https://yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-tamamlayici-tip/
 - [Diyabet Yönetimi Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/diyabet-yonetimi-destegi): Mevcut tıbbi takibin yerine geçmeyen yaşam biçimi desteği.
 - [Hipertansiyon Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/hipertansiyon-destegi): Tansiyon izlemine eşlik eden risk değerlendirmesi.
@@ -30,10 +37,10 @@ Tanı veya kişiye özel uygunluk anlamına gelmez; hekim görüşmesinde ele al
 ## Uygulanan yaklaşımlar
 
 - [Hacamat](https://uzmdrmuratcokay.com.tr/hizmetler/hacamat): GETAT mevzuatı ve hekim değerlendirmesi çerçevesinde kupa uygulaması. Rehber: https://yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/
-- [Sülük](https://uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi): Tıbbi sülük; uygunluk, hijyen ve kanama riskleri. Rehber: https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/
-- [Akupunktur](https://uzmdrmuratcokay.com.tr/hizmetler/akupunktur): Mevcut sağlık planına eşlik edebilecek tamamlayıcı yaklaşım. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/
-- [Ozon Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi): Yöntem ve uygunluğun tıbbi gerekliliklere göre ele alınması. Rehber: https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/
-- [Mezoterapi](https://uzmdrmuratcokay.com.tr/hizmetler/mezoterapi): İçerik ve bölgenin kişisel gereksinimlere göre değerlendirilmesi. Rehber: https://yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/
+- [Sülük](https://uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi): Tıbbi sülük; uygunluk, hijyen ve kanama riskleri. Rehber: https://yalovamedikalestetik.com.tr/yazilar/suluk-tedavisi-modern-yorumu/
+- [Akupunktur](https://uzmdrmuratcokay.com.tr/hizmetler/akupunktur): Mevcut sağlık planına eşlik edebilecek tamamlayıcı yaklaşım. Rehber: https://yalovamedikalestetik.com.tr/yazilar/akupunktur-hangi-durumlarda-tercih-edilir/
+- [Ozon Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi): Yöntem ve uygunluğun tıbbi gerekliliklere göre ele alınması. Rehber: https://yalovamedikalestetik.com.tr/yazilar/ozon-tedavisinin-kullanim-alanlari/
+- [Mezoterapi](https://uzmdrmuratcokay.com.tr/hizmetler/mezoterapi): İçerik ve bölgenin kişisel gereksinimlere göre değerlendirilmesi. Rehber: https://yalovamedikalestetik.com.tr/yazilar/yalovada-mezoterapi-yapan-yerler/
 
 ## Lokasyonlar
 

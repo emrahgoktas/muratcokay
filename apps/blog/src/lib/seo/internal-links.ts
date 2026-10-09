@@ -1,4 +1,6 @@
 import { clusters, pillars } from "../../data/authority";
+import { localPlaceKeywordRules } from "../../data/authority/yalova-hizmet-yerleri";
+import { legacyRedirects } from "../../data/legacy-redirects";
 import { posts } from "../../data/posts";
 import { site } from "../../data/site";
 
@@ -56,6 +58,8 @@ export const clinicServiceUrls = {
   suluk: `${CLINIC_URL}/hizmetler/suluk-tedavisi`,
   akupunktur: `${CLINIC_URL}/hizmetler/akupunktur`,
   ozon: `${CLINIC_URL}/hizmetler/ozon-tedavisi`,
+  lazer: `${CLINIC_URL}/hizmetler/lazer`,
+  ipAski: `${CLINIC_URL}/hizmetler/ip-aski`,
   about: `${CLINIC_URL}/hakkimda`,
   contact: `${CLINIC_URL}/iletisim`,
   services: `${CLINIC_URL}/hizmetler`,
@@ -90,6 +94,26 @@ export const articleToClinic: Record<string, { url: string; title: string }> = {
   "yalovadaki-saglik-kuruluslari-rehberi": { url: clinicServiceUrls.contact, title: "Klinik iletişim" },
   "yalovanin-termal-sulari-ve-saglik": { url: clinicServiceUrls.services, title: "Yalova bütüncül sağlık yaklaşımları" },
   "yalovada-butuncul-saglik-adresleri": { url: clinicServiceUrls.contact, title: "Klinik iletişim" },
+  "yalovada-botoks-yapan-yerler": { url: clinicServiceUrls.botoks, title: "Yalova botoks uygulaması" },
+  "yalovada-dolgu-yapan-yerler": { url: clinicServiceUrls.dolgu, title: "Yalova dolgu uygulaması" },
+  "yalovada-sivi-yuz-germe-yapan-yerler": { url: clinicServiceUrls.siviYuz, title: "Yalova sıvı yüz germe" },
+  "yalovada-leke-tedavisi-yapan-yerler": { url: clinicServiceUrls.leke, title: "Yalova leke ve matlık yaklaşımı" },
+  "yalovada-sac-dokulmesi-tedavisi-yapan-yerler": { url: clinicServiceUrls.sac, title: "Yalova saç dökülmesi desteği" },
+  "yalovada-mezoterapi-yapan-yerler": { url: clinicServiceUrls.mezoterapi, title: "Yalova mezoterapi yaklaşımı" },
+  "yalovada-lazer-yapan-yerler": { url: clinicServiceUrls.lazer, title: "Yalova lazer uygulaması" },
+  "yalovada-ip-aski-yapan-yerler": { url: clinicServiceUrls.ipAski, title: "Yalova ip askı yaklaşımı" },
+  "yalovada-fibromiyalji-tedavisi-yapan-yerler": { url: clinicServiceUrls.fibro, title: "Yalova fibromiyalji desteği" },
+  "yalovada-kilo-verme-destegi-alan-yerler": { url: clinicServiceUrls.kilo, title: "Yalova kilo yönetimi desteği" },
+  "yalovada-kronik-yorgunluk-destegi-alan-yerler": { url: clinicServiceUrls.yorgunluk, title: "Yalova kronik yorgunluk desteği" },
+  "yalovada-bel-fitigi-destegi-alan-yerler": { url: clinicServiceUrls.bel, title: "Yalova bel ve omurga desteği" },
+  "yalovada-diyabet-destegi-alan-yerler": { url: clinicServiceUrls.diyabet, title: "Yalova diyabet yönetimi desteği" },
+  "yalovada-hipertansiyon-destegi-alan-yerler": { url: clinicServiceUrls.hiper, title: "Yalova hipertansiyon desteği" },
+  "yalovada-varis-destegi-alan-yerler": { url: clinicServiceUrls.varis, title: "Yalova varis desteği" },
+  "yalovada-hemoroid-destegi-alan-yerler": { url: clinicServiceUrls.hemoroid, title: "Yalova hemoroid desteği" },
+  "yalovada-hacamat-yapan-yerler": { url: clinicServiceUrls.hacamat, title: "Yalova hacamat uygulaması" },
+  "yalovada-suluk-tedavisi-yapan-yerler": { url: clinicServiceUrls.suluk, title: "Yalova tıbbi sülük uygulaması" },
+  "yalovada-akupunktur-yapan-yerler": { url: clinicServiceUrls.akupunktur, title: "Yalova akupunktur yaklaşımı" },
+  "yalovada-ozon-tedavisi-yapan-yerler": { url: clinicServiceUrls.ozon, title: "Yalova ozon uygulaması" },
 };
 
 const pillarRecords: InternalLink[] = pillars.map((pillar) => ({
@@ -121,30 +145,13 @@ const clusterRecords: InternalLink[] = clusters.map((cluster) => ({
   keywords: cluster.keywords,
 }));
 
-const legacyRecords: InternalLink[] = posts
-  .filter(
-    (post) =>
-      !post.noindex &&
-      !clusters.some((cluster) => cluster.slug === post.slug),
-  )
-  .map((post) => ({
-    id: `legacy-${post.slug}`,
-    title: post.title,
-    url: `${BLOG_URL}/yazilar/${post.slug}/`,
-    path: `/yazilar/${post.slug}/`,
-    site: "blog" as const,
-    kind: "article" as const,
-    category: categoryMap[post.category] ?? "holistic",
-    keywords: [post.title],
-  }));
-
 export const linkCatalog: InternalLink[] = [
   { id: "blog-home", title: "Ana Sayfa", url: `${BLOG_URL}/`, path: "/", site: "blog", kind: "page", category: "site", keywords: [] },
   { id: "blog-guides", title: "Rehberler", url: `${BLOG_URL}/rehberler/`, path: "/rehberler/", site: "blog", kind: "page", category: "site", keywords: [] },
+  { id: "blog-articles", title: "Yazılar", url: `${BLOG_URL}/yazilar/`, path: "/yazilar/", site: "blog", kind: "page", category: "site", keywords: ["yazılar"] },
   { id: "blog-author", title: "Yazar profili", url: `${BLOG_URL}/yazar/`, path: "/yazar/", site: "blog", kind: "page", category: "site", keywords: ["yazar"] },
   ...pillarRecords,
   ...clusterRecords,
-  ...legacyRecords,
   { id: "clinic-about", title: "Uzm. Dr. Yaşar Murat Çokay", url: clinicServiceUrls.about, path: "/hakkimda", site: "clinic", kind: "page", category: "site", keywords: ["hakkımda"] },
   { id: "niche-home", title: "Yalova Bütüncül Sağlık", url: `${NICHE_URL}/`, path: "/", site: "niche", kind: "page", category: "holistic", keywords: ["bütüncül sağlık"] },
 ];
@@ -175,6 +182,9 @@ export const keywordMap: KeywordRule[] = [
   { term: "ozon", url: "/yazilar/ozon-tedavisinin-kullanim-alanlari/" },
   { term: "PRP", url: "/yazilar/sac-dokulmesinde-mezoterapi-prp/" },
   { term: "termal", url: "/yazilar/yalovanin-termal-sulari-ve-saglik/" },
+  { term: "lazer", url: "/yazilar/yalovada-lazer-yapan-yerler/" },
+  { term: "ip askı", url: "/yazilar/yalovada-ip-aski-yapan-yerler/" },
+  ...localPlaceKeywordRules,
 ].sort((left, right) => right.term.length - left.term.length);
 
 function normalizeUrl(url = "") {
@@ -313,6 +323,177 @@ export function getRelatedContent(input: {
     .map((entry) => entry.item);
 }
 
+export const clusterTwins: Record<
+  string,
+  { slug: string; title: string; kind: "guide" | "local" }
+> = {
+  "botoks-kimler-icin-uygundur": {
+    slug: "yalovada-botoks-yapan-yerler",
+    title: "Yalova'da Botoks Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-botoks-yapan-yerler": {
+    slug: "botoks-kimler-icin-uygundur",
+    title: "Botoks: Kimler İçin Uygundur?",
+    kind: "guide",
+  },
+  "dogal-gorunumlu-dolgu-uygulamalari": {
+    slug: "yalovada-dolgu-yapan-yerler",
+    title: "Yalova'da Dolgu Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-dolgu-yapan-yerler": {
+    slug: "dogal-gorunumlu-dolgu-uygulamalari",
+    title: "Doğal Görünümlü Dolgu Uygulamaları",
+    kind: "guide",
+  },
+  "sivi-yuz-germe-hacim-vermeden-sikilasma": {
+    slug: "yalovada-sivi-yuz-germe-yapan-yerler",
+    title: "Yalova'da Sıvı Yüz Germe Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-sivi-yuz-germe-yapan-yerler": {
+    slug: "sivi-yuz-germe-hacim-vermeden-sikilasma",
+    title: "Sıvı Yüz Germe: Hacim Vermeden Sıkılaşma",
+    kind: "guide",
+  },
+  "yuz-lekeleri-matlik-bilimsel-yaklasimlar": {
+    slug: "yalovada-leke-tedavisi-yapan-yerler",
+    title: "Yalova'da Leke Tedavisi Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-leke-tedavisi-yapan-yerler": {
+    slug: "yuz-lekeleri-matlik-bilimsel-yaklasimlar",
+    title: "Yüz Lekeleri ve Matlık: Bilimsel Yaklaşımlar",
+    kind: "guide",
+  },
+  "sac-dokulmesinde-mezoterapi-prp": {
+    slug: "yalovada-sac-dokulmesi-tedavisi-yapan-yerler",
+    title: "Yalova'da Saç Dökülmesi Tedavisi Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-sac-dokulmesi-tedavisi-yapan-yerler": {
+    slug: "sac-dokulmesinde-mezoterapi-prp",
+    title: "Saç Dökülmesinde Mezoterapi ve PRP",
+    kind: "guide",
+  },
+  "yalovada-mezoterapi-yapan-yerler": {
+    slug: "sac-dokulmesinde-mezoterapi-prp",
+    title: "Saç Dökülmesinde Mezoterapi ve PRP",
+    kind: "guide",
+  },
+  "fibromiyalji-ile-yasam": {
+    slug: "yalovada-fibromiyalji-tedavisi-yapan-yerler",
+    title: "Yalova'da Fibromiyalji Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-fibromiyalji-tedavisi-yapan-yerler": {
+    slug: "fibromiyalji-ile-yasam",
+    title: "Fibromiyalji ile Yaşam",
+    kind: "guide",
+  },
+  "kronik-yorgunluk-nedenleri-yonetimi": {
+    slug: "yalovada-kronik-yorgunluk-destegi-alan-yerler",
+    title: "Yalova'da Kronik Yorgunluk Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-kronik-yorgunluk-destegi-alan-yerler": {
+    slug: "kronik-yorgunluk-nedenleri-yonetimi",
+    title: "Kronik Yorgunluk Sendromu: Nedenleri ve Yönetimi",
+    kind: "guide",
+  },
+  "bel-fitiklarinda-tamamlayici-tip": {
+    slug: "yalovada-bel-fitigi-destegi-alan-yerler",
+    title: "Yalova'da Bel Fıtığı Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-bel-fitigi-destegi-alan-yerler": {
+    slug: "bel-fitiklarinda-tamamlayici-tip",
+    title: "Bel Fıtıklarında Tamamlayıcı Tıp",
+    kind: "guide",
+  },
+  "diyabet-hipertansiyon-butuncul-destek": {
+    slug: "yalovada-diyabet-destegi-alan-yerler",
+    title: "Yalova'da Diyabet Yönetimi Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-diyabet-destegi-alan-yerler": {
+    slug: "diyabet-hipertansiyon-butuncul-destek",
+    title: "Diyabet ve Hipertansiyonda Bütüncül Destek",
+    kind: "guide",
+  },
+  "yalovada-hipertansiyon-destegi-alan-yerler": {
+    slug: "diyabet-hipertansiyon-butuncul-destek",
+    title: "Diyabet ve Hipertansiyonda Bütüncül Destek",
+    kind: "guide",
+  },
+  "varis-hemoroid-suluk-tedavisinin-yeri": {
+    slug: "yalovada-varis-destegi-alan-yerler",
+    title: "Yalova'da Varis Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-varis-destegi-alan-yerler": {
+    slug: "varis-hemoroid-suluk-tedavisinin-yeri",
+    title: "Varis ve Hemoroid: Sülük Tedavisinin Yeri",
+    kind: "guide",
+  },
+  "yalovada-hemoroid-destegi-alan-yerler": {
+    slug: "varis-hemoroid-suluk-tedavisinin-yeri",
+    title: "Varis ve Hemoroid: Sülük Tedavisinin Yeri",
+    kind: "guide",
+  },
+  "kilo-yonetiminde-ozon-hacamat-destegi": {
+    slug: "yalovada-kilo-verme-destegi-alan-yerler",
+    title: "Yalova'da Kilo Verme Desteği Alan Yerler",
+    kind: "local",
+  },
+  "yalovada-kilo-verme-destegi-alan-yerler": {
+    slug: "kilo-yonetiminde-ozon-hacamat-destegi",
+    title: "Kilo Yönetiminde Ozon ve Hacamat Desteği",
+    kind: "guide",
+  },
+  "hacamat-nedir-bilimsel-perspektif": {
+    slug: "yalovada-hacamat-yapan-yerler",
+    title: "Yalova'da Hacamat Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-hacamat-yapan-yerler": {
+    slug: "hacamat-nedir-bilimsel-perspektif",
+    title: "Hacamat Nedir? Bilimsel Perspektif",
+    kind: "guide",
+  },
+  "akupunktur-hangi-durumlarda-tercih-edilir": {
+    slug: "yalovada-akupunktur-yapan-yerler",
+    title: "Yalova'da Akupunktur Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-akupunktur-yapan-yerler": {
+    slug: "akupunktur-hangi-durumlarda-tercih-edilir",
+    title: "Akupunktur Hangi Durumlarda Tercih Edilir?",
+    kind: "guide",
+  },
+  "suluk-tedavisi-modern-yorumu": {
+    slug: "yalovada-suluk-tedavisi-yapan-yerler",
+    title: "Yalova'da Sülük Tedavisi Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-suluk-tedavisi-yapan-yerler": {
+    slug: "suluk-tedavisi-modern-yorumu",
+    title: "Sülük Tedavisi: Modern Yorumu",
+    kind: "guide",
+  },
+  "ozon-tedavisinin-kullanim-alanlari": {
+    slug: "yalovada-ozon-tedavisi-yapan-yerler",
+    title: "Yalova'da Ozon Tedavisi Yapan Yerler",
+    kind: "local",
+  },
+  "yalovada-ozon-tedavisi-yapan-yerler": {
+    slug: "ozon-tedavisinin-kullanim-alanlari",
+    title: "Ozon Tedavisinin Kullanım Alanları",
+    kind: "guide",
+  },
+};
+
 export function siblingClusters(pillarSlug: string, currentSlug: string) {
   return clusters.filter(
     (cluster) => cluster.pillarSlug === pillarSlug && cluster.slug !== currentSlug,
@@ -323,10 +504,12 @@ export function blogKnownPaths() {
   return [
     "/",
     "/rehberler/",
+    "/yazilar/",
     "/yazar/",
+    "/harita/",
     ...pillars.map((pillar) => `/rehberler/${pillar.slug}/`),
     ...clusters.map((cluster) => `/yazilar/${cluster.slug}/`),
-    ...posts.map((post) => `/yazilar/${post.slug}/`),
+    ...legacyRedirects.map((redirect) => `/yazilar/${redirect.from}/`),
   ];
 }
 

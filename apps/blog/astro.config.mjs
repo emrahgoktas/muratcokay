@@ -2,19 +2,16 @@
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
+import { astroRedirects } from "./src/data/legacy-redirects.ts";
 import { mediaForPath } from "./src/lib/media.ts";
-import { posts } from "./src/data/posts.ts";
+import { lastmodForPath, sitemapPriority } from "./src/lib/seo/dates.ts";
 
 const site = "https://yalovamedikalestetik.com.tr";
-const noindexPaths = new Set(
-  posts
-    .filter((post) => post.noindex)
-    .map((post) => `/yazilar/${post.slug}/`),
-);
 
 export default defineConfig({
   site,
   trailingSlash: "always",
+  redirects: astroRedirects(),
   compressHTML: true,
   build: {
     inlineStylesheets: "always",
@@ -30,13 +27,13 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter(page) {
-        return !noindexPaths.has(new URL(page).pathname);
-      },
       serialize(item) {
         const pathname = new URL(item.url).pathname;
+        const lastmod = lastmodForPath(pathname);
         return {
           ...item,
+          priority: sitemapPriority(pathname),
+          ...(lastmod ? { lastmod } : {}),
           img: mediaForPath(pathname).map((asset) => ({
             url: new URL(asset.publicPath, site).toString(),
             title: asset.alt,

@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 
+import { clusters, pillars } from "../data/authority";
 import { site } from "../data/site";
-import { allMedia } from "../lib/media";
+import { mediaCatalog, mediaForPath, type MediaAsset } from "../lib/media";
 
 function escapeXml(value: string) {
   return value
@@ -11,17 +12,38 @@ function escapeXml(value: string) {
     .replaceAll('"', "&quot;");
 }
 
+const imagePages: Array<{ path: string; assets: readonly MediaAsset[] }> = [
+  { path: "/", assets: [mediaCatalog.hero] },
+  { path: "/rehberler/", assets: [mediaCatalog.hero] },
+  { path: "/yazilar/", assets: [mediaCatalog.hero] },
+  { path: "/yazar/", assets: [mediaCatalog.portrait] },
+  { path: "/harita/", assets: [mediaCatalog.kent] },
+  ...pillars.map((pillar) => {
+    const path = `/rehberler/${pillar.slug}/`;
+    return { path, assets: mediaForPath(path) };
+  }),
+  ...clusters.map((cluster) => {
+    const path = `/yazilar/${cluster.slug}/`;
+    return { path, assets: mediaForPath(path) };
+  }),
+];
+
 export const GET: APIRoute = () => {
-  const urls = allMedia
-    .map((asset) => {
-      const loc = new URL(asset.publicPath, site.url).toString();
-      return `  <url>
-    <loc>${escapeXml(site.url)}/</loc>
-    <image:image>
-      <image:loc>${escapeXml(loc)}</image:loc>
+  const urls = imagePages
+    .map((page) => {
+      const loc = new URL(page.path, site.url).toString();
+      const images = page.assets
+        .map(
+          (asset) => `    <image:image>
+      <image:loc>${escapeXml(new URL(asset.publicPath, site.url).toString())}</image:loc>
       <image:title>${escapeXml(asset.alt)}</image:title>
       <image:caption>${escapeXml(asset.alt)}</image:caption>
-    </image:image>
+    </image:image>`,
+        )
+        .join("\n");
+      return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+${images}
   </url>`;
     })
     .join("\n");

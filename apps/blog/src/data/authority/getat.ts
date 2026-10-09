@@ -11,6 +11,10 @@ export const pillar = createPillar({
     "akupunktur-hangi-durumlarda-tercih-edilir",
     "suluk-tedavisi-modern-yorumu",
     "ozon-tedavisinin-kullanim-alanlari",
+    "yalovada-hacamat-yapan-yerler",
+    "yalovada-suluk-tedavisi-yapan-yerler",
+    "yalovada-akupunktur-yapan-yerler",
+    "yalovada-ozon-tedavisi-yapan-yerler",
   ],
   introduction: [
     "Geleneksel ve tamamlayıcı tıp (GETAT), hekim değerlendirmesiyle ve yürürlükteki mevzuat çerçevesinde konuşulabilen yaklaşımları kapsar. Yalova'da hacamat, akupunktur, sülük ve ozon başlıkları sık aranır. Bu rehber, bu başlıkları mucize vaadi olmadan, yönetim ve destek dilinde açıklar.",

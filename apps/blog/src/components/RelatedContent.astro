@@ -1,8 +1,10 @@
 ---
+import MediaFrame from "./MediaFrame.astro";
 import {
   getRelatedContent,
   type LinkCategory,
 } from "../lib/seo/internal-links";
+import { mediaCatalog, mediaForPath, THUMB_SIZES } from "../lib/media";
 
 interface Props {
   currentPath: string;
@@ -16,20 +18,43 @@ const items = getRelatedContent({
   category,
   keywords,
   limit: 4,
-});
+}).map((item) => ({
+  ...item,
+  media:
+    item.site === "blog"
+      ? (mediaForPath(item.path)[0] ?? mediaCatalog.hero)
+      : mediaCatalog.hero,
+}));
 ---
 
 {
   items.length > 0 && (
     <section class="related-content" aria-labelledby="related-content-title">
       <div class="container">
-        <h2 id="related-content-title">İlgili İçerikler</h2>
+        <p class="kicker">Okumaya devam</p>
+        <h2 id="related-content-title">İlgili içerikler</h2>
         <ul>
           {items.map((item) => (
             <li>
-              <a href={item.site === "blog" ? item.path : item.url}>
-                <span>{item.kind === "pillar" ? "Ana rehber" : item.kind === "article" ? "Yazı" : "Sayfa"}</span>
-                <strong>{item.title}</strong>
+              <a
+                class="related-card"
+                href={item.site === "blog" ? item.path : item.url}
+              >
+                <MediaFrame
+                  class="related-card__media"
+                  media={item.media}
+                  sizes={THUMB_SIZES}
+                />
+                <div class="related-card__body">
+                  <span>
+                    {item.kind === "pillar"
+                      ? "Ana rehber"
+                      : item.kind === "article"
+                        ? "Yazı"
+                        : "Sayfa"}
+                  </span>
+                  <strong>{item.title}</strong>
+                </div>
               </a>
             </li>
           ))}
