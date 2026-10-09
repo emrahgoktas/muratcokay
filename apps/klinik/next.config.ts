@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_SITE_URL:
       process.env.NEXT_PUBLIC_SITE_URL ?? siteContent.seo.siteUrl,
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID ?? "G-5K583PP0W4",
   },
   allowedDevOrigins: ["127.0.0.1"],
   poweredByHeader: false,
