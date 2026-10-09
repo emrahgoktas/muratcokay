@@ -21,8 +21,8 @@ export const contactFormUi = {
   consent:
     "Bu iletinin randevu ve genel bilgi talebi olduğunu, tıbbi tavsiye veya sonuç vaadi içermediğini kabul ediyorum.",
   submitWhatsapp: "WhatsApp ile gönder",
-  submitEmail: "E-posta ile gönder",
-  success: "İletişim uygulaması açıldı. Gönderimi orada tamamlayabilirsiniz.",
+  submitEmail: "Talebi gönder",
+  success: "Talebiniz klinik e-posta adresine iletildi.",
   error: "Ad, telefon, konu ve onay alanlarını kontrol edin.",
   topics: [
     "Genel bilgi / randevu",

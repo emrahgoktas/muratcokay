@@ -35,7 +35,6 @@ const nextConfig: NextConfig = {
     "@muratcokay/seo",
     "@muratcokay/ui",
   ],
-  serverExternalPackages: ["nodemailer"],
   env: {
     NEXT_PUBLIC_SITE_URL:
       process.env.NEXT_PUBLIC_SITE_URL ?? siteContent.seo.siteUrl,

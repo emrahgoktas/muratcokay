@@ -36,33 +36,9 @@ async function sendWithResend(subject: string, body: string) {
   return true;
 }
 
-async function sendWithSmtp(subject: string, body: string) {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!host || !user || !pass) return false;
-
-  const nodemailer = (await import("nodemailer")).default;
-  const port = Number(process.env.SMTP_PORT || "465");
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-  });
-
-  await transporter.sendMail({
-    from: mailFrom(),
-    to: mailTo(),
-    subject,
-    text: body,
-  });
-
-  return true;
-}
-
 async function sendWithFormSubmit(subject: string, body: string) {
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://uzmdrmuratcokay.com.tr";
+  const site =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://uzmdrmuratcokay.com.tr";
   const response = await fetch(
     `https://formsubmit.co/ajax/${encodeURIComponent(mailTo())}`,
     {
@@ -101,6 +77,5 @@ async function sendWithFormSubmit(subject: string, body: string) {
 
 export async function deliverAppointmentMail(subject: string, body: string) {
   if (await sendWithResend(subject, body)) return;
-  if (await sendWithSmtp(subject, body)) return;
   await sendWithFormSubmit(subject, body);
 }
