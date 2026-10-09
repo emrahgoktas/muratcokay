@@ -70,6 +70,9 @@ const defaultSocial = withSocialMeta({
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteContent.seo.siteUrl),
+  verification: {
+    google: "aJE1MNmOz2Vmnj_WjRXDuWB8MHzfG0aaBMp6Q-9Su8k",
+  },
   title: {
     default: siteContent.brand.siteName,
     template: `%s | ${siteContent.brand.name}`,
