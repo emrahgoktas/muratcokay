@@ -8,6 +8,7 @@ import {
   appointmentCategories,
   appointmentSteps,
   appointmentWindows,
+  buildAppointmentMail,
   generalTopic,
   todayIsoDate,
   type AppointmentCategory,
@@ -16,6 +17,7 @@ import {
   type AppointmentWindow,
 } from "@/lib/appointment";
 import { contactFormUi, contactHrefs } from "@/lib/contact-ui";
+import { deliverClinicMail } from "@/lib/send-clinic-mail";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-primary/15 bg-white px-4 py-3 text-base text-foreground outline-none focus:border-primary";
@@ -98,10 +100,8 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
 
     setStatus("sending");
     try {
-      const response = await fetch("/api/randevu", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const mail = buildAppointmentMail(
+        {
           category,
           topicSlug,
           windowId,
@@ -111,13 +111,25 @@ export function AppointmentWizard({ topics }: { topics: AppointmentTopic[] }) {
           note: note.trim(),
           consent,
           website,
-        }),
-      });
-      if (!response.ok) {
-        setStatus("failed");
-        return;
-      }
-      setStatus("sent");
+        },
+        topics,
+      );
+      const delivered = await deliverClinicMail(
+        "/api/randevu",
+        {
+          category,
+          topicSlug,
+          windowId,
+          date,
+          name: name.trim(),
+          phone: phone.trim(),
+          note: note.trim(),
+          consent,
+          website,
+        },
+        mail,
+      );
+      setStatus(delivered ? "sent" : "failed");
     } catch {
       setStatus("failed");
     }

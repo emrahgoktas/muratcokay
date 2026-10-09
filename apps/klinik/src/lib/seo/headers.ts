@@ -18,7 +18,7 @@ export const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      "connect-src 'self' https://formsubmit.co",
       "frame-src https://www.openstreetmap.org https://www.google.com https://maps.google.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",

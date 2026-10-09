@@ -3,6 +3,7 @@
 import { FormEvent, useRef, useState } from "react";
 
 import { contactFormUi as copy, contactHrefs } from "@/lib/contact-ui";
+import { deliverClinicMail } from "@/lib/send-clinic-mail";
 
 function readFields(form: HTMLFormElement) {
   const data = new FormData(form);
@@ -65,19 +66,32 @@ export function ContactForm() {
     }
     setStatus("sending");
     try {
-      const response = await fetch("/api/mesaj", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const subject = `Bilgi talebi: ${fields.topic}`;
+      const text = [
+        "uzmdrmuratcokay.com.tr iletişim formu",
+        "",
+        `Ad: ${fields.name}`,
+        `Telefon: ${fields.phone}`,
+        `Konu: ${fields.topic}`,
+        fields.note ? `Not: ${fields.note}` : null,
+        "",
+        "Bu bir randevu / bilgi talebidir; kayıt tutulmaz.",
+      ]
+        .filter((line) => line !== null)
+        .join("\n");
+      const delivered = await deliverClinicMail(
+        "/api/mesaj",
+        {
           name: fields.name,
           phone: fields.phone,
           topic: fields.topic,
           note: fields.note,
           consent: fields.consent,
           website: fields.website,
-        }),
-      });
-      setStatus(response.ok ? "sent" : "failed");
+        },
+        { subject, body: text },
+      );
+      setStatus(delivered ? "sent" : "failed");
     } catch {
       setStatus("failed");
     }

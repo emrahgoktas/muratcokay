@@ -6,7 +6,7 @@ import {
   parseAppointmentPayload,
 } from "@/lib/appointment";
 import { clientIp, isLimited, sameOrigin } from "@/lib/form-guard";
-import { deliverAppointmentMail } from "@/lib/send-appointment-mail";
+import { sendWithResend } from "@/lib/send-appointment-mail";
 
 export const dynamic = "force-dynamic";
 
@@ -43,9 +43,12 @@ export async function POST(request: Request) {
   const mail = buildAppointmentMail(payload, topics);
 
   try {
-    await deliverAppointmentMail(mail.subject, mail.body);
-    return NextResponse.json({ ok: true });
+    if (await sendWithResend(mail.subject, mail.body)) {
+      return NextResponse.json({ ok: true });
+    }
   } catch {
-    return NextResponse.json({ ok: false }, { status: 502 });
+    return NextResponse.json({ fallback: true });
   }
+
+  return NextResponse.json({ fallback: true });
 }
