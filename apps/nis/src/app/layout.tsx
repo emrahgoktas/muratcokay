@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   title: siteContent.site.title,
   description: siteContent.site.description,
   alternates: { canonical: sites.nis },
+  verification: {
+    google: "vt8TVqCU1ISlgHAdMGDgpORlXh38dP_7GtmV4edkmRg",
+  },
 };
 
 export const viewport: Viewport = {
