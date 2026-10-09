@@ -9,7 +9,7 @@ const tiles = [
     className: "min-h-[18rem] md:col-span-7 md:row-span-2 md:min-h-[32rem]",
   },
   {
-    media: mediaCatalog.akupunktur,
+    media: mediaCatalog.akupunkturRoom,
     label: "Uygulama alanı",
     className: "min-h-[14rem] md:col-span-5",
   },
@@ -24,7 +24,7 @@ const tiles = [
     className: "min-h-[13rem] md:col-span-4",
   },
   {
-    media: mediaCatalog.fibromiyalji,
+    media: mediaCatalog.portrait,
     label: "Muayene ortamı",
     className: "min-h-[13rem] md:col-span-4",
   },

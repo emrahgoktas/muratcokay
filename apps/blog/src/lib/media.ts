@@ -9,6 +9,26 @@ import getat from "../assets/media/yalova-kapak-getat.jpg";
 import hero from "../assets/media/yalova-editorial-hero.jpg";
 import kent from "../assets/media/yalova-kapak-kent.jpg";
 import portrait from "../assets/media/yalova-kapak-yazar.jpg";
+import stillAkupunktur from "../assets/media/yalova-kart-akupunktur.jpg";
+import stillBel from "../assets/media/yalova-kart-bel.jpg";
+import stillBotoks from "../assets/media/yalova-kart-botoks.jpg";
+import stillDiyabet from "../assets/media/yalova-kart-diyabet.jpg";
+import stillDolgu from "../assets/media/yalova-kart-dolgu.jpg";
+import stillFibromiyalji from "../assets/media/yalova-kart-fibromiyalji.jpg";
+import stillHacamat from "../assets/media/yalova-kart-hacamat.jpg";
+import stillHemoroid from "../assets/media/yalova-kart-hemoroid.jpg";
+import stillHipertansiyon from "../assets/media/yalova-kart-hipertansiyon.jpg";
+import stillIpAski from "../assets/media/yalova-kart-ip-aski.jpg";
+import stillKilo from "../assets/media/yalova-kart-kilo.jpg";
+import stillLazer from "../assets/media/yalova-kart-lazer.jpg";
+import stillLeke from "../assets/media/yalova-kart-leke.jpg";
+import stillMezoterapi from "../assets/media/yalova-kart-mezoterapi.jpg";
+import stillOzon from "../assets/media/yalova-kart-ozon.jpg";
+import stillSac from "../assets/media/yalova-kart-sac.jpg";
+import stillSiviYuz from "../assets/media/yalova-kart-sivi-yuz.jpg";
+import stillSuluk from "../assets/media/yalova-kart-suluk.jpg";
+import stillVaris from "../assets/media/yalova-kart-varis.jpg";
+import stillYorgunluk from "../assets/media/yalova-kart-yorgunluk.jpg";
 
 export const IMAGE_QUALITY = { webp: 80, avif: 60 } as const;
 export const IMAGE_WIDTHS = [480, 768, 1200] as const;
@@ -83,6 +103,26 @@ export const mediaCatalog = {
     "Boş hekim çalışma masası — yazar profili",
     "supporting",
   ),
+  botoks: asset("yalova-kart-botoks", stillBotoks, "Botoks değerlendirmesi natürmortu", "supporting"),
+  dolgu: asset("yalova-kart-dolgu", stillDolgu, "Dolgu değerlendirmesi natürmortu", "supporting"),
+  siviYuz: asset("yalova-kart-sivi-yuz", stillSiviYuz, "Sıvı yüz germe natürmortu", "supporting"),
+  leke: asset("yalova-kart-leke", stillLeke, "Leke ve matlık natürmortu", "supporting"),
+  sac: asset("yalova-kart-sac", stillSac, "Saç dökülmesi natürmortu", "supporting"),
+  mezoterapi: asset("yalova-kart-mezoterapi", stillMezoterapi, "Mezoterapi natürmortu", "supporting"),
+  lazer: asset("yalova-kart-lazer", stillLazer, "Lazer değerlendirmesi natürmortu", "supporting"),
+  ipAski: asset("yalova-kart-ip-aski", stillIpAski, "İp askı natürmortu", "supporting"),
+  fibromiyalji: asset("yalova-kart-fibromiyalji", stillFibromiyalji, "Fibromiyalji natürmortu", "supporting"),
+  kilo: asset("yalova-kart-kilo", stillKilo, "Kilo yönetimi natürmortu", "supporting"),
+  yorgunluk: asset("yalova-kart-yorgunluk", stillYorgunluk, "Kronik yorgunluk natürmortu", "supporting"),
+  bel: asset("yalova-kart-bel", stillBel, "Bel fıtığı natürmortu", "supporting"),
+  diyabet: asset("yalova-kart-diyabet", stillDiyabet, "Diyabet desteği natürmortu", "supporting"),
+  hipertansiyon: asset("yalova-kart-hipertansiyon", stillHipertansiyon, "Hipertansiyon natürmortu", "supporting"),
+  varis: asset("yalova-kart-varis", stillVaris, "Varis desteği natürmortu", "supporting"),
+  hemoroid: asset("yalova-kart-hemoroid", stillHemoroid, "Hemoroid değerlendirmesi natürmortu", "supporting"),
+  hacamat: asset("yalova-kart-hacamat", stillHacamat, "Hacamat natürmortu", "supporting"),
+  suluk: asset("yalova-kart-suluk", stillSuluk, "Sülük uygulaması natürmortu", "supporting"),
+  akupunktur: asset("yalova-kart-akupunktur", stillAkupunktur, "Akupunktur natürmortu", "supporting"),
+  ozon: asset("yalova-kart-ozon", stillOzon, "Ozon hazırlık natürmortu", "supporting"),
 } as const;
 
 export const allMedia = Object.values(mediaCatalog);
@@ -96,8 +136,41 @@ export function mediaForPillar(slug: string): MediaAsset {
 }
 
 export function mediaForCluster(
-  cluster: Pick<ClusterContent, "category">,
+  cluster: Pick<ClusterContent, "category" | "slug" | "title">,
 ): MediaAsset {
+  const topic = `${cluster.slug} ${cluster.title}`.toLocaleLowerCase("tr-TR");
+  if (topic.includes("botoks")) return mediaCatalog.botoks;
+  if (topic.includes("dolgu")) return mediaCatalog.dolgu;
+  if (topic.includes("sivi-yuz") || topic.includes("sıvı yüz")) {
+    return mediaCatalog.siviYuz;
+  }
+  if (topic.includes("leke") || topic.includes("matlik") || topic.includes("matlık")) {
+    return mediaCatalog.leke;
+  }
+  if (topic.includes("sac") || topic.includes("saç")) return mediaCatalog.sac;
+  if (topic.includes("mezoterapi") || topic.includes("prp")) {
+    return mediaCatalog.mezoterapi;
+  }
+  if (topic.includes("lazer")) return mediaCatalog.lazer;
+  if (topic.includes("ip-aski") || topic.includes("ip ask")) {
+    return mediaCatalog.ipAski;
+  }
+  if (topic.includes("fibromiyalji")) return mediaCatalog.fibromiyalji;
+  if (topic.includes("kilo")) return mediaCatalog.kilo;
+  if (topic.includes("yorgunluk")) return mediaCatalog.yorgunluk;
+  if (topic.includes("bel-fitik") || topic.includes("bel fıt") || topic.includes("omurga")) {
+    return mediaCatalog.bel;
+  }
+  if (topic.includes("diyabet")) return mediaCatalog.diyabet;
+  if (topic.includes("hipertansiyon") || topic.includes("tansiyon")) {
+    return mediaCatalog.hipertansiyon;
+  }
+  if (topic.includes("varis")) return mediaCatalog.varis;
+  if (topic.includes("hemoroid")) return mediaCatalog.hemoroid;
+  if (topic.includes("hacamat")) return mediaCatalog.hacamat;
+  if (topic.includes("suluk") || topic.includes("sülük")) return mediaCatalog.suluk;
+  if (topic.includes("akupunktur")) return mediaCatalog.akupunktur;
+  if (topic.includes("ozon")) return mediaCatalog.ozon;
   if (cluster.category === "estetik") return mediaCatalog.estetik;
   if (cluster.category === "getat") return mediaCatalog.getat;
   if (cluster.category === "butuncul-saglik") return mediaCatalog.butuncul;

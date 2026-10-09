@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { OptimizedImage } from "@/components/media/OptimizedImage";
 import { EditorialHeading } from "@/components/sections/EditorialHeading";
-import { allMedia } from "@/lib/media/catalog";
+import { mediaForService, mediaForTopic } from "@/lib/media/catalog";
 import {
   CLINIC_URL,
   getRelatedContent,
@@ -49,10 +49,13 @@ export function RelatedContent({
           titleId="related-content-title"
         />
         <ul className="pack-grid mt-8">
-          {items.map((item, index) => {
+          {items.map((item) => {
             const internal = item.site === "clinic";
             const href = internal ? item.path : item.url;
-            const media = allMedia[index % allMedia.length];
+            const serviceSlug = item.path.match(/^\/hizmetler\/([^/]+)/)?.[1];
+            const media = serviceSlug
+              ? mediaForService(serviceSlug)
+              : mediaForTopic(`${item.title} ${item.path} ${item.url}`);
             const body = (
               <>
                 <OptimizedImage

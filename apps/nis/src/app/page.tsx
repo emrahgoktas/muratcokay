@@ -20,7 +20,7 @@ const approachLinks = siteContent.crossSiteLinks.approaches;
 
 const atmosphere = [
   { image: media.hero, label: "Karşılama" },
-  { image: media.akupunktur, label: "Uygulama alanı" },
+  { image: media.roomAkupunktur, label: "Uygulama alanı" },
   { image: media.desk, label: "Değerlendirme" },
   { image: media.termal, label: "Yalova" },
 ] as const;
