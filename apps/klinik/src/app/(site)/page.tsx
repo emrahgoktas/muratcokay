@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AppointmentSection } from "@/components/sections/AppointmentSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Hero } from "@/components/sections/Hero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <TrustBadges />
       <SignatureGallery />
       <ServicesGrid />
+      <AppointmentSection />
       <WhyClinic />
       <RelatedContent currentPath="/" keywords={["medikal estetik", "bütüncül sağlık", "hacamat", "botoks"]} />
       <ContactCTA />

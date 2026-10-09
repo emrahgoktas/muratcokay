@@ -164,7 +164,7 @@ export default async function ServiceDetailPage({
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={siteContent.contact.phone.href}
+              href={siteContent.actions.appointmentHref}
               className={buttonVariants({ size: "lg" })}
             >
               <Phone aria-hidden="true" />
@@ -403,7 +403,7 @@ export default async function ServiceDetailPage({
             </p>
           </div>
           <a
-            href={siteContent.contact.phone.href}
+            href={siteContent.actions.appointmentHref}
             className={buttonVariants({
               variant: "secondary",
               size: "lg",

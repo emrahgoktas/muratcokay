@@ -1128,6 +1128,7 @@ export const siteContent = {
   },
   actions: {
     appointment: "Randevu Al",
+    appointmentHref: "/#randevu",
     exploreServices: "Hizmetleri İncele",
     detailedInformation: "Detaylı Bilgi",
     whatsapp: "WhatsApp",
@@ -1196,10 +1197,16 @@ export const siteContent = {
         detail:
           "Hastane deneyimi ile geleneksel ve tamamlayıcı tıp alanındaki birikimini; bilimsel değerlendirme, açık bilgilendirme ve etik sağlık iletişimi ilkeleriyle bir araya getirir.",
       },
+      appointment: {
+        eyebrow: "Randevu",
+        title: "Değerlendirme randevusu talebi",
+        description:
+          "Alan, konu ve zaman tercihini adım adım seçin. Talep kaydedilmez; e-posta uygulamanız açılır. Uygunluk ve saat hekim tarafından bildirilir.",
+      },
       contactCta: {
         title: "Yalova Merkez'deki kliniğimizde randevu alın",
         description:
-          "Randevu ve genel bilgi için telefonla iletişime geçebilirsiniz.",
+          "Kısa bir talep oluşturun. Bilgiler e-posta ile iletilir; uygunluk hekim tarafından bildirilir.",
       },
     },
     services: {

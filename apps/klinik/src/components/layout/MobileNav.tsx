@@ -49,12 +49,16 @@ export function MobileNav() {
           ))}
         </nav>
         <SheetFooter>
-          <a
-            href={siteContent.contact.phone.href}
-            className={buttonVariants({ size: "lg" })}
+          <SheetClose
+            render={
+              <Link
+                href={siteContent.actions.appointmentHref}
+                className={buttonVariants({ size: "lg" })}
+              />
+            }
           >
             {siteContent.actions.appointment}
-          </a>
+          </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>

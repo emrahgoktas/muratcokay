@@ -34,7 +34,7 @@ export function Header() {
 
         <div className="ml-auto flex shrink-0 items-center gap-2">
           <Link
-            href={siteContent.contact.phone.href}
+            href={siteContent.actions.appointmentHref}
             className={`${buttonVariants({ size: "lg" })} max-md:!hidden`}
           >
             {siteContent.actions.appointment}

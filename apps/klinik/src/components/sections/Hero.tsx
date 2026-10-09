@@ -31,7 +31,7 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
-              href={siteContent.contact.phone.href}
+              href={siteContent.actions.appointmentHref}
               className={`${buttonVariants({ size: "lg" })} min-h-12 px-6`}
             >
               {siteContent.actions.appointment}

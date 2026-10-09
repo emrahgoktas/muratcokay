@@ -318,7 +318,7 @@ export default async function ServiceLocationPage({
             </p>
           </div>
           <a
-            href={siteContent.contact.phone.href}
+            href={siteContent.actions.appointmentHref}
             className={buttonVariants({
               variant: "secondary",
               size: "lg",

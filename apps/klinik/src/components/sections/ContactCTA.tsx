@@ -44,7 +44,7 @@ export function ContactCTA() {
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <Link
-              href={siteContent.contact.phone.href}
+              href={siteContent.actions.appointmentHref}
               className={`${buttonVariants({ size: "lg" })} min-h-12 px-6`}
             >
               <Phone aria-hidden="true" />
