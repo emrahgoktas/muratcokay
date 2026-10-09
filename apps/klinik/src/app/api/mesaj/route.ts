@@ -67,8 +67,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true });
     }
   } catch {
-    return NextResponse.json({ fallback: true });
+    return NextResponse.json({ fallback: true }, { status: 502 });
   }
 
-  return NextResponse.json({ fallback: true });
+  return NextResponse.json({ fallback: true }, { status: 502 });
 }
