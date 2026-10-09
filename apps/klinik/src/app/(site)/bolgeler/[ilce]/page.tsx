@@ -178,7 +178,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           >
             {locationPageContent.popularServicesTitle}
           </h2>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="pack-grid mt-8">
             {popularServices.map((service) => (
               <article
                 key={service.slug}
@@ -225,7 +225,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
             >
               {location.name} İçin Hizmet Bilgileri
             </h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="pack-grid mt-8">
               {locationServicePages.map((item) => (
                 <Link
                   key={item.servicePathSlug}

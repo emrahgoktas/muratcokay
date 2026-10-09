@@ -58,6 +58,61 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+.pack-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pack-grid > * {
+  min-width: 0;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .pack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pack-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pack-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pack-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .pack-grid > :last-child:nth-child(4n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  .pack-grid > :nth-last-child(2):nth-child(4n + 1),
+  .pack-grid > :last-child:nth-child(4n + 2) {
+    grid-column: span 2;
+  }
+
+  .pack-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pack-grid--2 > :last-child:nth-child(4n + 1),
+  .pack-grid--2 > :nth-last-child(2):nth-child(4n + 1),
+  .pack-grid--2 > :last-child:nth-child(4n + 2) {
+    grid-column: auto;
+  }
+
+  .pack-grid--2 > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

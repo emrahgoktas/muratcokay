@@ -227,7 +227,7 @@ export default async function ServiceLocationPage({
           >
             {serviceLocationPageContent.nearbyServicesTitle}
           </h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="pack-grid mt-8">
             {relatedServices.map((relatedService) => (
               <Link
                 key={relatedService.slug}

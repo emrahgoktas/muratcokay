@@ -48,7 +48,7 @@ export function RelatedContent({
           title="İlgili içerikler"
           titleId="related-content-title"
         />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <ul className="pack-grid mt-8">
           {items.map((item, index) => {
             const internal = item.site === "clinic";
             const href = internal ? item.path : item.url;
@@ -75,14 +75,14 @@ export function RelatedContent({
                 {internal ? (
                   <Link
                     href={href}
-                    className="group relative block min-h-56 overflow-hidden rounded-[1.6rem]"
+                    className="group relative block h-full min-h-56 overflow-hidden rounded-[1.6rem]"
                   >
                     {body}
                   </Link>
                 ) : (
                   <a
                     href={href}
-                    className="group relative block min-h-56 overflow-hidden rounded-[1.6rem]"
+                    className="group relative block h-full min-h-56 overflow-hidden rounded-[1.6rem]"
                   >
                     {body}
                   </a>

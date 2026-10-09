@@ -175,7 +175,7 @@ export function ServicesGrid() {
           <div
             id="services-tab-panel"
             role="tabpanel"
-            className="mt-8 grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="pack-grid mt-8"
           >
             {categoryServices.map((service) => (
               <article

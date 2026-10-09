@@ -236,7 +236,7 @@ export default async function ServiceDetailPage({
             >
               Bölgelere Göre {service.baslik}
             </h2>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="pack-grid mt-8">
               {serviceAreas.map((item) => (
                 <Link
                   key={item.locationSlug}
@@ -282,7 +282,7 @@ export default async function ServiceDetailPage({
           <h2 className="text-3xl font-bold tracking-tight text-primary">
             {serviceDetailTemplate.relatedTitle}
           </h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="pack-grid mt-8">
             {relatedServices.map((relatedService) => (
               <Link
                 key={relatedService.slug}

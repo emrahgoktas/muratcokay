@@ -181,8 +181,8 @@ export default function HomePage() {
             title={siteContent.situations.title}
             description={siteContent.situations.description}
           />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {siteContent.situations.items.map((item, index) => {
+          <div className="pack-grid mt-10">
+            {siteContent.situations.items.map((item) => {
               const links = situationLinks[item.title];
               return (
                 <PhotoCard
@@ -190,7 +190,6 @@ export default function HomePage() {
                   image={situationMedia[item.title] ?? media.hero}
                   title={item.title}
                   description={item.description}
-                  featured={index === 0}
                 >
                   {links ? (
                     <div className="mt-auto grid gap-2 pt-5 text-sm font-semibold">
@@ -219,16 +218,13 @@ export default function HomePage() {
             title={siteContent.approaches.title}
             description={siteContent.approaches.description}
           />
-          <div className="mt-10 grid gap-5 lg:grid-cols-12">
-            {siteContent.approaches.items.map((item, index) => {
+          <div className="pack-grid pack-grid--2 mt-10">
+            {siteContent.approaches.items.map((item) => {
               const links = approachLinks[item.title];
-              const wide = index === 0 || index === 2;
               return (
                 <article
                   key={item.title}
-                  className={`group relative min-h-[22rem] overflow-hidden rounded-[1.8rem] ${
-                    wide ? "lg:col-span-7" : "lg:col-span-5"
-                  }`}
+                  className="group relative min-h-[22rem] overflow-hidden rounded-[1.8rem]"
                 >
                   <MediaImage
                     src={(approachMedia[item.title] ?? media.hero).src}
@@ -390,7 +386,7 @@ export default function HomePage() {
             description={siteContent.travel.description}
             tone="light"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="pack-grid mt-10">
             {siteContent.travel.items.map((item) => (
               <article
                 key={item.title}
@@ -438,7 +434,7 @@ export default function HomePage() {
             title={siteContent.reading.title}
             description={siteContent.reading.description}
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="pack-grid mt-10">
             {siteContent.reading.items.map((item, index) => (
               <a
                 key={item.href}

@@ -145,6 +145,47 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+.pack-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pack-grid > * {
+  min-width: 0;
+  height: 100%;
+}
+
+@media (min-width: 640px) {
+  .pack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pack-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pack-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pack-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .pack-grid > :last-child:nth-child(4n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  .pack-grid > :nth-last-child(2):nth-child(4n + 1),
+  .pack-grid > :last-child:nth-child(4n + 2) {
+    grid-column: span 2;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

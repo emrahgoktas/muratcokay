@@ -49,7 +49,7 @@ export default function LocationsPage() {
           <h2 id="location-list-title" className="sr-only">
             {locationPageContent.list.eyebrow}
           </h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="pack-grid">
             {locationCatalog.map((location) => (
               <article
                 key={location.slug}

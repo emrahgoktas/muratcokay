@@ -459,6 +459,16 @@ a {
   margin-top: 2rem;
   padding: 0;
   list-style: none;
+  align-items: stretch;
+}
+
+@media (min-width: 901px) {
+  .pillar-tile-grid > :last-child:nth-child(odd),
+  .visual-card-grid > :last-child:nth-child(odd),
+  .guide-card-grid > :last-child:nth-child(odd),
+  .related-content ul > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 .pillar-tile-grid > li,
