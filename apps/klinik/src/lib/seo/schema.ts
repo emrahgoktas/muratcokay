@@ -1,3 +1,5 @@
+import { doctor } from "@muratcokay/content";
+
 import {
   locationCatalog,
   serviceCatalog,
@@ -90,7 +92,7 @@ export function generatePhysicianSchema(): JsonLdNode {
     telephone: phone,
     email: siteContent.contact.email.display,
     jobTitle: "Medikal Estetik ve GETAT Uzmanı",
-    description: siteContent.brand.biography,
+    description: doctor.biographyParagraphs.join(" "),
     address: postalAddress,
     medicalSpecialty: [
       "Medikal Estetik",
@@ -118,7 +120,7 @@ export function generatePersonSchema(): JsonLdNode {
     url: `${siteUrl}/hakkimda`,
     image: absoluteMediaUrl(siteUrl, mediaCatalog.portrait),
     jobTitle: "Uzm. Dr.",
-    description: `${siteContent.pages.about.introduction} ${siteContent.pages.about.detail}`,
+    description: doctor.biographyParagraphs.join(" "),
     alumniOf: {
       "@type": "EducationalOrganization",
       name: "Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesi",

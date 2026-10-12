@@ -1,6 +1,7 @@
 import {
   brandColors,
   clinicAddress,
+  doctor,
   serviceCatalog,
   serviceCategories,
 } from "@muratcokay/content";
@@ -1077,8 +1078,7 @@ export const siteContent = {
     siteName: "Uzm. Dr. Yaşar Murat Çokay",
     domain: "uzmdrmuratcokay.com.tr",
     tagline: "Medikal Estetik & Bütüncül Sağlık",
-    biography:
-      "Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesinden emekli olup, kendi muayenehanemde GETAT Ünitesi kurdum.",
+    biography: doctor.biographyParagraphs.join(" "),
     values: ["Bilimsel yaklaşım", "Şeffaf bilgilendirme", "Etik sağlık iletişimi"],
   },
   colors: brandColors,
@@ -1192,8 +1192,7 @@ export const siteContent = {
       whyClinic: {
         eyebrow: "Hekim Hakkında",
         title: "Neden Bu Klinik?",
-        description:
-          "Uzm. Dr. Yaşar Murat Çokay, Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesindeki görevinden emekli olduktan sonra çalışmalarını kendi muayenehanesinde sürdürmektedir.",
+        description: doctor.biographyParagraphs[0],
         detail:
           "Hastane deneyimi ile geleneksel ve tamamlayıcı tıp alanındaki birikimini; bilimsel değerlendirme, açık bilgilendirme ve etik sağlık iletişimi ilkeleriyle bir araya getirir.",
       },
@@ -1278,12 +1277,10 @@ export const siteContent = {
       seo: {
         title: "Hakkımda",
         description:
-          "Uzm. Dr. Yaşar Murat Çokay'ın Yalova'daki hekimlik geçmişi, GETAT deneyimi ve sağlık iletişimi yaklaşımı.",
+          "Uzm. Dr. Yaşar Murat Çokay'ın iş yeri hekimliği, medikal estetik ve GETAT geçmişi.",
       },
-      introduction:
-        "Uzm. Dr. Yaşar Murat Çokay, Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesindeki görevinden emekli olduktan sonra çalışmalarını Yalova Merkez'deki muayenehanesinde sürdürmektedir.",
-      detail:
-        "Medikal estetik ve bütüncül sağlık alanındaki değerlendirmelerinde bilimsel yaklaşım, açık bilgilendirme ve etik sağlık iletişimi ilkelerini esas alır.",
+      introduction: doctor.biographyParagraphs[0],
+      detail: doctor.biographyParagraphs.slice(1).join(" "),
     },
     contact: {
       title: "İletişim",

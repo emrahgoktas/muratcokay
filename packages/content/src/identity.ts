@@ -5,7 +5,13 @@ export const doctor = {
   jobTitle: "Medikal Estetik ve GETAT Uzmanı",
   tagline: "Medikal Estetik & Bütüncül Sağlık",
   biography:
-    "Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesinden emekli olup, kendi muayenehanemde GETAT Ünitesi kurdum.",
+    "Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesinden emekli olduktan sonra çalışmalarını kendi muayenehanesinde sürdürmektedir.",
+  biographyParagraphs: [
+    "Uzm. Dr. Yaşar Murat Çokay, yirmi üç yılı aşkın mesleki deneyime sahip bir iş yeri hekimidir. İş yeri hekimliği birikimini, medikal estetik ve bütüncül sağlık yaklaşımıyla birlikte ele alır. Acil durum ve afet yönetimi alanındaki akademik altyapısının yanında, 2004 yılından itibaren geleneksel ve tamamlayıcı tıp uygulamalarına yönelmiştir.",
+    "Hacamat, kupa tedavisi, sülük, akupunktur, ozon ve mezoterapi başlıklarındaki eğitimlerini tamamlamış; Sağlık Bakanlığı onaylı sertifikalarını Medipol Üniversitesi’nden almıştır. Yalova Devlet Hastanesi ve Çınarcık Devlet Hastanesi’nde bu başlıklarda klinik çalışması yürütmüş; aynı kurumlarda başhekim, başhekim yardımcısı ve servis sorumlusu olarak idari ve klinik görevler üstlenmiştir.",
+    "Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesindeki görevinden emekli olduktan sonra çalışmalarını kendi muayenehanesinde sürdürmüştür. 2020 yılında Yalova Merkez’de muayenehanesini kurarak bireysel değerlendirme ve bütüncül sağlık yaklaşımını bu adreste devam ettirmektedir.",
+    "Medikal estetik alanında dolgu, botoks, ip askı ve örümcek ağı uygulamalarına ilişkin sertifikaları vardır. Muayenehanesinde BBL lazer, Endolift, CO2 fraksiyonel lazer, karbon peeling, dövme silme, altın iğne ve epilasyon lazer sistemleriyle çalışır. Saç ekimi uygulamalarını anlaşmalı özel hastane ortamında yürütür.",
+  ],
 } as const;
 
 export const contact = {

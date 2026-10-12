@@ -1,3 +1,5 @@
+import { doctor } from "@muratcokay/content";
+
 import { clusters, pillars } from "../../data/authority";
 import type { ClusterContent, ContentFaq, PillarContent } from "../../data/authority/types";
 import type { BlogPost } from "../../data/posts";
@@ -76,7 +78,7 @@ export function generatePhysicianSchema(): JsonLdNode {
     url: site.authorProfile.url,
     image: absoluteUrl(mediaCatalog.portrait.publicPath),
     jobTitle: "Medikal Estetik ve GETAT Uzmanı",
-    description: site.authorText,
+    description: doctor.biographyParagraphs.join(" "),
     worksFor: { "@id": schemaIds.organization },
     sameAs: [
       schemaIds.person,
@@ -94,7 +96,7 @@ export function generatePersonSchema(): JsonLdNode {
     url: absoluteUrl("/yazar/"),
     image: absoluteUrl(mediaCatalog.portrait.publicPath),
     jobTitle: "Uzm. Dr.",
-    description: site.authorText,
+    description: doctor.biographyParagraphs.join(" "),
     worksFor: { "@id": schemaIds.organization },
     sameAs: [schemaIds.physician, site.authorProfile.url],
   };

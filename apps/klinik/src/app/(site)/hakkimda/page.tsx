@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { doctor } from "@muratcokay/content";
+
 import { OptimizedImage } from "@/components/media/OptimizedImage";
 import { Breadcrumb } from "@/components/seo/Breadcrumb";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -48,9 +50,9 @@ export default function AboutPage() {
           />
         </div>
         <div className="mt-8 space-y-5 text-lg leading-8 text-mutedText">
-          <p>{about.introduction}</p>
-          <p>{about.detail}</p>
-          <p>{siteContent.brand.biography}</p>
+          {doctor.biographyParagraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
           <p>
             Bilgilendirme yazıları ve yazar profili:{" "}
             <a

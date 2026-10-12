@@ -21,8 +21,7 @@ export const site = {
   },
   legalNotice,
   authorName: doctor.name,
-  authorText:
-    "Bu makale Uzm. Dr. Yaşar Murat Çokay tarafından yazılmıştır. Yalova Eğitim ve Araştırma Hastanesi GETAT Ünitesinden emekli olup, kendi muayenehanesinde medikal estetik ve bütüncül sağlık hizmetleri vermektedir. İçerik bilgilendirme amaçlıdır, tıbbi tavsiye yerine geçmez.",
+  authorText: `${doctor.biographyParagraphs[0]} İçerik bilgilendirme amaçlıdır, tıbbi tavsiye yerine geçmez.`,
   authorProfile: {
     label: "Yalova'da Uzm. Dr. Yaşar Murat Çokay hakkında",
     url: `${sites.klinik}/hakkimda`,
