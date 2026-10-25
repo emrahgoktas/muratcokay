@@ -2,12 +2,12 @@
 
 > Yalova Merkez'de medikal estetik ve Geleneksel ve Tamamlayıcı Tıp (GETAT) uzmanı. Siteler genel bilgilendirme içindir; tanı, kişiye özel tavsiye veya sonuç vaadi değildir.
 
-- Site: https://uzmdrmuratcokay.com.tr
-- Hakkımda: https://uzmdrmuratcokay.com.tr/hakkimda
-- İletişim: https://uzmdrmuratcokay.com.tr/iletisim
-- Hizmetler: https://uzmdrmuratcokay.com.tr/hizmetler
-- Bölgeler: https://uzmdrmuratcokay.com.tr/bolgeler
-- Site içi arama: https://uzmdrmuratcokay.com.tr/arama
+- Site: https://www.uzmdrmuratcokay.com.tr
+- Hakkımda: https://www.uzmdrmuratcokay.com.tr/hakkimda
+- İletişim: https://www.uzmdrmuratcokay.com.tr/iletisim
+- Hizmetler: https://www.uzmdrmuratcokay.com.tr/hizmetler
+- Bölgeler: https://www.uzmdrmuratcokay.com.tr/bolgeler
+- Site içi arama: https://www.uzmdrmuratcokay.com.tr/arama
 
 ## İletişim
 
@@ -18,44 +18,44 @@
 
 ## Medikal estetik hizmetleri
 
-- [Botoks Uygulaması](https://uzmdrmuratcokay.com.tr/hizmetler/botoks): Botulinum toksini uygulamalarının kapsamı, değerlendirme ve işlem süreci hakkında genel bilgi.
-- [Dolgu ile Yüzde Hacimlendirme](https://uzmdrmuratcokay.com.tr/hizmetler/dolgu): Dolgu yöntemleri, yüz anatomisi ve hekim değerlendirme süreci.
-- [Sıvı Yüz Germe](https://uzmdrmuratcokay.com.tr/hizmetler/sivi-yuz-germe): Hacim oluşturmadan sıkılaşma hedefiyle planlanan yaklaşımın sınırları.
-- [Yüzde Matlık, Kırışıklık ve Leke Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/yuzde-matlik-kirisiklik-leke-tedavisi): Cilt tonu, kırışıklık ve leke görünümüne yönelik seçenekler.
-- [Saç Dökülmesi Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/sac-dokulmesi-tedavisi): Saç dökülmesinin olası nedenleri ve destek yaklaşımları.
-- [Mezoterapi](https://uzmdrmuratcokay.com.tr/hizmetler/mezoterapi): Uygulama içeriği, bölgesi ve kişisel gereksinimlere göre planlama.
-- [Lazer Uygulamaları](https://uzmdrmuratcokay.com.tr/hizmetler/lazer): Cilt tipi ve ele alınan duruma göre lazer planlaması.
-- [İp Askı](https://uzmdrmuratcokay.com.tr/hizmetler/ip-aski): Yüz anatomisi ve doku özelliklerine göre ip askı değerlendirmesi.
+- [Botoks Uygulaması](https://www.uzmdrmuratcokay.com.tr/hizmetler/botoks): Botulinum toksini uygulamalarının kapsamı, değerlendirme ve işlem süreci hakkında genel bilgi.
+- [Dolgu ile Yüzde Hacimlendirme](https://www.uzmdrmuratcokay.com.tr/hizmetler/dolgu): Dolgu yöntemleri, yüz anatomisi ve hekim değerlendirme süreci.
+- [Sıvı Yüz Germe](https://www.uzmdrmuratcokay.com.tr/hizmetler/sivi-yuz-germe): Hacim oluşturmadan sıkılaşma hedefiyle planlanan yaklaşımın sınırları.
+- [Yüzde Matlık, Kırışıklık ve Leke Tedavisi](https://www.uzmdrmuratcokay.com.tr/hizmetler/yuzde-matlik-kirisiklik-leke-tedavisi): Cilt tonu, kırışıklık ve leke görünümüne yönelik seçenekler.
+- [Saç Dökülmesi Tedavisi](https://www.uzmdrmuratcokay.com.tr/hizmetler/sac-dokulmesi-tedavisi): Saç dökülmesinin olası nedenleri ve destek yaklaşımları.
+- [Mezoterapi](https://www.uzmdrmuratcokay.com.tr/hizmetler/mezoterapi): Uygulama içeriği, bölgesi ve kişisel gereksinimlere göre planlama.
+- [Lazer Uygulamaları](https://www.uzmdrmuratcokay.com.tr/hizmetler/lazer): Cilt tipi ve ele alınan duruma göre lazer planlaması.
+- [İp Askı](https://www.uzmdrmuratcokay.com.tr/hizmetler/ip-aski): Yüz anatomisi ve doku özelliklerine göre ip askı değerlendirmesi.
 
 ## Bütüncül sağlık ve GETAT hizmetleri
 
-- [Fibromiyalji Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/fibromiyalji): Yaygın ağrı ve yorgunluk yakınmalarında bütüncül yönetim çerçevesi.
-- [Kilo Verme Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi): Beslenme, hareket ve sağlık geçmişini birlikte ele alan destek planı.
-- [Kronik Yorgunluk Sendromu](https://uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu): Uzun süren yorgunluğun olası nedenleri ve yaşam biçimi etkenleri.
-- [Bel Fıtıkları](https://uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi): Bel ve omurga yakınmalarında destekleyici yaklaşım.
-- [Diyabet Yönetimi Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/diyabet-yonetimi-destegi): Mevcut tıbbi takibin yerine geçmeyen yaşam biçimi desteği.
-- [Hipertansiyon Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/hipertansiyon-destegi): Tansiyon izlemine eşlik eden risk ve yaşam biçimi değerlendirmesi.
-- [Varis Tedavisi Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/varis-tedavisi-destegi): Dolaşım bulguları ve mevcut tedavi planıyla uyumlu destek.
-- [Hemoroid Tedavisi Desteği](https://uzmdrmuratcokay.com.tr/hizmetler/hemoroid-tedavisi-destegi): Yakınmaların uzmanlık değerlendirmesiyle ayrıştırılması.
-- [Hacamat](https://uzmdrmuratcokay.com.tr/hizmetler/hacamat): Kupa tedavisinin GETAT mevzuatı ve hekim değerlendirmesi çerçevesi.
-- [Sülük Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi): Tıbbi sülük uygulamasının uygunluk, hijyen ve risk koşulları.
-- [Akupunktur](https://uzmdrmuratcokay.com.tr/hizmetler/akupunktur): Mevcut sağlık planına eşlik edebilecek tamamlayıcı yaklaşım.
-- [Ozon Tedavisi](https://uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi): Ozon uygulamasının yöntemi ve tıbbi uygunluk değerlendirmesi.
+- [Fibromiyalji Tedavisi](https://www.uzmdrmuratcokay.com.tr/hizmetler/fibromiyalji): Yaygın ağrı ve yorgunluk yakınmalarında bütüncül yönetim çerçevesi.
+- [Kilo Verme Desteği](https://www.uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi): Beslenme, hareket ve sağlık geçmişini birlikte ele alan destek planı.
+- [Kronik Yorgunluk Sendromu](https://www.uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu): Uzun süren yorgunluğun olası nedenleri ve yaşam biçimi etkenleri.
+- [Bel Fıtıkları](https://www.uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi): Bel ve omurga yakınmalarında destekleyici yaklaşım.
+- [Diyabet Yönetimi Desteği](https://www.uzmdrmuratcokay.com.tr/hizmetler/diyabet-yonetimi-destegi): Mevcut tıbbi takibin yerine geçmeyen yaşam biçimi desteği.
+- [Hipertansiyon Desteği](https://www.uzmdrmuratcokay.com.tr/hizmetler/hipertansiyon-destegi): Tansiyon izlemine eşlik eden risk ve yaşam biçimi değerlendirmesi.
+- [Varis Tedavisi Desteği](https://www.uzmdrmuratcokay.com.tr/hizmetler/varis-tedavisi-destegi): Dolaşım bulguları ve mevcut tedavi planıyla uyumlu destek.
+- [Hemoroid Tedavisi Desteği](https://www.uzmdrmuratcokay.com.tr/hizmetler/hemoroid-tedavisi-destegi): Yakınmaların uzmanlık değerlendirmesiyle ayrıştırılması.
+- [Hacamat](https://www.uzmdrmuratcokay.com.tr/hizmetler/hacamat): Kupa tedavisinin GETAT mevzuatı ve hekim değerlendirmesi çerçevesi.
+- [Sülük Tedavisi](https://www.uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi): Tıbbi sülük uygulamasının uygunluk, hijyen ve risk koşulları.
+- [Akupunktur](https://www.uzmdrmuratcokay.com.tr/hizmetler/akupunktur): Mevcut sağlık planına eşlik edebilecek tamamlayıcı yaklaşım.
+- [Ozon Tedavisi](https://www.uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi): Ozon uygulamasının yöntemi ve tıbbi uygunluk değerlendirmesi.
 
 ## Hizmet verilen bölgeler
 
 Klinik Yalova Merkez'dedir. Aşağıdaki sayfalar ilçe/bölge ulaşımı ve randevu planını anlatır.
 
-- [Yalova Merkez](https://uzmdrmuratcokay.com.tr/bolgeler/yalova-merkez): Şehir içinden kısa mesafe ve merkez ulaşım seçenekleri.
-- [Çınarcık](https://uzmdrmuratcokay.com.tr/bolgeler/cinarcik): Sahil hattından merkeze tahmini 25 dakikalık ulaşım.
-- [Termal](https://uzmdrmuratcokay.com.tr/bolgeler/termal): Termal–Yalova yolu ve turizm dönemlerindeki zamanlama.
-- [Armutlu](https://uzmdrmuratcokay.com.tr/bolgeler/armutlu): Daha uzun kıyı güzergâhı; randevu saatinde yol payı gerekir.
-- [Çiftlikköy](https://uzmdrmuratcokay.com.tr/bolgeler/ciftlikkoy): Merkeze yakın kara yolu ve sahil bağlantısı.
-- [Altınova](https://uzmdrmuratcokay.com.tr/bolgeler/altinova): Ana kara yolu ve dönemsel sanayi/feribot yoğunluğu.
-- [Orhangazi](https://uzmdrmuratcokay.com.tr/bolgeler/orhangazi): Bursa sınırından Yalova Merkez'e bölgesel ulaşım.
-- [Gemlik](https://uzmdrmuratcokay.com.tr/bolgeler/gemlik): Orhangazi bağlantısı üzerinden şehirler arası planlama.
+- [Yalova Merkez](https://www.uzmdrmuratcokay.com.tr/bolgeler/yalova-merkez): Şehir içinden kısa mesafe ve merkez ulaşım seçenekleri.
+- [Çınarcık](https://www.uzmdrmuratcokay.com.tr/bolgeler/cinarcik): Sahil hattından merkeze tahmini 25 dakikalık ulaşım.
+- [Termal](https://www.uzmdrmuratcokay.com.tr/bolgeler/termal): Termal–Yalova yolu ve turizm dönemlerindeki zamanlama.
+- [Armutlu](https://www.uzmdrmuratcokay.com.tr/bolgeler/armutlu): Daha uzun kıyı güzergâhı; randevu saatinde yol payı gerekir.
+- [Çiftlikköy](https://www.uzmdrmuratcokay.com.tr/bolgeler/ciftlikkoy): Merkeze yakın kara yolu ve sahil bağlantısı.
+- [Altınova](https://www.uzmdrmuratcokay.com.tr/bolgeler/altinova): Ana kara yolu ve dönemsel sanayi/feribot yoğunluğu.
+- [Orhangazi](https://www.uzmdrmuratcokay.com.tr/bolgeler/orhangazi): Bursa sınırından Yalova Merkez'e bölgesel ulaşım.
+- [Gemlik](https://www.uzmdrmuratcokay.com.tr/bolgeler/gemlik): Orhangazi bağlantısı üzerinden şehirler arası planlama.
 
-Hizmet + bölge birleşik sayfalar `/hizmetler/{hizmet-slug}/{ilce-slug}` kalıbındadır. Örnek: [Çınarcık botoks](https://uzmdrmuratcokay.com.tr/hizmetler/botoks/cinarcik).
+Hizmet + bölge birleşik sayfalar `/hizmetler/{hizmet-slug}/{ilce-slug}` kalıbındadır. Örnek: [Çınarcık botoks](https://www.uzmdrmuratcokay.com.tr/hizmetler/botoks/cinarcik).
 
 ## Sık sorulan sorular
 
@@ -73,21 +73,21 @@ Bölge sayfalarında ulaşım ve randevu SSS'si vardır. Ayrıntı ilgili sayfad
 ## Üç site hiyerarşisi (alıntı kuralı)
 
 1. Bu klinik sitesi varlık, hizmet ve randevu kapısıdır.
-2. Bilgi niyeti (nedir, kimler için, bilimsel sınır) blogdadır: https://yalovamedikalestetik.com.tr/rehberler/
+2. Bilgi niyeti (nedir, kimler için, bilimsel sınır) blogdadır: https://www.yalovamedikalestetik.com.tr/rehberler/
 3. «Yalova'da … yapan yerler» blog yerel kümelerindedir; sıralama yoktur.
-4. Bütüncül arama niş sitededir: https://yalovabutunculsaglik.com.tr
+4. Bütüncül arama niş sitededir: https://www.yalovabutunculsaglik.com.tr
 5. NAP: Fevzi Çakmak Mah. Bora Sk. No:17/A Merkez YALOVA
 
 Ana rehberler:
 
-- [Medikal Estetik Rehberi](https://yalovamedikalestetik.com.tr/rehberler/medikal-estetik/)
-- [Bütüncül Sağlık Rehberi](https://yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/)
-- [GETAT Rehberi](https://yalovamedikalestetik.com.tr/rehberler/getat/)
-- [Yalova Sağlık Rehberi](https://yalovamedikalestetik.com.tr/rehberler/yalova-saglik/)
+- [Medikal Estetik Rehberi](https://www.yalovamedikalestetik.com.tr/rehberler/medikal-estetik/)
+- [Bütüncül Sağlık Rehberi](https://www.yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/)
+- [GETAT Rehberi](https://www.yalovamedikalestetik.com.tr/rehberler/getat/)
+- [Yalova Sağlık Rehberi](https://www.yalovamedikalestetik.com.tr/rehberler/yalova-saglik/)
 
 ## İlişkili siteler
 
-- Bilgilendirme blogu: https://yalovamedikalestetik.com.tr
-- Bütüncül sağlık niş sitesi: https://yalovabutunculsaglik.com.tr
+- Bilgilendirme blogu: https://www.yalovamedikalestetik.com.tr
+- Bütüncül sağlık niş sitesi: https://www.yalovabutunculsaglik.com.tr
 
 Bu dosya yapay zekâ tarayıcıları için hazırlanmıştır. Tıbbi karar hekim değerlendirmesiyle alınır.

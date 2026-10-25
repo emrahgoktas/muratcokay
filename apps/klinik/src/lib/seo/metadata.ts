@@ -78,6 +78,10 @@ export const siteMetadata: Metadata = {
     template: `%s | ${siteContent.brand.name}`,
   },
   description: siteContent.seo.description,
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
     canonical: "/",
     languages: {

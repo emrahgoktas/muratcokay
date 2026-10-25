@@ -31,9 +31,9 @@ export const contact = {
 } as const;
 
 export const sites = {
-  klinik: "https://uzmdrmuratcokay.com.tr",
-  blog: "https://yalovamedikalestetik.com.tr",
-  nis: "https://yalovabutunculsaglik.com.tr",
+  klinik: "https://www.uzmdrmuratcokay.com.tr",
+  blog: "https://www.yalovamedikalestetik.com.tr",
+  nis: "https://www.yalovabutunculsaglik.com.tr",
 } as const;
 
 export const legalNotice =

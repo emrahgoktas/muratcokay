@@ -1379,7 +1379,7 @@ export const localPlaceClinicLinks = Object.fromEntries(
   specs.map((spec) => [
     spec.slug,
     {
-      url: `https://uzmdrmuratcokay.com.tr${spec.clinicPath}`,
+      url: `https://www.uzmdrmuratcokay.com.tr${spec.clinicPath}`,
       anchor: spec.clinicAnchor,
     },
   ]),

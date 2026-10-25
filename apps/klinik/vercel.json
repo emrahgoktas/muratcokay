@@ -1,3 +1,12 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "uzmdrmuratcokay.com.tr" }],
+      "destination": "https://www.uzmdrmuratcokay.com.tr/:path*",
+      "statusCode": 308
+    }
+  ]
 }
+

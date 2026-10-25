@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { contact, doctor, sites } from "@muratcokay/content";
 import { Footer, Header } from "@muratcokay/ui";
 
+import { RevealObserver } from "@/components/reveal-observer";
 import { StickyCta } from "@/components/sticky-cta";
 import { siteContent } from "@/lib/page-content";
 
@@ -32,11 +33,26 @@ const navigation = [
 
 export const metadata: Metadata = {
   metadataBase: new URL(sites.nis),
-  title: siteContent.site.title,
+  title: {
+    default: siteContent.site.title,
+    template: `%s | Yalova Bütüncül Sağlık`,
+  },
   description: siteContent.site.description,
-  alternates: { canonical: sites.nis },
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+  },
   verification: {
     google: "vt8TVqCU1ISlgHAdMGDgpORlXh38dP_7GtmV4edkmRg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: sites.nis,
+    siteName: "Yalova Bütüncül Sağlık",
+    title: siteContent.site.title,
+    description: siteContent.site.description,
   },
 };
 
@@ -67,12 +83,13 @@ export default function RootLayout({
           appointmentHref={contact.phone.href}
           appointmentLabel={siteContent.hero.appointment}
         />
-        {children}
+        <div className="page-enter">{children}</div>
         <Footer
           description={siteContent.site.description}
           extraLinks={navigation}
         />
         <StickyCta />
+        <RevealObserver />
       </body>
     </html>
   );

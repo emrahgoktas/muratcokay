@@ -4,7 +4,7 @@ export { clinicAddress };
 
 export const siteContent = {
   site: {
-    url: "https://yalovabutunculsaglik.com.tr",
+    url: "https://www.yalovabutunculsaglik.com.tr",
     title: "Yalova Bütüncül Sağlık | Uzm. Dr. Yaşar Murat Çokay",
     description:
       "Yalova'da fibromiyalji, kronik yorgunluk, kilo yönetimi ve bütüncül sağlık yaklaşımları. Uzm. Dr. Yaşar Murat Çokay ile bilgilendirme ve randevu.",
@@ -122,81 +122,81 @@ export const siteContent = {
     situations: {
       Fibromiyalji: {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
           anchor: "Yalova fibromiyalji bütüncül sağlık rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/fibromiyalji",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/fibromiyalji",
           anchor: "Yalova fibromiyalji destek yaklaşımı",
         },
       },
       "Kilo Verme Desteği": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
           anchor: "Yalova kilo yönetimi bütüncül sağlık rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/kilo-verme-destegi",
           anchor: "Yalova kilo verme desteği hakkında bilgi",
         },
       },
       "Kronik Yorgunluk Sendromu": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
           anchor: "Yalova kronik yorgunluk ve akupunktur rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu",
           anchor: "Yalova kronik yorgunluk desteği",
         },
       },
       "Bel Fıtıkları": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
           anchor: "Yalova bel fıtıklarında GETAT rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi",
           anchor: "Yalova bel ve omurga sağlığı desteği",
         },
       },
       "Diyabet Yönetimi Desteği": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
           anchor: "Yalova diyabet ve hipertansiyon bütüncül rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/diyabet-yonetimi-destegi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/diyabet-yonetimi-destegi",
           anchor: "Yalova diyabet yönetimi desteği",
         },
       },
       "Hipertansiyon Desteği": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
           anchor: "Yalova hipertansiyon bütüncül destek rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/hipertansiyon-destegi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/hipertansiyon-destegi",
           anchor: "Yalova hipertansiyon desteği hakkında bilgi",
         },
       },
       "Varis Desteği": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
           anchor: "Yalova varis ve sülük uygulaması rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/varis-tedavisi-destegi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/varis-tedavisi-destegi",
           anchor: "Yalova varis desteği hakkında bilgi",
         },
       },
       "Hemoroid Desteği": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
           anchor: "Yalova hemoroid desteği bilimsel rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/hemoroid-tedavisi-destegi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/hemoroid-tedavisi-destegi",
           anchor: "Yalova hemoroid desteği hakkında bilgi",
         },
       },
@@ -204,51 +204,51 @@ export const siteContent = {
     approaches: {
       Hacamat: {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
           anchor: "Yalova hacamat bilimsel rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/hacamat",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/hacamat",
           anchor: "Yalova hacamat uygulaması hakkında bilgi",
         },
       },
       Sülük: {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
           anchor: "Yalova tıbbi sülük bilimsel rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/suluk-tedavisi",
           anchor: "Yalova tıbbi sülük uygulaması",
         },
       },
       Akupunktur: {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
           anchor: "Yalova akupunktur ve kronik yorgunluk rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/akupunktur",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/akupunktur",
           anchor: "Yalova akupunktur yaklaşımı hakkında bilgi",
         },
       },
       "Ozon Tedavisi": {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
           anchor: "Yalova ozon ve bütüncül destek rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi",
           anchor: "Yalova ozon uygulaması hakkında bilgi",
         },
       },
       Mezoterapi: {
         blog: {
-          url: "https://yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
           anchor: "Yalova mezoterapi ve PRP rehberi",
         },
         clinic: {
-          url: "https://uzmdrmuratcokay.com.tr/hizmetler/mezoterapi",
+          url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/mezoterapi",
           anchor: "Yalova mezoterapi uygulaması hakkında bilgi",
         },
       },
@@ -383,22 +383,22 @@ export const siteContent = {
     items: [
       {
         title: "Bütüncül Sağlık Rehberi",
-        href: "https://yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/",
+        href: "https://www.yalovamedikalestetik.com.tr/rehberler/butuncul-saglik/",
         note: "Rehber",
       },
       {
         title: "Fibromiyalji ile yaşam",
-        href: "https://yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
+        href: "https://www.yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
         note: "Yazı",
       },
       {
         title: "Hacamat: bilimsel perspektif",
-        href: "https://yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
+        href: "https://www.yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
         note: "Yazı",
       },
       {
         title: "Klinik hizmetler",
-        href: "https://uzmdrmuratcokay.com.tr/hizmetler/",
+        href: "https://www.uzmdrmuratcokay.com.tr/hizmetler/",
         note: "Klinik",
       },
     ],

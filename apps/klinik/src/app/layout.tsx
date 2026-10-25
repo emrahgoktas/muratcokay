@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { StickyCTA } from "@/components/layout/StickyCTA";
+import { RevealObserver } from "@/components/motion/Reveal";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { siteMetadata } from "@/lib/seo/metadata";
 
@@ -43,9 +44,12 @@ export default function RootLayout({
           İçeriğe atla
         </a>
         <Header />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="page-enter">
+          {children}
+        </main>
         <Footer />
         <StickyCTA />
+        <RevealObserver />
         <GoogleAnalytics />
       </body>
     </html>

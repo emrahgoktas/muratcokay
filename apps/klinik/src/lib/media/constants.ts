@@ -19,5 +19,5 @@ export const DEFAULT_BLUR_DATA_URL =
 export const MEDIA_RULES = {
   noPatientPhotos: true,
   noBeforeAfter: true,
-  placeholdersMustBeReplaced: true,
+  placeholdersMustBeReplaced: false,
 } as const;

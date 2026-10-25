@@ -6,7 +6,7 @@ import { astroRedirects } from "./src/data/legacy-redirects.ts";
 import { mediaForPath } from "./src/lib/media.ts";
 import { lastmodForPath, sitemapPriority } from "./src/lib/seo/dates.ts";
 
-const site = "https://yalovamedikalestetik.com.tr";
+const site = "https://www.yalovamedikalestetik.com.tr";
 
 export default defineConfig({
   site,

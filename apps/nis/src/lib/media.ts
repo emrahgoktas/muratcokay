@@ -29,10 +29,13 @@ function asset(src: StaticImageData, alt: string): MediaAsset {
 }
 
 export const media = {
-  hero: asset(hero, "Aydınlık klinik karşılama alanı — Yalova Merkez muayenehanesi"),
+  hero: asset(
+    hero,
+    "Modern medikal estetik klinik iç mekânı — Yalova Merkez muayenehanesi",
+  ),
   desk: asset(
     desk,
-    "Değerlendirme masası ve stetoskop — Yalova bütüncül sağlık görüşme ortamı",
+    "Sakin klinik masaüstü kompozisyonu — Yalova bütüncül sağlık görüşme ortamı",
   ),
   fibromiyalji: asset(
     stillFibromiyalji,
@@ -45,7 +48,7 @@ export const media = {
   ),
   butuncul: asset(
     roomButuncul,
-    "Hekim-hasta iletişim ortamı — bütüncül sağlık görüşmesi",
+    "Aydınlık medikal estetik uygulama alanı — bütüncül sağlık değerlendirmesi",
   ),
   ozon: asset(stillOzon, "Ozon jeneratörü ve hortum — ozon hazırlık natürmortu"),
   termal: asset(

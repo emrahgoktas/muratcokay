@@ -51,6 +51,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "yalovamedikalestetik.com.tr" }],
+      "destination": "https://www.yalovamedikalestetik.com.tr/:path*",
+      "statusCode": 308
+    },
+    {
       "source": "/yazilar/sivi-yuz-germe-nedir/",
       "destination": "/yazilar/sivi-yuz-germe-hacim-vermeden-sikilasma/",
       "permanent": true

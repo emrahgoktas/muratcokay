@@ -27,13 +27,30 @@ export default function HomePage() {
     <>
       <JsonLd data={homePageGraph()} />
       <Hero />
-      <TrustBadges />
-      <SignatureGallery />
-      <ServicesGrid />
-      <AppointmentSection />
-      <WhyClinic />
-      <RelatedContent currentPath="/" keywords={["medikal estetik", "bütüncül sağlık", "hacamat", "botoks"]} />
-      <ContactCTA />
+      <div data-reveal>
+        <TrustBadges />
+      </div>
+      <div data-reveal>
+        <SignatureGallery />
+      </div>
+      <div data-reveal>
+        <ServicesGrid />
+      </div>
+      <div data-reveal>
+        <AppointmentSection />
+      </div>
+      <div data-reveal>
+        <WhyClinic />
+      </div>
+      <div data-reveal>
+        <RelatedContent
+          currentPath="/"
+          keywords={["medikal estetik", "bütüncül sağlık", "hacamat", "botoks"]}
+        />
+      </div>
+      <div data-reveal>
+        <ContactCTA />
+      </div>
     </>
   );
 }

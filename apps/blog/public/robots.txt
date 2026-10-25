@@ -19,5 +19,5 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://yalovamedikalestetik.com.tr/sitemap-index.xml
-Sitemap: https://yalovamedikalestetik.com.tr/sitemap-images.xml
+Sitemap: https://www.yalovamedikalestetik.com.tr/sitemap-index.xml
+Sitemap: https://www.yalovamedikalestetik.com.tr/sitemap-images.xml

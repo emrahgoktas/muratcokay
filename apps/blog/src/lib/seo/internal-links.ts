@@ -4,9 +4,9 @@ import { legacyRedirects } from "../../data/legacy-redirects";
 import { posts } from "../../data/posts";
 import { site } from "../../data/site";
 
-export const CLINIC_URL = "https://uzmdrmuratcokay.com.tr";
+export const CLINIC_URL = "https://www.uzmdrmuratcokay.com.tr";
 export const BLOG_URL = site.url;
-export const NICHE_URL = "https://yalovabutunculsaglik.com.tr";
+export const NICHE_URL = "https://www.yalovabutunculsaglik.com.tr";
 
 export type LinkKind = "service" | "location" | "article" | "pillar" | "page";
 export type LinkCategory = "aesthetic" | "holistic" | "getat" | "local" | "site";

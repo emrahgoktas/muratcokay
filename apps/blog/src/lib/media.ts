@@ -43,7 +43,7 @@ export type MediaAsset = {
   publicPath: string;
   alt: string;
   role: "hero" | "supporting";
-  placeholder: true;
+  placeholder: false;
   objectPosition?: string;
 };
 
@@ -60,7 +60,7 @@ function asset(
     publicPath: `/media/${id}.jpg`,
     alt,
     role,
-    placeholder: true,
+    placeholder: false,
     objectPosition,
   };
 }

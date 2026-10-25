@@ -122,12 +122,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative z-10 px-4 pt-6 sm:px-6 lg:px-8">
+      <section className="relative z-10 px-4 pt-6 sm:px-6 lg:px-8" data-reveal>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 lg:grid-cols-4">
           {atmosphere.map((item) => (
             <figure
               key={item.label}
-              className="group overflow-hidden rounded-[1.35rem] bg-white shadow-[0_18px_40px_-24px_rgba(15,76,129,0.4)] ring-1 ring-[#0f4c81]/8"
+              className="hover-lift group overflow-hidden rounded-[1.35rem] bg-white shadow-[0_18px_40px_-24px_rgba(15,76,129,0.4)] ring-1 ring-[#0f4c81]/8"
             >
               <div className="relative aspect-[5/4] overflow-hidden">
                 <MediaImage
@@ -146,7 +146,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8" data-reveal>
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Çerçeve"
