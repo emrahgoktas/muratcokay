@@ -106,8 +106,8 @@ export function generatePhysicianSchema(): JsonLdNode {
     affiliation: { "@id": schemaIds.organization },
     sameAs: [
       schemaIds.person,
-      "https://yalovamedikalestetik.com.tr/",
-      "https://yalovabutunculsaglik.com.tr/",
+      "https://www.yalovamedikalestetik.com.tr/",
+      "https://www.yalovabutunculsaglik.com.tr/",
     ],
   };
 }

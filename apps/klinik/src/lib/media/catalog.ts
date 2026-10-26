@@ -34,7 +34,7 @@ export type MediaAsset = {
   publicPath: string;
   alt: string;
   role: MediaRole;
-  placeholder: true;
+  placeholder: false;
   credit: string;
 };
 
@@ -50,8 +50,8 @@ function asset(
     publicPath: `/media/${id}.jpg`,
     alt,
     role,
-    placeholder: true,
-    credit: "Editöryal natürmort — yer tutucu",
+    placeholder: false,
+    credit: "Unsplash / Pexels — lisanslı klinik görsel",
   };
 }
 
@@ -65,13 +65,13 @@ export const mediaCatalog = {
   portrait: asset(
     "uzm-dr-yasar-murat-cokay-portre",
     portrait,
-    "Hekim çalışma masası ve stetoskop - Yalova muayenehanesi",
+    "Sakin klinik masaüstü kompozisyonu - Yalova muayenehanesi",
     "hero",
   ),
   butuncul: asset(
     "yalova-butuncul-saglik-klinik",
     roomButuncul,
-    "Bilgilendirme masası - Yalova bütüncül sağlık görüşme ortamı",
+    "Aydınlık medikal estetik uygulama alanı - Yalova Merkez",
     "supporting",
   ),
   termal: asset(

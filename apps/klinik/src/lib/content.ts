@@ -557,83 +557,83 @@ export const serviceBlogLinks: Record<
   { url: string; anchor: string }
 > = {
   botoks: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/dogal-gorunumlu-dolgu-uygulamalari/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/dogal-gorunumlu-dolgu-uygulamalari/",
     anchor: "Yalova'da doğal görünümlü medikal estetik yaklaşımları",
   },
   dolgu: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/dogal-gorunumlu-dolgu-uygulamalari/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/dogal-gorunumlu-dolgu-uygulamalari/",
     anchor: "Yalova doğal görünümlü dolgu uygulamaları rehberi",
   },
   "sivi-yuz-germe": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/sivi-yuz-germe-nedir/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/sivi-yuz-germe-nedir/",
     anchor: "Yalova sıvı yüz germe yaklaşımı rehberi",
   },
   "yuzde-matlik-kirisiklik-leke-tedavisi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/yuzde-leke-ve-matlik-icin-bilimsel-yaklasimlar/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/yuzde-leke-ve-matlik-icin-bilimsel-yaklasimlar/",
     anchor: "Yalova cilt lekesi ve matlık için bilimsel yaklaşımlar",
   },
   "sac-dokulmesi-tedavisi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
     anchor: "Yalova saç dökülmesinde mezoterapi ve PRP rehberi",
   },
   mezoterapi: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
     anchor: "Yalova mezoterapi ve PRP yaklaşımları",
   },
   lazer: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/yuzde-leke-ve-matlik-icin-bilimsel-yaklasimlar/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/yuzde-leke-ve-matlik-icin-bilimsel-yaklasimlar/",
     anchor: "Yalova leke ve matlık için bilimsel cilt rehberi",
   },
   "ip-aski": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/sivi-yuz-germe-nedir/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/sivi-yuz-germe-nedir/",
     anchor: "Yalova yüz sıkılaştırma yaklaşımları rehberi",
   },
   fibromiyalji: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/fibromiyalji-ile-yasam/",
     anchor: "Yalova fibromiyalji bütüncül yaklaşım rehberi",
   },
   "kilo-verme-destegi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
     anchor: "Yalova kilo yönetiminde bütüncül destek rehberi",
   },
   "kronik-yorgunluk-sendromu": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
     anchor: "Yalova kronik yorgunluk ve akupunktur rehberi",
   },
   "bel-fitiklari-omurga-sagligi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
     anchor: "Yalova bel fıtıklarında GETAT yaklaşımları",
   },
   "diyabet-yonetimi-destegi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
     anchor: "Yalova diyabet yönetiminde bütüncül destek rehberi",
   },
   "hipertansiyon-destegi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/diyabet-hipertansiyon-butuncul-destek/",
     anchor: "Yalova hipertansiyon yönetiminde bütüncül destek",
   },
   "varis-tedavisi-destegi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
     anchor: "Yalova varis desteği ve sülük uygulaması rehberi",
   },
   "hemoroid-tedavisi-destegi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
     anchor: "Yalova hemoroid desteği için bilimsel perspektif",
   },
   hacamat: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/hacamat-nedir-bilimsel-perspektif/",
     anchor: "Yalova hacamat hakkında bilimsel rehber",
   },
   "suluk-tedavisi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
     anchor: "Yalova tıbbi sülük uygulaması bilimsel rehberi",
   },
   akupunktur: {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
     anchor: "Yalova akupunktur ve kronik yorgunluk rehberi",
   },
   "ozon-tedavisi": {
-    url: "https://yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+    url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
     anchor: "Yalova ozon ve bütüncül destek yaklaşımları",
   },
 };
@@ -1146,7 +1146,7 @@ export const siteContent = {
       "© 2025 Uzm. Dr. Yaşar Murat Çokay. Tüm hakları saklıdır.",
   },
   seo: {
-    siteUrl: "https://uzmdrmuratcokay.com.tr",
+    siteUrl: "https://www.uzmdrmuratcokay.com.tr",
     description:
       "Uzm. Dr. Yaşar Murat Çokay'ın Yalova merkezli bilgilendirme sitesi.",
   },

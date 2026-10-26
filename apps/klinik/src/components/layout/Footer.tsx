@@ -23,19 +23,19 @@ export function Footer() {
           </p>
           <nav className="mt-4 grid gap-1.5 text-sm" aria-label="Rehber siteleri">
             <Link
-              href="https://yalovamedikalestetik.com.tr/rehberler/"
+              href="https://www.yalovamedikalestetik.com.tr/rehberler/"
               className="text-mutedText hover:text-primary"
             >
               Bilgilendirme rehberleri
             </Link>
             <Link
-              href="https://yalovamedikalestetik.com.tr/harita/"
+              href="https://www.yalovamedikalestetik.com.tr/harita/"
               className="text-mutedText hover:text-primary"
             >
               Konu haritası
             </Link>
             <Link
-              href="https://yalovabutunculsaglik.com.tr"
+              href="https://www.yalovabutunculsaglik.com.tr"
               className="text-mutedText hover:text-primary"
             >
               Yalova bütüncül sağlık

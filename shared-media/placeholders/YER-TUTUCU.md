@@ -1,5 +1,7 @@
-# Yer tutucu görseller
+# Klinik görseller
 
-Bu klasör Unsplash lisanslı, hasta ve öncesi-sonrası içermeyen steril/tıbbi görsellerdir.
+Kaynak: Unsplash / Pexels lisanslı boş klinik iç mekânları, natürmortlar ve marka tonuna uygun soyut klinik kompozisyonlar.
 
-**Üretime geçmeden önce** her dosya Uzm. Dr. Yaşar Murat Çokay'ın kendi klinik, mekân ve portre fotoğraflarıyla değiştirilecektir. Başka bir hekimin yüzü portre olarak kullanılmaz.
+- Hasta, öncesi-sonrası ve testimonial görseli yok.
+- Hekim portresi gerçek fotoğraf gelene kadar masa / stetoskop / soyut masaüstü görseli kullanılır; başka hekimin yüzü kullanılmaz.
+- Tüm dosyalara ortak soğuk-teal renk notası uygulanmıştır.

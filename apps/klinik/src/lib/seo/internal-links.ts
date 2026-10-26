@@ -4,9 +4,9 @@ import {
   serviceLocationCombinations,
 } from "@/lib/content";
 
-export const CLINIC_URL = "https://uzmdrmuratcokay.com.tr";
-export const BLOG_URL = "https://yalovamedikalestetik.com.tr";
-export const NICHE_URL = "https://yalovabutunculsaglik.com.tr";
+export const CLINIC_URL = "https://www.uzmdrmuratcokay.com.tr";
+export const BLOG_URL = "https://www.yalovamedikalestetik.com.tr";
+export const NICHE_URL = "https://www.yalovabutunculsaglik.com.tr";
 
 export type LinkKind =
   | "service"

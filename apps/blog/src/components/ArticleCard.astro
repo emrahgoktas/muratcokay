@@ -19,7 +19,7 @@ const { href, title, description, category, media, date, priority = false } =
   Astro.props;
 ---
 
-<a class="visual-card" href={href}>
+<a class="visual-card hover-lift" href={href}>
   <MediaFrame media={media} priority={priority} sizes={CARD_SIZES} />
   <div class="visual-card__body">
     <span class={categoryClass(category)}>{categoryLabel(category)}</span>

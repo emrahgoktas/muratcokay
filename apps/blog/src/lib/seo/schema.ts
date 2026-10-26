@@ -83,7 +83,7 @@ export function generatePhysicianSchema(): JsonLdNode {
     sameAs: [
       schemaIds.person,
       `${clinicUrl}/#physician`,
-      "https://yalovabutunculsaglik.com.tr/#physician",
+      "https://www.yalovabutunculsaglik.com.tr/#physician",
     ],
   };
 }
