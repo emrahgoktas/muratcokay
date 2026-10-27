@@ -32,7 +32,9 @@ export function ClinicTour() {
             </figure>
           ))}
         </div>
-        <ClinicVideoPlayer video={clinicVideos.klinikTuru} className="mx-auto mt-8 max-w-3xl" />
+        <ClinicVideoPlayer video={clinicVideos.klinikTuru}
+          muted={false}
+          className="mx-auto mt-8 max-w-3xl" />
       </div>
     </section>
   );
