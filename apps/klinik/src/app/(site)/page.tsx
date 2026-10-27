@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AppointmentSection } from "@/components/sections/AppointmentSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Hero } from "@/components/sections/Hero";
+import { ScopeStrip } from "@/components/sections/ScopeStrip";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { TrustBadges } from "@/components/sections/TrustBadges";
@@ -27,10 +28,13 @@ export default function HomePage() {
     <>
       <JsonLd data={homePageGraph()} />
       <Hero />
-      <div data-reveal>
+      <div data-reveal style={{ ["--reveal-delay" as string]: "40ms" }}>
+        <ScopeStrip />
+      </div>
+      <div data-reveal style={{ ["--reveal-delay" as string]: "80ms" }}>
         <TrustBadges />
       </div>
-      <div data-reveal>
+      <div data-reveal style={{ ["--reveal-delay" as string]: "40ms" }}>
         <SignatureGallery />
       </div>
       <div data-reveal>

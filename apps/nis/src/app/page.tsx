@@ -3,6 +3,7 @@ import { ButtonLink } from "@muratcokay/ui";
 
 import { ClinicMap } from "@/components/clinic-map";
 import { ContactForm } from "@/components/contact-form";
+import { CountUp } from "@/components/count-up";
 import { MediaImage } from "@/components/media-image";
 import { PhotoCard } from "@/components/photo-card";
 import { SectionHeading } from "@/components/section-heading";
@@ -23,6 +24,12 @@ const atmosphere = [
   { image: media.roomAkupunktur, label: "Uygulama alanı" },
   { image: media.desk, label: "Değerlendirme" },
   { image: media.termal, label: "Yalova" },
+] as const;
+
+const scopeStats = [
+  { value: Object.keys(situationLinks).length, label: "Durum başlığı" },
+  { value: Object.keys(approachLinks).length, label: "Yaklaşım" },
+  { value: atmosphere.length, label: "Klinik görünüm" },
 ] as const;
 
 export default function HomePage() {
@@ -69,14 +76,16 @@ export default function HomePage() {
 
           <div className="lg:relative lg:min-h-[88svh]">
             <div className="relative h-[22rem] overflow-hidden sm:h-[28rem] lg:absolute lg:inset-0 lg:h-auto">
-              <MediaImage
-                src={media.hero.src}
-                alt={media.hero.alt}
-                fill
-                priority
-                className="object-cover object-[center_30%]"
-                sizes="(max-width: 1024px) 100vw, 55vw"
-              />
+              <div className="hero-kenburns absolute inset-0">
+                <MediaImage
+                  src={media.hero.src}
+                  alt={media.hero.alt}
+                  fill
+                  priority
+                  className="object-cover object-[center_30%]"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#081c30]/20 via-transparent to-transparent" />
             </div>
             <aside className="relative z-10 mx-4 -mt-16 mb-6 sm:mx-6 lg:absolute lg:right-6 lg:bottom-8 lg:left-auto lg:mx-0 lg:mt-0 lg:mb-0 lg:w-[22rem]">
@@ -123,6 +132,18 @@ export default function HomePage() {
       </section>
 
       <section className="relative z-10 px-4 pt-6 sm:px-6 lg:px-8" data-reveal>
+        <div className="mx-auto mb-6 grid max-w-7xl grid-cols-3 gap-3 rounded-[1.5rem] border border-[#d8c4a4]/70 bg-white/75 px-3 py-5 sm:gap-6 sm:px-8 sm:py-6">
+          {scopeStats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="font-serif text-3xl font-medium text-primary sm:text-4xl">
+                <CountUp value={stat.value} />
+              </p>
+              <p className="mt-1 text-[0.68rem] font-semibold tracking-[0.18em] text-secondary uppercase">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 lg:grid-cols-4">
           {atmosphere.map((item) => (
             <figure
