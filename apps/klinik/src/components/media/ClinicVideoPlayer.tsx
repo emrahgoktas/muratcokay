@@ -3,15 +3,19 @@ import type { ClinicVideo } from "@/lib/media/clinic-photos";
 type ClinicVideoPlayerProps = {
   video: ClinicVideo;
   className?: string;
+  /** Varsayılan sessiz; müzikli videolar için false verilir. */
+  muted?: boolean;
 };
 
-/** Otomatik oynatma yok: yalnızca kullanıcı tıklayınca, sessiz başlar. */
-export function ClinicVideoPlayer({ video, className }: ClinicVideoPlayerProps) {
+/** Otomatik oynatma yok: yalnızca kullanıcı tıklayınca başlar. */
+export function ClinicVideoPlayer({ video, className, muted = true }: ClinicVideoPlayerProps) {
   return (
     <figure className={className}>
+      {/* Konuşma yok (sessiz veya yalnızca enstrümantal müzik); altyazı gerekmez. */}
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video
         controls
-        muted
+        muted={muted}
         playsInline
         preload="none"
         poster={video.poster}
