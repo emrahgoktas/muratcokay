@@ -1034,13 +1034,27 @@ a {
 
 .hover-lift {
   transition:
-    transform 280ms ease,
-    box-shadow 280ms ease;
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, box-shadow;
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(15, 76, 129, 0.12);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 40px rgba(15, 76, 129, 0.16);
+}
+
+.pillar-tile,
+.visual-card {
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pillar-tile:hover,
+.visual-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 40px rgba(15, 76, 129, 0.16);
 }
 
 .hero-kenburns,
@@ -1079,13 +1093,18 @@ a {
   [data-reveal],
   .hover-lift,
   .hover-lift:hover,
+  .pillar-tile,
+  .pillar-tile:hover,
+  .visual-card,
+  .visual-card:hover,
   .hero-kenburns,
   .hero__media img.hero-media__image,
   .page-hero__media img,
   .visual-card img,
   .pillar-tile img,
   .visual-card:hover img,
-  .pillar-tile:hover img {
+  .pillar-tile:hover img,
+  [data-parallax] {
     animation: none !important;
     transition: none !important;
     transform: none !important;

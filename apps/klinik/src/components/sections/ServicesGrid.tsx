@@ -102,13 +102,14 @@ export function ServicesGrid() {
                 key={service.slug}
                 itemScope
                 itemType="https://schema.org/MedicalProcedure"
-                className="group flex min-w-0 flex-col overflow-hidden rounded-[1.7rem] bg-background shadow-[0_22px_50px_-32px_rgba(15,76,129,0.45)] ring-1 ring-primary/8"
+                className="hover-lift group flex min-w-0 flex-col overflow-hidden rounded-[1.7rem] bg-background shadow-[0_22px_50px_-32px_rgba(15,76,129,0.45)] ring-1 ring-primary/8"
+                data-reveal
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <OptimizedImage
                     media={mediaForService(service.slug)}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="media-zoom object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#081c30]/80 via-[#081c30]/10 to-transparent" />
@@ -182,13 +183,14 @@ export function ServicesGrid() {
                 key={service.slug}
                 itemScope
                 itemType="https://schema.org/MedicalProcedure"
-                className="group relative flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] bg-background shadow-[0_18px_40px_-28px_rgba(15,76,129,0.4)] ring-1 ring-primary/8"
+                className="hover-lift group relative flex min-w-0 flex-col overflow-hidden rounded-[1.5rem] bg-background shadow-[0_18px_40px_-28px_rgba(15,76,129,0.4)] ring-1 ring-primary/8"
+                data-reveal
               >
                 <div className="relative aspect-[5/3] overflow-hidden">
                   <OptimizedImage
                     media={mediaForService(service.slug)}
                     fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
+                    className="media-zoom object-cover"
                     sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#081c30]/75 via-transparent to-transparent" />

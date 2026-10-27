@@ -31,7 +31,7 @@ function asset(src: StaticImageData, alt: string): MediaAsset {
 export const media = {
   hero: asset(
     hero,
-    "Boş medikal estetik uygulama odası — Yalova Merkez bütüncül sağlık muayenehanesi",
+    "Klinik uygulama odası — Yalova Merkez bütüncül sağlık muayenehanesi",
   ),
   desk: asset(
     desk,
@@ -43,7 +43,7 @@ export const media = {
   ),
   hacamat: asset(
     stillHacamat,
-    "Turuncu valfli hacamat kupaları — kupa terapisi hazırlığı",
+    "Hastanın sırtında net görünen hacamat kupaları — klinik kupa terapisi",
   ),
   akupunktur: asset(
     stillAkupunktur,
@@ -51,7 +51,7 @@ export const media = {
   ),
   butuncul: asset(
     roomButuncul,
-    "Lavanta ve uçucu yağlarla bütüncül sağlık natürmortu — Yalova",
+    "Klinik ortamda bütüncül sağlık değerlendirmesi — Yalova",
   ),
   ozon: asset(
     stillOzon,
@@ -59,12 +59,12 @@ export const media = {
   ),
   termal: asset(
     termal,
-    "Güneş doğarken sakin sahil — Yalova’nın dinlenme coğrafyası",
+    "Yalova feribot / kent manzarası — yerel sağlık bağlamı",
   ),
   kilo: asset(stillKilo, "Dijital tartı ve mezura — kilo yönetimi natürmortu"),
   yorgunluk: asset(
     stillYorgunluk,
-    "Gece saati ve uyku bandı — kronik yorgunluk natürmortu",
+    "Klinik ortamda ozon / IV destek hazırlığı — kronik yorgunluk",
   ),
   bel: asset(stillBel, "Omurga modeli ve bel destek korsesi — bel fıtığı"),
   diyabet: asset(

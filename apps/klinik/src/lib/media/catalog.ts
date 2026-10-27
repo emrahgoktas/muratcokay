@@ -3,6 +3,8 @@ import type { StaticImageData } from "next/image";
 import roomAkupunktur from "@/assets/media/yalova-akupunktur-uygulama-alani.jpg";
 import roomButuncul from "@/assets/media/yalova-butuncul-saglik-klinik.jpg";
 import roomHero from "@/assets/media/yalova-medikal-estetik-klinik-hero.jpg";
+import roomKarsilama from "@/assets/media/yalova-karsilama.jpg";
+import roomMuayene from "@/assets/media/yalova-muayene.jpg";
 import portrait from "@/assets/media/uzm-dr-yasar-murat-cokay-portre.jpg";
 import termal from "@/assets/media/yalova-termal-saglik-cevre.jpg";
 import stillAkupunktur from "@/assets/media/yalova-kart-akupunktur.jpg";
@@ -59,8 +61,20 @@ export const mediaCatalog = {
   hero: asset(
     "yalova-medikal-estetik-klinik-hero",
     roomHero,
-    "Boş medikal estetik uygulama odası ve cilt cihazı - Yalova Merkez muayenehanesi",
+    "Medikal estetik uygulama odası ve cilt cihazı - Yalova Merkez muayenehanesi",
     "hero",
+  ),
+  karsilama: asset(
+    "yalova-karsilama",
+    roomKarsilama,
+    "Klinik karşılama / resepsiyon alanı - Yalova Merkez muayenehanesi",
+    "supporting",
+  ),
+  muayene: asset(
+    "yalova-muayene",
+    roomMuayene,
+    "Muayene ve uygulama odası - Yalova Merkez klinik ortamı",
+    "supporting",
   ),
   portrait: asset(
     "uzm-dr-yasar-murat-cokay-portre",
@@ -71,103 +85,103 @@ export const mediaCatalog = {
   butuncul: asset(
     "yalova-butuncul-saglik-klinik",
     roomButuncul,
-    "Lavanta, uçucu yağlar ve doğal taşlarla bütüncül sağlık natürmortu - Yalova",
+    "Klinik ortamda bütüncül sağlık değerlendirmesi / manuel terapi bağlamı - Yalova",
     "supporting",
   ),
   termal: asset(
     "yalova-termal-saglik-cevre",
     termal,
-    "Güneş doğarken sakin sahil - Yalova termal ve dinlenme coğrafyası",
+    "Umuttur Yalova kent tabelası - Yalova Merkez şehir bağlamı",
     "supporting",
   ),
   akupunkturRoom: asset(
     "yalova-akupunktur-uygulama-alani",
     roomAkupunktur,
-    "El üzerinde yeşil saplı akupunktur iğnesi - Yalova Merkez GETAT uygulaması",
+    "Klinik ortamda akupunktur / manuel terapi uygulaması - Yalova Merkez GETAT",
     "supporting",
   ),
   botoks: asset(
     "yalova-kart-botoks",
     stillBotoks,
-    "Ucu damlacıklı steril enjektör iğnesi - botoks değerlendirmesi hazırlığı",
+    "Klinik ortamda yüz konturu değerlendirmesi - botoks yaklaşımı",
     "supporting",
   ),
   dolgu: asset(
     "yalova-kart-dolgu",
     stillDolgu,
-    "Steril dolgu enjektörleri ve yüz oran şeması - dolgu değerlendirmesi",
+    "Eldivenli uygulayıcı ile yüz estetik hazırlığı - dolgu değerlendirmesi",
     "supporting",
   ),
   siviYuz: asset(
     "yalova-kart-sivi-yuz",
     stillSiviYuz,
-    "Gül yaprakları arasında amber serum şişesi - sıvı yüz germe yaklaşımı",
+    "Klinik ortamda yüze cihazla uygulanan sıvı yüz germe / cilt sıkılaştırma işlemi",
     "supporting",
   ),
   leke: asset(
     "yalova-kart-leke",
     stillLeke,
-    "Büyüteç lamba, krem tüpü ve dermatoskop - leke ve matlık değerlendirmesi",
+    "Klinik ortamda yüze uygulanan leke ve matlık tedavisi / cilt yenileme işlemi",
     "supporting",
   ),
   sac: asset(
     "yalova-kart-sac",
     stillSac,
-    "Islak saçta tarak ve makasla saç bakımı yakın planı - saç dökülmesi bağlamı",
+    "Trikoskopi ile saç ve saç derisi değerlendirmesi - saç dökülmesi klinik bağlamı",
     "supporting",
   ),
   mezoterapi: asset(
     "yalova-kart-mezoterapi",
     stillMezoterapi,
-    "Kehribar flakonlar ve pamuk - mezoterapi hazırlık natürmortu",
+    "Klinik ortamda yüze fırça ile uygulanan mezoterapi / cilt bakımı hazırlığı",
     "supporting",
   ),
   lazer: asset(
     "yalova-kart-lazer",
     stillLazer,
-    "Lazer el aleti ve koruyucu gözlük - lazer değerlendirmesi natürmortu",
+    "Klinik ortamda yüze uygulanan lazer / enerji bazlı cilt işlemi",
     "supporting",
   ),
   ipAski: asset(
     "yalova-kart-ip-aski",
     stillIpAski,
-    "Steril PDO ip paketleri ve cımbız - ip askı hazırlığı",
+    "Klinik ortamda çene hattı ve yüz konturu değerlendirmesi - ip askı planlaması",
     "supporting",
   ),
   fibromiyalji: asset(
     "yalova-kart-fibromiyalji",
     stillFibromiyalji,
-    "Hassas nokta şeması, ağrı günlüğü ve ısı yastığı - fibromiyalji değerlendirmesi",
+    "Klinik ortamda bel / omuz bölgesinde manuel terapi - fibromiyalji desteği",
     "supporting",
   ),
   kilo: asset(
     "yalova-kart-kilo",
     stillKilo,
-    "Dijital tartı, mezura ve beslenme günlüğü - kilo yönetimi natürmortu",
+    "Dijital tartı ve mezura - kilo yönetimi değerlendirme natürmortu",
     "supporting",
   ),
   yorgunluk: asset(
     "yalova-kart-yorgunluk",
     stillYorgunluk,
-    "Gece saati, uyku bandı ve abajur - kronik yorgunluk ve dinlenme bağlamı",
+    "Klinik ortamda damar yolu ve nabız oksimetresi - kronik yorgunluk destek hazırlığı",
     "supporting",
   ),
   bel: asset(
     "yalova-kart-bel",
     stillBel,
-    "Anatomik omurga modeli ve bel destek korsesi - bel fıtığı değerlendirmesi",
+    "Klinik ortamda bel bölgesine manuel terapi - bel fıtığı destek bağlamı",
     "supporting",
   ),
   diyabet: asset(
     "yalova-kart-diyabet",
     stillDiyabet,
-    "Kan şekeri ölçüm cihazı, elma ve su - diyabet yönetimi desteği",
+    "Klinik bağlamda diyabet yönetimi / ölçüm hazırlığı",
     "supporting",
   ),
   hipertansiyon: asset(
     "yalova-kart-hipertansiyon",
     stillHipertansiyon,
-    "Tansiyon manşonu, defter ve su bardağı - hipertansiyon desteği",
+    "Klinik bağlamda tansiyon değerlendirmesi - hipertansiyon desteği",
     "supporting",
   ),
   varis: asset(
@@ -185,25 +199,25 @@ export const mediaCatalog = {
   hacamat: asset(
     "yalova-kart-hacamat",
     stillHacamat,
-    "Turuncu valfli hacamat kupaları ve vakum pompası - kupa terapisi hazırlığı",
+    "Hastanın sırtında net görünen hacamat kupaları - klinik kupa terapisi seansı",
     "supporting",
   ),
   suluk: asset(
     "yalova-kart-suluk",
     stillSuluk,
-    "Steril forceps, gazlı bez ve amber şişeler - sülük uygulaması hazırlık tepsisi",
+    "Klinik ortamda tıbbi sülük uygulaması - GETAT yaklaşımı",
     "supporting",
   ),
   akupunktur: asset(
     "yalova-kart-akupunktur",
     stillAkupunktur,
-    "El üzerinde yeşil saplı akupunktur iğnesi - akupunktur uygulaması",
+    "Klinik ortamda akupunktur / manuel terapi uygulaması",
     "supporting",
   ),
   ozon: asset(
     "yalova-kart-ozon",
     stillOzon,
-    "El sırtında damar yolu ve nabız oksimetresi - ozon / infüzyon hazırlığı",
+    "Klinik ortamda damar yolu ve nabız oksimetresi - ozon / infüzyon hazırlığı",
     "supporting",
   ),
 } as const;

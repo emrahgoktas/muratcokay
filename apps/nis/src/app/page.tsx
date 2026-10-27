@@ -22,7 +22,7 @@ const approachLinks = siteContent.crossSiteLinks.approaches;
 const atmosphere = [
   { image: media.hero, label: "Karşılama" },
   { image: media.roomAkupunktur, label: "Uygulama alanı" },
-  { image: media.desk, label: "Değerlendirme" },
+  { image: media.hacamat, label: "GETAT" },
   { image: media.termal, label: "Yalova" },
 ] as const;
 
@@ -76,7 +76,10 @@ export default function HomePage() {
 
           <div className="lg:relative lg:min-h-[88svh]">
             <div className="relative h-[22rem] overflow-hidden sm:h-[28rem] lg:absolute lg:inset-0 lg:h-auto">
-              <div className="hero-kenburns absolute inset-0">
+              <div
+                className="hero-kenburns hero-parallax absolute inset-0"
+                data-parallax="0.18"
+              >
                 <MediaImage
                   src={media.hero.src}
                   alt={media.hero.alt}

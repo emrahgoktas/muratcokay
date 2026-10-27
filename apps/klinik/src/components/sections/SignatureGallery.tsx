@@ -4,7 +4,7 @@ import { mediaCatalog } from "@/lib/media/catalog";
 
 const tiles = [
   {
-    media: mediaCatalog.hero,
+    media: mediaCatalog.karsilama,
     label: "Karşılama",
     className: "min-h-[18rem] md:col-span-7 md:row-span-2 md:min-h-[32rem]",
   },
@@ -24,7 +24,7 @@ const tiles = [
     className: "min-h-[13rem] md:col-span-4",
   },
   {
-    media: mediaCatalog.portrait,
+    media: mediaCatalog.muayene,
     label: "Muayene ortamı",
     className: "min-h-[13rem] md:col-span-4",
   },
@@ -48,12 +48,13 @@ export function SignatureGallery() {
           {tiles.map((tile) => (
             <figure
               key={tile.label}
-              className={`group relative overflow-hidden rounded-[1.6rem] ${tile.className}`}
+              className={`group hover-lift relative overflow-hidden rounded-[1.6rem] ${tile.className}`}
+              data-reveal
             >
               <OptimizedImage
                 media={tile.media}
                 fill
-                className="object-cover transition duration-700 group-hover:scale-105"
+                className="media-zoom object-cover"
                 sizes="(max-width: 768px) 100vw, 60vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081c30]/70 via-transparent to-transparent" />
