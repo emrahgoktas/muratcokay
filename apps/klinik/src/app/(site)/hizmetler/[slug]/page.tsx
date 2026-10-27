@@ -25,6 +25,7 @@ import { mediaForService } from "@/lib/media/catalog";
 import { CrossSiteCta } from "@/components/seo/CrossSiteCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { LinkifiedText } from "@/components/seo/LinkifiedText";
+import { ServiceClinicMedia } from "@/components/sections/ServiceClinicMedia";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ScientificSources } from "@/components/seo/ScientificSources";
 import { serviceBlogGuides, serviceBlogTargets } from "@/lib/seo/internal-links";
@@ -198,6 +199,8 @@ export default async function ServiceDetailPage({
           </p>
         </div>
       </section>
+
+      <ServiceClinicMedia slug={service.slug} />
 
       <section className="bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
