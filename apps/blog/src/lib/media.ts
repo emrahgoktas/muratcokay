@@ -69,32 +69,32 @@ export const mediaCatalog = {
   hero: asset(
     "yalova-editorial-hero",
     hero,
-    "Medikal estetik uygulama odası ve HydraFacial cihazı — Yalova rehberi",
+    "Medikal estetik uygulama odası ve cilt cihazı — Yalova rehberi",
     "hero",
   ),
   estetik: asset(
     "yalova-kapak-estetik",
     estetik,
-    "Boş medikal estetik tedavi yatağı ve cilt cihazı — medikal estetik kapak",
+    "Klinik ortamda yüz estetik işlemi — medikal estetik rehberi kapak",
     "supporting",
   ),
   butuncul: asset(
     "yalova-kapak-butuncul",
     butuncul,
-    "Lavanta, uçucu yağlar ve doğal taşlar — bütüncül sağlık kapak görseli",
+    "Klinik ortamda bütüncül sağlık değerlendirmesi — bütüncül sağlık rehberi",
     "supporting",
   ),
   getat: asset(
     "yalova-kapak-getat",
     getat,
-    "Turuncu valfli hacamat kupaları — GETAT yazıları kapak görseli",
+    "Klinik ortamda net görünen hacamat kupaları — GETAT rehberi kapak",
     "supporting",
     "center 40%",
   ),
   kent: asset(
     "yalova-kapak-kent",
     kent,
-    "Güneş batımında sakin sahil — Yalova sağlık rehberi kapak görseli",
+    "Yalova kent parkı / şehir görünümü — Yalova sağlık rehberi kapak",
     "supporting",
   ),
   portrait: asset(
@@ -118,19 +118,19 @@ export const mediaCatalog = {
   siviYuz: asset(
     "yalova-kart-sivi-yuz",
     stillSiviYuz,
-    "Gül yaprakları arasında amber serum şişesi — sıvı yüz germe",
+    "Klinik ortamda yüze cihazla uygulanan sıvı yüz germe işlemi",
     "supporting",
   ),
   leke: asset(
     "yalova-kart-leke",
     stillLeke,
-    "Büyüteç lamba ve dermatoskop — leke ve matlık değerlendirmesi",
+    "Klinik ortamda yüze uygulanan leke ve matlık tedavisi",
     "supporting",
   ),
   sac: asset(
     "yalova-kart-sac",
     stillSac,
-    "Islak saçta tarak ve makas — saç dökülmesi bağlamı",
+    "Dermatoskop / trikoloji değerlendirmesi — saç dökülmesi klinik bağlamı",
     "supporting",
   ),
   mezoterapi: asset(
@@ -148,7 +148,7 @@ export const mediaCatalog = {
   ipAski: asset(
     "yalova-kart-ip-aski",
     stillIpAski,
-    "Steril PDO ip paketleri — ip askı hazırlığı",
+    "Klinik ortamda yüz konturu değerlendirmesi — ip askı planlaması",
     "supporting",
   ),
   fibromiyalji: asset(
@@ -166,7 +166,7 @@ export const mediaCatalog = {
   yorgunluk: asset(
     "yalova-kart-yorgunluk",
     stillYorgunluk,
-    "Gece saati ve uyku bandı — kronik yorgunluk",
+    "Klinik ortamda infüzyon / damar yolu hazırlığı — kronik yorgunluk desteği",
     "supporting",
   ),
   bel: asset(
@@ -202,7 +202,7 @@ export const mediaCatalog = {
   hacamat: asset(
     "yalova-kart-hacamat",
     stillHacamat,
-    "Turuncu valfli hacamat kupaları — kupa terapisi",
+    "Klinik ortamda net görünen hacamat kupaları — kupa terapisi seansı",
     "supporting",
   ),
   suluk: asset(

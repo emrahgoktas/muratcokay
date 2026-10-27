@@ -18,9 +18,9 @@ const icons: Record<string, LucideIcon> = {
 };
 
 const atmosphere = [
-  { media: mediaCatalog.hero, label: "Karşılama" },
+  { media: mediaCatalog.karsilama, label: "Karşılama" },
   { media: mediaCatalog.akupunktur, label: "Uygulama alanı" },
-  { media: mediaCatalog.portrait, label: "Değerlendirme" },
+  { media: mediaCatalog.muayene, label: "Muayene ortamı" },
   { media: mediaCatalog.termal, label: "Yalova" },
 ] as const;
 

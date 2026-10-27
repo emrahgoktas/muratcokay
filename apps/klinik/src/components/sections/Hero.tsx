@@ -57,7 +57,7 @@ export function Hero() {
 
         <div className="relative lg:min-h-[92svh]">
           <div className="relative h-[22rem] overflow-hidden sm:h-[30rem] lg:absolute lg:inset-0 lg:h-auto">
-            <div className="hero-kenburns absolute inset-0">
+            <div className="hero-kenburns hero-parallax absolute inset-0" data-parallax="0.18">
               <OptimizedImage
                 media={mediaCatalog.hero}
                 fill

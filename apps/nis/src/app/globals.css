@@ -154,13 +154,18 @@ summary::-webkit-details-marker {
 
 .hover-lift {
   transition:
-    transform 280ms ease,
-    box-shadow 280ms ease;
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, box-shadow;
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(15, 76, 129, 0.12);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 18px 40px rgba(15, 76, 129, 0.16);
+}
+
+.hero-parallax {
+  will-change: transform;
 }
 
 .hero-kenburns {
@@ -191,7 +196,9 @@ summary::-webkit-details-marker {
   [data-reveal],
   .hover-lift,
   .hover-lift:hover,
-  .hero-kenburns {
+  .hero-kenburns,
+  .hero-parallax,
+  [data-parallax] {
     animation: none !important;
     transition: none !important;
     transform: none !important;
