@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { ClinicTour } from "@/components/sections/ClinicTour";
 import { AppointmentSection } from "@/components/sections/AppointmentSection";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Hero } from "@/components/sections/Hero";
@@ -36,6 +37,9 @@ export default function HomePage() {
       </div>
       <div data-reveal style={{ ["--reveal-delay" as string]: "40ms" }}>
         <SignatureGallery />
+      </div>
+      <div data-reveal>
+        <ClinicTour />
       </div>
       <div data-reveal>
         <ServicesGrid />
