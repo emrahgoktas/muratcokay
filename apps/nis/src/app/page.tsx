@@ -27,8 +27,8 @@ const atmosphere = [
 ] as const;
 
 const scopeStats = [
-  { value: situationLinks.length, label: "Durum başlığı" },
-  { value: approachLinks.length, label: "Yaklaşım" },
+  { value: Object.keys(situationLinks).length, label: "Durum başlığı" },
+  { value: Object.keys(approachLinks).length, label: "Yaklaşım" },
   { value: atmosphere.length, label: "Klinik görünüm" },
 ] as const;
 
