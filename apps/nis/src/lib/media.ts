@@ -31,57 +31,66 @@ function asset(src: StaticImageData, alt: string): MediaAsset {
 export const media = {
   hero: asset(
     hero,
-    "Modern medikal estetik klinik iç mekânı — Yalova Merkez muayenehanesi",
+    "Boş medikal estetik uygulama odası — Yalova Merkez bütüncül sağlık muayenehanesi",
   ),
   desk: asset(
     desk,
-    "Sakin klinik masaüstü kompozisyonu — Yalova bütüncül sağlık görüşme ortamı",
+    "Stetoskop ve reçete masası — Yalova bütüncül sağlık görüşme ortamı",
   ),
   fibromiyalji: asset(
     stillFibromiyalji,
-    "Hassas nokta şeması ve ısı yastığı — fibromiyalji değerlendirmesi natürmortu",
+    "Hassas nokta şeması ve ısı yastığı — fibromiyalji değerlendirmesi",
   ),
-  hacamat: asset(stillHacamat, "Cam kupa seti — hacamat hazırlık natürmortu"),
+  hacamat: asset(
+    stillHacamat,
+    "Turuncu valfli hacamat kupaları — kupa terapisi hazırlığı",
+  ),
   akupunktur: asset(
     stillAkupunktur,
-    "Keçe yastık ve kapalı iğne paketleri — akupunktur natürmortu",
+    "El üzerinde yeşil saplı akupunktur iğnesi — akupunktur uygulaması",
   ),
   butuncul: asset(
     roomButuncul,
-    "Aydınlık medikal estetik uygulama alanı — bütüncül sağlık değerlendirmesi",
+    "Lavanta ve uçucu yağlarla bütüncül sağlık natürmortu — Yalova",
   ),
-  ozon: asset(stillOzon, "Ozon jeneratörü ve hortum — ozon hazırlık natürmortu"),
+  ozon: asset(
+    stillOzon,
+    "Damar yolu ve nabız oksimetresi — ozon / infüzyon hazırlığı",
+  ),
   termal: asset(
     termal,
-    "Açık ufuk ve sahil manzarası — Yalova’nın dinlenme coğrafyası",
+    "Güneş doğarken sakin sahil — Yalova’nın dinlenme coğrafyası",
   ),
   kilo: asset(stillKilo, "Dijital tartı ve mezura — kilo yönetimi natürmortu"),
   yorgunluk: asset(
     stillYorgunluk,
     "Gece saati ve uyku bandı — kronik yorgunluk natürmortu",
   ),
-  bel: asset(stillBel, "Omurga modeli ve defter — bel fıtığı natürmortu"),
+  bel: asset(stillBel, "Omurga modeli ve bel destek korsesi — bel fıtığı"),
   diyabet: asset(
     stillDiyabet,
-    "Ölçüm cihazı ve elma — diyabet desteği natürmortu",
+    "Kan şekeri ölçüm cihazı ve elma — diyabet desteği",
   ),
   hipertansiyon: asset(
     stillHipertansiyon,
     "Tansiyon manşonu ve defter — hipertansiyon natürmortu",
   ),
-  varis: asset(stillVaris, "Kompresyon çorabı ve Doppler — varis desteği natürmortu"),
+  varis: asset(stillVaris, "Kompresyon çorabı ve Doppler — varis desteği"),
   hemoroid: asset(
     stillHemoroid,
-    "Oturma banyosu ve muayene lambası — hemoroid değerlendirmesi natürmortu",
+    "Muayene lambası ve eldiven — hemoroid değerlendirmesi",
   ),
-  suluk: asset(stillSuluk, "Kehr tabağı ve forceps — sülük uygulaması natürmortu"),
+  suluk: asset(
+    stillSuluk,
+    "Forceps, gazlı bez ve amber şişeler — sülük uygulaması hazırlığı",
+  ),
   mezoterapi: asset(
     stillMezoterapi,
-    "Küçük flakonlar — mezoterapi hazırlık natürmortu",
+    "Kehribar flakonlar — mezoterapi hazırlık natürmortu",
   ),
   roomAkupunktur: asset(
     roomAkupunktur,
-    "Aydınlık uygulama alanı — akupunktur değerlendirmesi için hazırlanan mekân",
+    "El üzerinde akupunktur iğnesi — GETAT uygulama bağlamı",
   ),
 } as const;
 

@@ -57,22 +57,32 @@ export function Hero() {
 
         <div className="relative lg:min-h-[92svh]">
           <div className="relative h-[22rem] overflow-hidden sm:h-[30rem] lg:absolute lg:inset-0 lg:h-auto">
-            <OptimizedImage
-              media={mediaCatalog.hero}
-              fill
-              priority
-              className="object-cover object-[center_28%]"
-              sizes="(max-width: 1024px) 100vw, 58vw"
-            />
+            <div className="hero-kenburns absolute inset-0">
+              <OptimizedImage
+                media={mediaCatalog.hero}
+                fill
+                priority
+                className="object-cover object-[center_28%]"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#081c30]/25 via-transparent to-transparent" />
-            <div className="absolute top-6 right-6 hidden w-36 overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/80 rotate-3 lg:block">
+            <div
+              className="absolute top-6 right-6 hidden w-36 overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/80 rotate-3 lg:block"
+              data-reveal="scale"
+              style={{ ["--reveal-delay" as string]: "120ms" }}
+            >
               <OptimizedImage
                 media={mediaCatalog.termal}
                 className="aspect-[4/5] h-full w-full object-cover"
                 sizes="144px"
               />
             </div>
-            <div className="absolute bottom-28 left-[-1.25rem] hidden w-40 overflow-hidden rounded-2xl shadow-2xl ring-4 ring-[#f6f1ea] -rotate-6 lg:block">
+            <div
+              className="absolute bottom-28 left-[-1.25rem] hidden w-40 overflow-hidden rounded-2xl shadow-2xl ring-4 ring-[#f6f1ea] -rotate-6 lg:block"
+              data-reveal="scale"
+              style={{ ["--reveal-delay" as string]: "220ms" }}
+            >
               <OptimizedImage
                 media={mediaCatalog.akupunktur}
                 className="aspect-square h-full w-full object-cover"

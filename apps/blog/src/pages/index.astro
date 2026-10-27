@@ -48,6 +48,23 @@ const featured = featuredClusters();
       </div>
     </section>
 
+    <section class="scope-strip" data-reveal="fade" aria-label="Rehber kapsamı">
+      <div class="container scope-strip__grid">
+        <div>
+          <p class="scope-strip__value" data-count={pillars.length}>{pillars.length}</p>
+          <p class="scope-strip__label">Ana rehber</p>
+        </div>
+        <div>
+          <p class="scope-strip__value" data-count={clusters.length}>{clusters.length}</p>
+          <p class="scope-strip__label">Alt konu yazısı</p>
+        </div>
+        <div>
+          <p class="scope-strip__value" data-count={featured.length}>{featured.length}</p>
+          <p class="scope-strip__label">Öne çıkan yazı</p>
+        </div>
+      </div>
+    </section>
+
     <section id="rehberler" class="posts-section guides-section" data-reveal>
       <div class="container">
         <p class="kicker">Dört ana kaynak</p>
