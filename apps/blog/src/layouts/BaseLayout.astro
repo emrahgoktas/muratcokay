@@ -4,6 +4,12 @@ import cormorantLatinExt from "@fontsource/cormorant-garamond/files/cormorant-ga
 import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import interLatinExt from "@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2?url";
 
+import {
+  gtagConfigInlineScript,
+  isGaMeasurementId,
+  isGtmContainerId,
+} from "@muratcokay/seo";
+
 import SiteFooter from "../components/SiteFooter.astro";
 import { site } from "../data/site";
 import { mediaCatalog, mediaForPath } from "../lib/media";
@@ -34,8 +40,11 @@ const pageTitle = title ? `${title} | ${site.brandShort}` : site.name;
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url);
 const pageMedia = mediaForPath(Astro.url.pathname)[0] ?? mediaCatalog.hero;
 const ogImage = new URL(pageMedia.publicPath, site.url);
-const gaId = import.meta.env.PUBLIC_GA_ID?.trim();
-const gtmId = import.meta.env.PUBLIC_GTM_ID?.trim();
+const rawGaId = import.meta.env.PUBLIC_GA_ID?.trim() ?? "";
+const rawGtmId = import.meta.env.PUBLIC_GTM_ID?.trim() ?? "";
+const gaId = isGaMeasurementId(rawGaId) ? rawGaId : "";
+const gtmId = isGtmContainerId(rawGtmId) ? rawGtmId : "";
+const gtagBootstrap = gaId ? gtagConfigInlineScript(gaId) : "";
 const currentPath = Astro.url.pathname;
 ---
 
@@ -124,14 +133,7 @@ const currentPath = Astro.url.pathname;
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
           />
-          <script is:inline define:vars={{ gaId }}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", gaId);
-          </script>
+          <script is:inline set:html={gtagBootstrap} />
         </>
       )
     }
