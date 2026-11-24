@@ -5,7 +5,7 @@ export const pillar = createPillar({
   title: "Geleneksel ve Tamamlayıcı Tıp Rehberi",
   description:
     "Yalova'da hacamat, akupunktur, sülük ve ozon yaklaşımlarını bilimsel sınırlar, yasal çerçeve ve etik bilgilendirme dilinde anlatan kapsamlı GETAT rehberi.",
-  lastUpdated: "2026-10-06",
+  lastUpdated: "2026-11-24",
   clusterSlugs: [
     "hacamat-nedir-bilimsel-perspektif",
     "akupunktur-hangi-durumlarda-tercih-edilir",
@@ -146,7 +146,7 @@ export const clusters = [
     category: "getat",
     description:
       "Hacamatın geleneksel kullanımı, modern tartışma alanı, hijyen, adaylık ve Yalova'da değerlendirme sırası.",
-    lastUpdated: "2026-10-06",
+    lastUpdated: "2026-11-24",
     keywords: ["hacamat", "kupa"],
     introduction: [
       "Hacamat, uzun geleneksel kullanım öyküsü olan bir uygulamadır. Modern hekimlikte mekanizma ve seçilmiş katkılar tartışılır; evrensel çözüm olarak sunulmaz. Bu yazı Yalova'daki okura bilimsel sınırları anlatır.",
@@ -243,7 +243,7 @@ export const clusters = [
     category: "getat",
     description:
       "Akupunkturun tamamlayıcı yerini, kanıtın tanıya göre değiştiğini ve Yalova'da değerlendirme ölçütlerini anlatır.",
-    lastUpdated: "2026-10-06",
+    lastUpdated: "2026-11-24",
     keywords: ["akupunktur", "iğne"],
     introduction: [
       "Akupunktur, bazı şikâyetlerde tamamlayıcı bir seçenek olarak konuşulur. Her belirti için aynı güçte kanıt yoktur. Bu yazı Yalova'daki okura 'ne zaman tercih edilir?' sorusunu abartısız yanıtlar.",

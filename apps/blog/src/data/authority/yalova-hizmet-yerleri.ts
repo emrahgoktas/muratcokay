@@ -45,7 +45,7 @@ function localCluster(spec: LocalPlaceSpec): ClusterContent {
     pillarSlug: spec.pillarSlug,
     category: spec.category,
     description: spec.description,
-    lastUpdated: "2026-10-07",
+    lastUpdated: "2026-11-24",
     keywords: spec.keywords,
     introduction: [
       `«${spec.title}» araması, sıralı bir yer listesi veya üstünlük iddiası istemez; Yalova'da ${spec.service} konuşulacak ortamın nasıl süzüleceğini sorar. ${spec.intent}`,

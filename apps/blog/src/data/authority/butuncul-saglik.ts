@@ -5,7 +5,7 @@ export const pillar = createPillar({
   title: "Bütüncül Sağlık Rehberi",
   description:
     "Yalova'da fibromiyalji, kronik yorgunluk, kilo yönetimi, diyabet, hipertansiyon ve omurga sağlığı konularında bilimsel sınırlar içinde bütüncül destek yaklaşımı.",
-  lastUpdated: "2026-10-06",
+  lastUpdated: "2026-11-24",
   clusterSlugs: [
     "fibromiyalji-ile-yasam",
     "kronik-yorgunluk-nedenleri-yonetimi",
@@ -150,7 +150,7 @@ export const clusters = [
     category: "butuncul-saglik",
     description:
       "Fibromiyalji yönetiminde uyku, hareket, stres yükü ve tamamlayıcı yaklaşımların bilimsel sınırlar içindeki yeri.",
-    lastUpdated: "2026-10-06",
+    lastUpdated: "2026-11-24",
     keywords: ["fibromiyalji", "yaygın ağrı", "uyku"],
     introduction: [
       "Fibromiyalji ile yaşam, yalnızca ağrı şiddetini saymak değil; uykunun kalitesini, gün içi enerjisini, dikkat süresini ve sosyal katılımı da izlemek anlamına gelir. Bu yazı Yalova'dan bilgi arayan kişiler için genel bir çerçeve sunar. Tanı koymaz, kişiyi belirli bir uygulamaya yönlendirmez ve kalıcı sonuç vaat etmez.",
