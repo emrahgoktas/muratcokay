@@ -27,9 +27,9 @@ Doğrulama: canlıda DevTools → Network `collect?` / GA DebugView.
 
 Sitemap gönder:
 
-- Klinik: `/sitemap.xml` + `/sitemap-images.xml`
-- Blog: `/sitemap-index.xml` + `/sitemap-images.xml`
-- Niş: `/sitemap.xml`
+- Klinik: `/sitemap.xml` (görseller satır içinde; ayrı `/sitemap-images.xml` yok — Faz 4)
+- Blog: `/sitemap-index.xml` (+ varsa `/sitemap-images.xml`)
+- Niş: `/sitemap.xml` (ana sayfa görselleri satır içinde — Faz 4)
 
 Doğrulama meta zaten sayfalarda var (klinik / blog / niş). İlk 7 gün: Kapsam + Sayfa deneyimi.
 

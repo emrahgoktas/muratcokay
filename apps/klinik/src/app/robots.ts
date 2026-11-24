@@ -23,10 +23,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: [
-      `${siteContent.seo.siteUrl}/sitemap.xml`,
-      `${siteContent.seo.siteUrl}/sitemap-images.xml`,
-    ],
+    sitemap: `${siteContent.seo.siteUrl}/sitemap.xml`,
     host: siteContent.seo.siteUrl,
   };
 }

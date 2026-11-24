@@ -26,6 +26,7 @@ import { ContentRevisionNote } from "@/components/seo/ContentRevisionNote";
 import { CrossSiteCta } from "@/components/seo/CrossSiteCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { LinkifiedText } from "@/components/seo/LinkifiedText";
+import { PhysicianCard } from "@/components/seo/PhysicianCard";
 import { PriorityAuthority } from "@/components/seo/PriorityAuthority";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ScientificSources } from "@/components/seo/ScientificSources";
@@ -374,6 +375,8 @@ export default async function ServiceDetailPage({
       </section>
 
       <PriorityAuthority slug={service.slug} />
+
+      <PhysicianCard />
 
       <ScientificSources slug={service.slug} />
 

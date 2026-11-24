@@ -118,3 +118,6 @@ Aylık üretim sabit: 8 blog + 4 klinik + 2 niş. Ayrıntı: `docs/icerik-takvim
 | 1 | Kod + ops checklist | GA/GTM iskeleti; GSC/GBP manuel |
 | 2 | Kod | Markdown müzakeresi, llms-full, alıntı özeti |
 | 3 | Kod + ops checklist | Öncelik kümeleri E-E-A-T; `docs/seo-geo-faz3-checklist.md` |
+| 4 | Kod | PhysicianCard, MedicalWebPage tarih, sitemap hijyeni; `docs/seo-geo-faz4.md` |
+
+Günlük özet (24 Kas 2026): `docs/seo-geo-gunluk-rapor-2026-11-24.md`.
