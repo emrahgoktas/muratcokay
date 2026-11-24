@@ -22,9 +22,11 @@ import {
   siteContent,
 } from "@/lib/content";
 import { mediaForService } from "@/lib/media/catalog";
+import { ContentRevisionNote } from "@/components/seo/ContentRevisionNote";
 import { CrossSiteCta } from "@/components/seo/CrossSiteCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { LinkifiedText } from "@/components/seo/LinkifiedText";
+import { PriorityAuthority } from "@/components/seo/PriorityAuthority";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ScientificSources } from "@/components/seo/ScientificSources";
 import { serviceBlogGuides, serviceBlogTargets } from "@/lib/seo/internal-links";
@@ -371,6 +373,8 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
+      <PriorityAuthority slug={service.slug} />
+
       <ScientificSources slug={service.slug} />
 
       <section className="px-4 pb-4 sm:px-6 lg:px-8">
@@ -380,6 +384,9 @@ export default async function ServiceDetailPage({
             className="mt-0.5 size-5 shrink-0"
           />
           <p className="text-sm leading-6">{serviceDetailTemplate.warning}</p>
+        </div>
+        <div className="mx-auto mt-6 max-w-4xl">
+          <ContentRevisionNote />
         </div>
         <CrossSiteCta href={blogGuide.url} label={blogGuide.title} />
       </section>

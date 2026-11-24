@@ -109,3 +109,12 @@ Kaçınılacak: fiyat savaşı, yorum toplama, önce-sonra, “en iyi / garantil
 | Q4 2027 | Koruyucu, cilt yaşlanması, yıl özeti; ilk yıllık revizyon |
 
 Aylık üretim sabit: 8 blog + 4 klinik + 2 niş. Ayrıntı: `docs/icerik-takvimi-2027`.
+
+## Faz ilerleme (kod)
+
+| Faz | Durum | Not |
+| --- | --- | --- |
+| 0 | Kod | Şema, gizlilik, niş noindex, GEO trust |
+| 1 | Kod + ops checklist | GA/GTM iskeleti; GSC/GBP manuel |
+| 2 | Kod | Markdown müzakeresi, llms-full, alıntı özeti |
+| 3 | Kod + ops checklist | Öncelik kümeleri E-E-A-T; `docs/seo-geo-faz3-checklist.md` |

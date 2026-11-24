@@ -19,8 +19,10 @@ import {
   serviceSituations,
   siteContent,
 } from "@/lib/content";
+import { ContentRevisionNote } from "@/components/seo/ContentRevisionNote";
 import { CrossSiteCta } from "@/components/seo/CrossSiteCta";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { PriorityAuthority } from "@/components/seo/PriorityAuthority";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { ScientificSources } from "@/components/seo/ScientificSources";
 import { serviceBlogTargets } from "@/lib/seo/internal-links";
@@ -305,7 +307,15 @@ export default async function ServiceLocationPage({
         </div>
       </section>
 
+      <PriorityAuthority slug={service.slug} />
+
       <ScientificSources slug={service.slug} />
+
+      <section className="px-4 pb-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <ContentRevisionNote />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-5xl flex-col gap-8 rounded-3xl bg-gradient-to-r from-primary to-accent p-8 text-primary-foreground sm:p-10 md:flex-row md:items-center md:justify-between">

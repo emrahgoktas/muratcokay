@@ -5,7 +5,7 @@ export const pillar = createPillar({
   title: "Medikal Estetik Rehberi",
   description:
     "Yalova'da botoks, dolgu, sıvı yüz germe, lazer, mezoterapi ve saç dökülmesi yaklaşımlarını bilimsel sınırlar ve etik bilgilendirme dilinde anlatan kapsamlı rehber.",
-  lastUpdated: "2026-10-06",
+  lastUpdated: "2026-11-24",
   clusterSlugs: [
     "sivi-yuz-germe-hacim-vermeden-sikilasma",
     "dogal-gorunumlu-dolgu-uygulamalari",
@@ -531,7 +531,7 @@ export const clusters = [
     category: "estetik",
     description:
       "Botulinum toksini uygulamalarında adaylık, uygun olmayan durumlar, beklenti ve Yalova'da değerlendirme süreci.",
-    lastUpdated: "2026-10-06",
+    lastUpdated: "2026-11-24",
     keywords: ["botoks", "mimik"],
     introduction: [
       "Botoks sözcüğü günlük dilde genelleşmiştir; tıbbi karşılığı ise belirli kas gruplarına yönelik geçici bir yaklaşımdır. Bu yazı, kimler için konuşulabileceğini ve kimler için ertelenmesi gerektiğini anlatır.",
