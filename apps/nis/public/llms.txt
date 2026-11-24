@@ -2,6 +2,7 @@
 
 > Fibromiyalji, kronik yorgunluk, kilo yönetimi, diyabet ve dolaşım yakınmalarında bilimsel ve bütüncül yaklaşım. Site genel bilgilendirme içindir; tıbbi tavsiye yerine geçmez.
 
+- Ayrıntılı ajan özeti: /llms-full.txt
 - Site: https://www.yalovabutunculsaglik.com.tr
 - Klinik: https://www.uzmdrmuratcokay.com.tr
 - Blog: https://www.yalovamedikalestetik.com.tr

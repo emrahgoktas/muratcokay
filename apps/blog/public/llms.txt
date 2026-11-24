@@ -2,6 +2,7 @@
 
 > Medikal estetik, bütüncül sağlık ve GETAT konularında bilimsel, tarafsız ve genel bilgilendirme platformu. İçerikler tanı veya kişiye özel tavsiye yerine geçmez.
 
+- Ayrıntılı ajan özeti: /llms-full.txt
 - Site: https://www.yalovamedikalestetik.com.tr
 - Rehberler: https://www.yalovamedikalestetik.com.tr/rehberler/
 - Konu haritası: https://www.yalovamedikalestetik.com.tr/harita/

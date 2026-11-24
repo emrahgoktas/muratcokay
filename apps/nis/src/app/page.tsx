@@ -4,10 +4,10 @@ import { ButtonLink } from "@muratcokay/ui";
 import { ClinicMap } from "@/components/clinic-map";
 import { ContactForm } from "@/components/contact-form";
 import { CountUp } from "@/components/count-up";
+import { GeoCiteSummary } from "@/components/geo-cite-summary";
 import { MediaImage } from "@/components/media-image";
 import { PhotoCard } from "@/components/photo-card";
-import { SectionHeading } from "@/components/section-heading";
-import {
+import { SectionHeading } from "@/components/section-heading";import {
   approachMedia,
   media,
   readingMedia,
@@ -130,6 +130,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div data-reveal>
+        <GeoCiteSummary />
+      </div>
 
       <section className="relative z-10 px-4 pt-6 sm:px-6 lg:px-8" data-reveal>
         <div className="mx-auto mb-6 grid max-w-7xl grid-cols-3 gap-3 rounded-[1.5rem] border border-[#d8c4a4]/70 bg-white/75 px-3 py-5 sm:gap-6 sm:px-8 sm:py-6">

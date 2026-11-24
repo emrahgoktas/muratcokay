@@ -2,6 +2,7 @@
 
 > Yalova Merkez'de medikal estetik ve Geleneksel ve Tamamlayıcı Tıp (GETAT) uzmanı. Siteler genel bilgilendirme içindir; tanı, kişiye özel tavsiye veya sonuç vaadi değildir.
 
+- Ayrıntılı ajan özeti: /llms-full.txt
 - Site: https://www.uzmdrmuratcokay.com.tr
 - Hakkımda: https://www.uzmdrmuratcokay.com.tr/hakkimda
 - İletişim: https://www.uzmdrmuratcokay.com.tr/iletisim

@@ -89,7 +89,12 @@ export function homeJsonLd() {
       {
         "@type": "MedicalBusiness",
         "@id": ids.business,
-        name: siteContent.site.title,
+        name: "Yalova Bütüncül Sağlık",
+        alternateName: [
+          siteContent.site.title,
+          "Yalova bütüncül sağlık",
+          doctor.name,
+        ],
         url: siteUrl,
         telephone: phone,
         email: contact.email.display,
@@ -97,6 +102,13 @@ export function homeJsonLd() {
         image: { "@id": `${siteUrl}/#hero` },
         employee: { "@id": ids.physician },
         contactPoint: contactPoint({ contactType: "customer service" }),
+        knowsAbout: [
+          "Yalova bütüncül sağlık",
+          "Yalova fibromiyalji",
+          "Yalova kronik yorgunluk",
+          "Yalova hacamat",
+          "Yalova akupunktur",
+        ],
         availableService: approachProcedures.map((item) => ({
           "@id": procedureId(item.slug),
         })),

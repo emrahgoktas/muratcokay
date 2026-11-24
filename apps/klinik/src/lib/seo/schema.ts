@@ -161,12 +161,24 @@ export function generateOrganizationSchema(): JsonLdNode {
     "@type": "Organization",
     "@id": schemaIds.organization,
     name: siteContent.brand.siteName,
+    alternateName: [
+      "Yalova Medikal Estetik",
+      "Yalova GETAT",
+      siteContent.brand.tagline,
+    ],
     url: siteUrl,
     logo: `${siteUrl}/media/uzm-dr-yasar-murat-cokay-portre.jpg`,
     telephone: phone,
     email: siteContent.contact.email.display,
     address: postalAddress,
     contactPoint: contactPoint({ contactType: "customer service" }),
+    knowsAbout: [
+      "Yalova medikal estetik",
+      "Yalova GETAT",
+      "Yalova hacamat",
+      "Yalova botoks",
+      ...Object.values(serviceCategories),
+    ],
     founder: { "@id": schemaIds.physician },
   };
 }
@@ -176,8 +188,11 @@ export function generateWebSiteSchema(): JsonLdNode {
     "@type": "WebSite",
     "@id": schemaIds.website,
     name: siteContent.brand.siteName,
+    alternateName: "Yalova Medikal Estetik ve GETAT",
     url: siteUrl,
     inLanguage: "tr-TR",
+    keywords:
+      "Yalova medikal estetik, Yalova GETAT, Uzm. Dr. Yaşar Murat Çokay",
     publisher: { "@id": schemaIds.organization },
     potentialAction: {
       "@type": "SearchAction",
