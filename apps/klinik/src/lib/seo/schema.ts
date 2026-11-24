@@ -14,6 +14,7 @@ import {
   mediaForService,
   type MediaAsset,
 } from "@/lib/media/catalog";
+import { CONTENT_REVISION_DATE } from "@/lib/seo/content-revision";
 
 type JsonLdValue =
   | string
@@ -238,6 +239,31 @@ export function generateMedicalProcedureSchema(hizmet: {
   };
 }
 
+export function generateMedicalWebPageSchema(input: {
+  title: string;
+  description: string;
+  path: string;
+  dateModified?: string;
+}): JsonLdNode {
+  return {
+    "@type": "MedicalWebPage",
+    "@id": pageId(input.path, "webpage"),
+    name: input.title,
+    description: input.description,
+    url: new URL(input.path, siteUrl).toString(),
+    inLanguage: "tr-TR",
+    isPartOf: { "@id": schemaIds.website },
+    about: { "@id": pageId(input.path, "procedure") },
+    reviewedBy: { "@id": schemaIds.physician },
+    lastReviewed: input.dateModified ?? CONTENT_REVISION_DATE,
+    ...(input.dateModified || CONTENT_REVISION_DATE
+      ? {
+          dateModified: input.dateModified ?? CONTENT_REVISION_DATE,
+        }
+      : {}),
+  };
+}
+
 export function generateFAQSchema(
   sorular: readonly FaqItem[],
   pagePath: string,
@@ -422,6 +448,12 @@ export function servicePageGraph(hizmet: {
   return buildGraph(
     ...coreNodes(),
     generateMedicalProcedureSchema(hizmet),
+    generateMedicalWebPageSchema({
+      title: hizmet.baslik,
+      description: hizmet.kisaAciklama,
+      path,
+      dateModified: CONTENT_REVISION_DATE,
+    }),
     generateFAQSchema(faqs, path),
     generateBreadcrumbSchema([
       { name: "Ana Sayfa", path: "/" },
@@ -450,6 +482,12 @@ export function serviceLocationPageGraph(input: {
       ...input.service,
       path,
       areaServed: input.location.name,
+    }),
+    generateMedicalWebPageSchema({
+      title: `${input.service.baslik} — ${input.location.name}`,
+      description: input.service.kisaAciklama,
+      path,
+      dateModified: CONTENT_REVISION_DATE,
     }),
     generateLocalBusinessSchema(input.location),
     generateFAQSchema(faqs, path),
