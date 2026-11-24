@@ -63,9 +63,9 @@ Screaming Frog yerine: Astro `dist` 40 HTML taranır; klinik 61 SSG rota şablon
 | Ana site kod | Koşullu hazır |
 | Blog kod | Koşullu hazır (duplicate title düzelt) |
 | Niş kod | Koşullu hazır |
-| GSC üç property | Yok — Hafta 1 |
-| GA4 | Yok — Hafta 1 |
-| GTM | Yok — Hafta 1 |
+| GSC üç property | Manuel — `docs/seo-geo-faz1-checklist.md` |
+| GA4 | Klinik canlı; blog/niş kod hazır, Vercel env bekliyor |
+| GTM | Opsiyonel env; kod üç sitede hazır |
 | Sosyal hesap bağlama | Yok; yasal olarak influencer/yorum yasak. Yalnızca profil linki |
 
 ## 6. İlk 90 gün

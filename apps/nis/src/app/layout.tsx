@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { contact, doctor, sites } from "@muratcokay/content";
 import { Footer, Header } from "@muratcokay/ui";
 
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { RevealObserver } from "@/components/reveal-observer";
 import { StickyCta } from "@/components/sticky-cta";
 import { siteContent } from "@/lib/page-content";
@@ -111,6 +112,7 @@ export default function RootLayout({
         />
         <StickyCta />
         <RevealObserver />
+        <GoogleAnalytics />
       </body>
     </html>
   );
