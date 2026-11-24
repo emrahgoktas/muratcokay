@@ -25,6 +25,7 @@ const knownExact = new Set([
   "/llms-full.txt",
   "/robots.txt",
   "/sitemap.xml",
+  "/sitemap-images.xml",
 ]);
 
 function isPreviewOrLocal(hostname: string) {

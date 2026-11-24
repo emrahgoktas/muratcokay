@@ -96,10 +96,10 @@ Merge sırası: 0 → 1 → 2 → 3 → 4 (stack üstten alta değil; tabandan y
 
 **Kod:**
 
-1. Klinik `robots` / middleware: kırık `/sitemap-images.xml` ilanı kaldırıldı (görseller `sitemap.xml` içinde)
-2. `PhysicianCard` — görünür hekim E-E-A-T (hizmet + hibrit)
-3. `MedicalWebPage` + `dateModified` / `lastReviewed` / `reviewedBy` hizmet JSON-LD
-4. Klinik sitemap `lastModified` ← `CONTENT_REVISION_DATE`
+1. `PhysicianCard` — görünür hekim E-E-A-T (hizmet + hibrit)
+2. `MedicalWebPage` + `dateModified` / `lastReviewed` / `reviewedBy` hizmet JSON-LD
+3. Klinik sitemap `lastModified` ← `CONTENT_REVISION_DATE`
+4. Klinik `/sitemap-images.xml` rotası korunur (`robots` + middleware)
 5. Niş sitemap: ana sayfa `images` + `lastModified`
 
 **Doküman:** `docs/seo-geo-faz4.md`
@@ -128,7 +128,7 @@ curl -sS https://www.uzmdrmuratcokay.com.tr/hizmetler/hacamat \
 # Sitemap tek ve geçerli
 curl -sSI https://www.uzmdrmuratcokay.com.tr/robots.txt | head
 curl -sS https://www.uzmdrmuratcokay.com.tr/sitemap.xml | head
-# /sitemap-images.xml beklenen: 404 (artık ilan edilmiyor)
+curl -sSI https://www.uzmdrmuratcokay.com.tr/sitemap-images.xml | head
 
 # Markdown müzakeresi (Faz 2)
 curl -sS -L -i -H 'Accept: text/markdown' https://www.uzmdrmuratcokay.com.tr/ | head

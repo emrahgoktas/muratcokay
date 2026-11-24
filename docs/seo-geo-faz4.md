@@ -6,11 +6,10 @@ Faz 0–3 sonrası kodda kalan yüksek kaldıraçlı boşluklar: kırık image-s
 
 ## Kod
 
-- Klinik `robots.txt`: yalnızca `/sitemap.xml` (olmayan `/sitemap-images.xml` kaldırıldı; görseller zaten sitemap’te)
-- Middleware `knownExact` aynı hizaya çekildi
-- `PhysicianCard` — hizmet + hibrit sayfalar
+- `PhysicianCard` — hizmet + hibrit sayfalar (görünür hekim E-E-A-T)
 - `MedicalWebPage` + `dateModified` / `lastReviewed` / `reviewedBy` hizmet grafında
 - Klinik sitemap `lastModified` ← `CONTENT_REVISION_DATE`
+- Klinik `robots` + middleware: `/sitemap.xml` **ve** mevcut `/sitemap-images.xml` rotası korunur
 - Niş sitemap: ana sayfa `images` + `lastModified`
 
 ## Ops (önceki checklist’ler geçerli)

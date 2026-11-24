@@ -13,14 +13,11 @@ export function PhysicianCard() {
       data-eeat="physician"
     >
       <div className="mx-auto flex max-w-4xl flex-col gap-6 px-4 sm:flex-row sm:items-start sm:px-6 lg:px-8">
-        <div className="relative size-24 shrink-0 overflow-hidden rounded-2xl sm:size-28">
-          <OptimizedImage
-            media={mediaCatalog.portrait}
-            fill
-            className="object-cover"
-            sizes="112px"
-          />
-        </div>
+        <OptimizedImage
+          media={mediaCatalog.portrait}
+          className="size-24 shrink-0 rounded-2xl object-cover sm:size-28"
+          sizes="112px"
+        />
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-secondary uppercase">
             Değerlendiren hekim
@@ -50,6 +47,7 @@ export function PhysicianCard() {
               <a
                 href={`${sites.blog}/yazar/`}
                 className="font-semibold text-primary underline-offset-2 hover:underline"
+                rel="noopener noreferrer"
               >
                 Blog yazar sayfası
               </a>
