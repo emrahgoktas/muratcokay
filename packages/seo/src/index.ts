@@ -43,6 +43,21 @@ export function postalAddress() {
   };
 }
 
+/** Organization / MedicalBusiness için telefon + e-posta contactPoint. */
+export function contactPoint(options?: {
+  contactType?: string;
+  availableLanguage?: string[];
+}) {
+  return {
+    "@type": "ContactPoint",
+    contactType: options?.contactType ?? "customer service",
+    telephone: contact.phone.href.replace("tel:", ""),
+    email: contact.email.display,
+    areaServed: "TR",
+    availableLanguage: options?.availableLanguage ?? ["Turkish"],
+  };
+}
+
 export function schemaIds(siteUrl: string) {
   return {
     physician: `${siteUrl}/#physician`,

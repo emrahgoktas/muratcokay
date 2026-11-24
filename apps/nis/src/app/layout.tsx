@@ -29,6 +29,7 @@ const navigation = [
   { label: "Ulaşım", href: "/#ulasim" },
   { label: "Konum", href: "/#konum" },
   { label: "İletişim", href: "/#iletisim" },
+  { label: "Gizlilik", href: "/gizlilik/" },
 ] as const;
 
 export const metadata: Metadata = {
@@ -38,7 +39,13 @@ export const metadata: Metadata = {
     template: `%s | Yalova Bütüncül Sağlık`,
   },
   description: siteContent.site.description,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "tr-TR": "/",
+      "x-default": "/",
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -53,6 +60,20 @@ export const metadata: Metadata = {
     siteName: "Yalova Bütüncül Sağlık",
     title: siteContent.site.title,
     description: siteContent.site.description,
+    images: [
+      {
+        url: "/og/anasayfa.png",
+        width: 1200,
+        height: 630,
+        alt: "Yalova Bütüncül Sağlık — Uzm. Dr. Yaşar Murat Çokay",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteContent.site.title,
+    description: siteContent.site.description,
+    images: ["/og/anasayfa.png"],
   },
 };
 

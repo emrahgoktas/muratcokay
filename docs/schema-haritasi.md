@@ -25,12 +25,15 @@ Doğrulama: sayfa kaynağındaki `application/ld+json` bloğunu [validator.schem
 | `/bolgeler` | Evet | — | — | — | Evet | — | — | — | Evet | Evet |
 | `/bolgeler/{ilce}` (8 bölge) | Evet | — | — | Evet | Evet | — | Evet | — | Evet | — |
 | `/arama` | Evet | — | — | — | Evet | Evet | — | — | — | — |
+| `/gizlilik` (+ `/privacy`) | — | — | — | — | — | — | — | — | — | — |
 
 Notlar:
 
+- `Organization` ve `MedicalClinic` düğümlerinde `contactPoint` (telefon + e-posta) vardır.
 - `Organization` çekirdek düğüm olarak her klinik sayfasında vardır (`#organization`).
-- `SearchAction` hedefi: `https://uzmdrmuratcokay.com.tr/arama?q={search_term_string}`.
+- `SearchAction` hedefi: `https://www.uzmdrmuratcokay.com.tr/arama?q={search_term_string}`.
 - `Person` yalnızca Hakkımda sayfasında tam biyografi düğümü olarak çıkar; `Physician` ile `sameAs` bağlanır.
+- Agent trust için `/about` → Hakkımda, `/contact` → İletişim, `/privacy` → Gizlilik alias’ları vardır.
 
 ## 2. Blog — yalovamedikalestetik.com.tr
 
@@ -41,16 +44,19 @@ Notlar:
 | `/rehberler/{slug}` (4 pillar) | Article | Evet | Evet | Evet | Evet | Evet | Evet (cluster listesi) | Evet | Evet |
 | `/yazilar/{slug}` cluster (19) | Article + BlogPosting | Evet | Evet | Evet | Evet | Evet | — | Evet | Evet |
 | `/yazilar/{slug}` eski yazı | Article + BlogPosting | Evet | — | Evet | Evet | Evet | — | Evet | Evet |
+| `/gizlilik/` | — | — | — | — | — | Evet | — | — | — |
 
-`author` → `#person`, `reviewedBy` → `#physician`, `publisher` → `#organization`.
+`author` → `#person`, `reviewedBy` → `#physician`, `publisher` → `#organization`. Organization’da `contactPoint` vardır.
 
 ## 3. Niş site — yalovabutunculsaglik.com.tr
 
 | Sayfa | MedicalBusiness | MedicalProcedure | FAQPage | Physician | Person | ImageObject |
 | --- | --- | --- | --- | --- | --- | --- |
-| `/` tek sayfa | Evet | Evet (5 yaklaşım) | Evet | Evet | Evet | Evet |
+| `/` ana sayfa | Evet | Evet (5 yaklaşım) | Evet | Evet | Evet | Evet |
+| `/gizlilik/` | — | — | — | — | — | — |
+| `/hizmetler/{slug}` | — | — | — | — | — | — |
 
-Tek sayfalı site olduğu için `BreadcrumbList` yok. `MedicalProcedure` düğümleri Hacamat, Sülük, Akupunktur, Ozon Tedavisi ve Mezoterapi içindir.
+Ana sayfa dışı niş hizmet sayfaları `noindex,follow` + klinik canonical’dır; sitemap’te yoktur. `MedicalProcedure` düğümleri Hacamat, Sülük, Akupunktur, Ozon Tedavisi ve Mezoterapi içindir. `MedicalBusiness` üzerinde `contactPoint` vardır.
 
 ## Çapraz referans kimlikleri
 

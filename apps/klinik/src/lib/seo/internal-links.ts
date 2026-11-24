@@ -210,6 +210,7 @@ const pageRecords: InternalLink[] = [
   { id: "clinic-home", title: "Ana Sayfa", url: `${CLINIC_URL}/`, path: "/", site: "clinic", kind: "page", category: "site", keywords: [] },
   { id: "clinic-about", title: "Hakkımda", url: `${CLINIC_URL}/hakkimda`, path: "/hakkimda", site: "clinic", kind: "page", category: "site", keywords: ["hakkımda"] },
   { id: "clinic-contact", title: "İletişim", url: `${CLINIC_URL}/iletisim`, path: "/iletisim", site: "clinic", kind: "page", category: "site", keywords: [] },
+  { id: "clinic-privacy", title: "Gizlilik", url: `${CLINIC_URL}/gizlilik`, path: "/gizlilik", site: "clinic", kind: "page", category: "site", keywords: ["gizlilik", "kvkk"] },
   { id: "clinic-services", title: "Hizmetler", url: `${CLINIC_URL}/hizmetler`, path: "/hizmetler", site: "clinic", kind: "page", category: "site", keywords: [] },
   { id: "clinic-locations", title: "Bölgeler", url: `${CLINIC_URL}/bolgeler`, path: "/bolgeler", site: "clinic", kind: "page", category: "local", keywords: [] },
   { id: "clinic-search", title: "Arama", url: `${CLINIC_URL}/arama`, path: "/arama", site: "clinic", kind: "page", category: "site", keywords: [] },

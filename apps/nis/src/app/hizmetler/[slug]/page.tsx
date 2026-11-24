@@ -41,7 +41,8 @@ export async function generateMetadata({
     title: page.title,
     description: page.description,
     alternates: { canonical },
-    robots: { index: true, follow: true },
+    // İnce uydu sayfa: indeks klinik canonical’da; sitemap’te yok.
+    robots: { index: false, follow: true },
     openGraph: {
       title: page.title,
       description: page.description,

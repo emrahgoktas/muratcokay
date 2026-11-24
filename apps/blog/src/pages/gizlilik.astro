@@ -1,0 +1,55 @@
+---
+import { privacyContent } from "@muratcokay/content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title={privacyContent.title}
+  description={privacyContent.description}
+  canonicalPath="/gizlilik/"
+>
+  <article class="container prose-page">
+    <p class="kicker">Yasal</p>
+    <h1>{privacyContent.title}</h1>
+    <p class="lede">{privacyContent.intro}</p>
+    {
+      privacyContent.sections.map((section) => (
+        <section>
+          <h2>{section.heading}</h2>
+          <p>{section.body}</p>
+        </section>
+      ))
+    }
+    <p>
+      Klinik iletişim:{" "}
+      <a href={`${site.sites.klinik}/iletisim`}>klinik iletişim sayfası</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .prose-page {
+    max-width: 42rem;
+    padding-block: 3.5rem 4.5rem;
+  }
+  .prose-page .lede {
+    color: var(--muted-foreground, #5c5348);
+    line-height: 1.7;
+  }
+  .prose-page section {
+    margin-top: 1.75rem;
+  }
+  .prose-page h2 {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--primary, #1f3d2b);
+  }
+  .prose-page p {
+    margin-top: 0.75rem;
+    line-height: 1.7;
+    color: var(--muted-foreground, #5c5348);
+  }
+</style>
