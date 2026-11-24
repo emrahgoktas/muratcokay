@@ -132,7 +132,7 @@ export const siteContent = {
       },
       "Kilo Verme Desteği": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-yonetiminde-ozon-hacamat-destegi/",
           anchor: "Yalova kilo yönetimi bütüncül sağlık rehberi",
         },
         clinic: {
@@ -142,8 +142,8 @@ export const siteContent = {
       },
       "Kronik Yorgunluk Sendromu": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
-          anchor: "Yalova kronik yorgunluk ve akupunktur rehberi",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-nedenleri-yonetimi/",
+          anchor: "Yalova kronik yorgunluk yönetimi rehberi",
         },
         clinic: {
           url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/kronik-yorgunluk-sendromu",
@@ -152,8 +152,8 @@ export const siteContent = {
       },
       "Bel Fıtıkları": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-getat-yaklasimlari/",
-          anchor: "Yalova bel fıtıklarında GETAT rehberi",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/bel-fitiklarinda-tamamlayici-tip/",
+          anchor: "Yalova bel fıtıklarında tamamlayıcı tıp rehberi",
         },
         clinic: {
           url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/bel-fitiklari-omurga-sagligi",
@@ -182,7 +182,7 @@ export const siteContent = {
       },
       "Varis Desteği": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisinin-yeri/",
           anchor: "Yalova varis ve sülük uygulaması rehberi",
         },
         clinic: {
@@ -192,7 +192,7 @@ export const siteContent = {
       },
       "Hemoroid Desteği": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisinin-yeri/",
           anchor: "Yalova hemoroid desteği bilimsel rehberi",
         },
         clinic: {
@@ -214,7 +214,7 @@ export const siteContent = {
       },
       Sülük: {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisi-bilimsel-perspektif/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/varis-hemoroid-suluk-tedavisinin-yeri/",
           anchor: "Yalova tıbbi sülük bilimsel rehberi",
         },
         clinic: {
@@ -224,8 +224,8 @@ export const siteContent = {
       },
       Akupunktur: {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kronik-yorgunluk-sendromunda-akupunktur/",
-          anchor: "Yalova akupunktur ve kronik yorgunluk rehberi",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/akupunktur-hangi-durumlarda-tercih-edilir/",
+          anchor: "Yalova akupunktur tercih durumları rehberi",
         },
         clinic: {
           url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/akupunktur",
@@ -234,8 +234,8 @@ export const siteContent = {
       },
       "Ozon Tedavisi": {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/kilo-verme-surecinde-ozon-ve-hacamat-destegi/",
-          anchor: "Yalova ozon ve bütüncül destek rehberi",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/ozon-tedavisinin-kullanim-alanlari/",
+          anchor: "Yalova ozon tedavisi kullanım alanları rehberi",
         },
         clinic: {
           url: "https://www.uzmdrmuratcokay.com.tr/hizmetler/ozon-tedavisi",
@@ -244,7 +244,7 @@ export const siteContent = {
       },
       Mezoterapi: {
         blog: {
-          url: "https://www.yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-ve-prp/",
+          url: "https://www.yalovamedikalestetik.com.tr/yazilar/sac-dokulmesinde-mezoterapi-prp/",
           anchor: "Yalova mezoterapi ve PRP rehberi",
         },
         clinic: {

@@ -43,6 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [portrait],
     },
     {
+      url: `${siteUrl}/gizlilik`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
       url: `${siteUrl}/bolgeler`,
       changeFrequency: "monthly",
       priority: 0.8,

@@ -5,3 +5,4 @@ export {
   serviceCategories,
 } from "./catalog";
 export { contact, doctor, legalNotice, sites } from "./identity";
+export { privacyContent } from "./privacy";

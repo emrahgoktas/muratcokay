@@ -1,4 +1,5 @@
 import { doctor } from "@muratcokay/content";
+import { contactPoint } from "@muratcokay/seo";
 
 import { clusters, pillars } from "../../data/authority";
 import type { ClusterContent, ContentFaq, PillarContent } from "../../data/authority/types";
@@ -117,6 +118,7 @@ export function generateOrganizationSchema(): JsonLdNode {
     founder: { "@id": schemaIds.physician },
     telephone: site.contact.phone.display,
     email: site.contact.email.display,
+    contactPoint: contactPoint({ contactType: "customer service" }),
     address: {
       "@type": "PostalAddress",
       streetAddress: site.contact.address,

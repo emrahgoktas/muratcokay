@@ -105,6 +105,12 @@ export function Footer() {
           >
             {siteContent.navigation[3].label}
           </Link>
+          <Link
+            href="/gizlilik"
+            className="mt-2 block text-sm text-mutedText hover:text-primary"
+          >
+            Gizlilik
+          </Link>
           <p
             id="yasal-bilgilendirme"
             className="mt-4 text-xs leading-relaxed text-mutedText"

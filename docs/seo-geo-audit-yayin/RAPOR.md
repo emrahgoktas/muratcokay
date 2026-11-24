@@ -18,7 +18,7 @@ Tarih: 6 Ekim 2026. Kapsam: üç site, kaynak kod + üretim HTML taraması + Lig
 | Mobil | Viewport + Lighthouse a11y 97 | 95 | 95 |
 | Hız (lab) | Perf 92, LCP 3.2s localhost | 99 / 2.1s | 98 / 2.3s |
 
-P1: Blog’da `diyabet-ve-hipertansiyonda-butuncul-destek` (legacy) ile `diyabet-hipertansiyon-butuncul-destek` (cluster) aynı title. Legacy’ye canonical veya noindex.
+P1 (giderildi / izleniyor): Legacy `diyabet-ve-hipertansiyonda-butuncul-destek` 301 → cluster; arşiv title + noindex bayrağı.
 
 P1: GBP kaydında adres “Bora Sk. No:17 D:b”, sitede “No:17/A”. Yayın öncesi tek NAP.
 

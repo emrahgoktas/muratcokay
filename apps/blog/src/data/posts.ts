@@ -241,7 +241,7 @@ export const posts: readonly BlogPost[] = [
   },
   {
     slug: "diyabet-ve-hipertansiyonda-butuncul-destek",
-    title: "Diyabet ve Hipertansiyonda Bütüncül Destek",
+    title: "Diyabet ve Hipertansiyonda Bütüncül Destek (Arşiv)",
     noindex: true,
     canonical: "/yazilar/diyabet-hipertansiyon-butuncul-destek/",
     category: "butuncul-saglik",

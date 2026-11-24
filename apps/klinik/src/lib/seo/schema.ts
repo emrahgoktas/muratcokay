@@ -1,4 +1,5 @@
 import { doctor } from "@muratcokay/content";
+import { contactPoint } from "@muratcokay/seo";
 
 import {
   locationCatalog,
@@ -146,6 +147,7 @@ export function generateMedicalClinicSchema(): JsonLdNode {
       "Geleneksel ve Tamamlayıcı Tıp",
     ],
     employee: { "@id": schemaIds.physician },
+    contactPoint: contactPoint({ contactType: "customer service" }),
     availableService: serviceCatalog.map((service) => ({
       "@id": pageId(`/hizmetler/${service.slug}`, "procedure"),
     })),
@@ -164,6 +166,7 @@ export function generateOrganizationSchema(): JsonLdNode {
     telephone: phone,
     email: siteContent.contact.email.display,
     address: postalAddress,
+    contactPoint: contactPoint({ contactType: "customer service" }),
     founder: { "@id": schemaIds.physician },
   };
 }
