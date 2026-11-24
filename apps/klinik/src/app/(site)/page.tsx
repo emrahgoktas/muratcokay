@@ -8,6 +8,7 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { SignatureGallery } from "@/components/sections/SignatureGallery";
 import { TrustBadges } from "@/components/sections/TrustBadges";
 import { WhyClinic } from "@/components/sections/WhyClinic";
+import { GeoCiteSummary } from "@/components/seo/GeoCiteSummary";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedContent } from "@/components/seo/RelatedContent";
 import { siteContent } from "@/lib/content";
@@ -30,6 +31,9 @@ export default function HomePage() {
       <Hero />
       <div data-reveal style={{ ["--reveal-delay" as string]: "40ms" }}>
         <ScopeStrip />
+      </div>
+      <div data-reveal style={{ ["--reveal-delay" as string]: "60ms" }}>
+        <GeoCiteSummary />
       </div>
       <div data-reveal style={{ ["--reveal-delay" as string]: "80ms" }}>
         <TrustBadges />

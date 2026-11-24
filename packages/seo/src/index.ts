@@ -7,6 +7,13 @@ export {
   isGtmContainerId,
 } from "./analytics";
 
+export {
+  agentNotFoundMarkdown,
+  markdownHeaders,
+  markdownResponse,
+  prefersMarkdown,
+} from "./markdown-negotiate";
+
 export type JsonLdValue =
   | string
   | number

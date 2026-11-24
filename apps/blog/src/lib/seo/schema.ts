@@ -108,6 +108,11 @@ export function generateOrganizationSchema(): JsonLdNode {
     "@type": "Organization",
     "@id": schemaIds.organization,
     name: site.name,
+    alternateName: [
+      site.brandShort,
+      "Yalova Medikal Estetik Rehberi",
+      "Yalova Bütüncül Sağlık Rehberi",
+    ],
     url: siteUrl,
     description: site.description,
     logo: {
@@ -119,6 +124,12 @@ export function generateOrganizationSchema(): JsonLdNode {
     telephone: site.contact.phone.display,
     email: site.contact.email.display,
     contactPoint: contactPoint({ contactType: "customer service" }),
+    knowsAbout: [
+      "Yalova medikal estetik",
+      "Yalova bütüncül sağlık",
+      "Yalova GETAT",
+      "Yalova hacamat",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.contact.address,
